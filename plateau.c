@@ -1,13 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include "plateau.h"
 
-
-
-
-int main(void) {
-  srand(time(NULL));
+int init_plateau(){
 
 char plateau[15][15] = {
                   {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'},
@@ -26,26 +20,5 @@ char plateau[15][15] = {
                   {'0','0','0','0','0','0','7','1','7','0','0','0','0','0','0'},
                   {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'}
                 };
-/*
-int num_joueur = rand()%4-1 + 1;
 
-j1 = joueur();
-j2 = joueur();
-j3 = joueur();
-j4 = joueur();
-
-while(un des quatres joueur na pas ses quatres pions dans les zones 10 11 12 13 14 15)
-{
-  if (num_joueur==5) {
-    num_joueur = 1;
-  }
-
-
-
-  num_joueur++;
-}
-*/
-
-
-  return 0;
 }
