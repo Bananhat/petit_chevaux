@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "plateau.h"
+#include "cheval.h"
 
 
 
@@ -25,7 +26,10 @@ char plateau[15][15] = {
                   {'0','0','0','0','0','0','7','2','7','0','0','0','0','0','0'},
                   {'0','0','0','0','0','0','7','1','7','0','0','0','0','0','0'},
                   {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'}
-                };
+              };
+
+l = []
+
 /*
 int num_joueur = rand()%4-1 + 1;
 
@@ -45,6 +49,8 @@ while(un des quatres joueur na pas ses quatres pions dans les zones 10 11 12 13 
   num_joueur++;
 }
 */
+
+  cheval cheval_test;
 
 
   return 0;
