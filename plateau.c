@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "headers/plateau.h"
+
 
 int init_plateau(){
 

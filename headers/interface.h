@@ -1,1 +1,4 @@
-void afficher_plateau();
+
+/* */
+void afficher_plateau(int size, char plateau[size][size]);
+void init_partie();

@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "joueur.h"
 
+int deplacement(coord_x, coord_y, val_D)	{
 
-int deplacement(){
 	plateau[coord_y][coord_x] = '7';
 	int droite, gauche, bas, haut;
 	int incr=1;
@@ -44,8 +45,8 @@ int deplacement(){
 		else if (haut==1){
             coord_y--;
 		}
-		
-		/* if (plateau[y][x] == 7) { incre ++ }  else if (incr == Val_D) { pion se fait ejecter} else{ valide = 0} ===> test valide ou pas */ 
+
+		/* if (plateau[y][x] == 7) { incre ++ }  else if (incr == Val_D) { pion se fait ejecter} else{ valide = 0} ===> test valide ou pas */
 
 		  incr++;
 
@@ -53,8 +54,8 @@ int deplacement(){
 		if valide=1{
 		return coord_x, coord_y;}
 		else{
-		return 0;}
-	
+		return 0;
+	}
+
 }
 // a la fin plateau[coord_y][coord_x] = 'j';
-
