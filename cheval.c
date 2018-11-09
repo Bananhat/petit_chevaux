@@ -8,6 +8,8 @@ int deplacement(int *coord_x, int *coord_y, int val_D)	{
 	int droite, gauche, bas, haut;
 	int incr=1;
 	int pas_valide = 0;
+	int old_coord_x = *coord_x;
+	int old_coord_y = *coord_y;
 
 	while(incr <= val_D && pas_valide != 1)
 	{
@@ -51,16 +53,30 @@ int deplacement(int *coord_x, int *coord_y, int val_D)	{
     	*coord_y-=1;
 		}
 
-		/* if (plateau[y][x] == 7) { incre ++ }  else if (incr == Val_D) { pion se fait ejecter} else{ valide = 0} ===> test valide ou pas */
-
-		  incr++;
+		if (plateau[y][x] == '7') //on verifie qu'il n'y ai personne
+		{
+			incre ++
+		}
+		//else if (incr == Val_D) //si il ya quelqueun et qu'on a fini de se deplacer
+		//{
+		/* pion se fait ejecter developpe par arthur */
+	//  }
+		else //si on a pas fini de se deplacer et que c'est pas sept c'est que on ne peut pas se deplacer
+		{
+			valide = 0
+			*coord_x = old_coord_x; // on revient au point initial
+			*coord_y = old_coord_y;
+		}
 
 }
-	/*	if valide=1{*/
+	if (valide=1)
+	{
 	return 1;
-	/*	else{
+	}
+	else
+	{
 		return 0;
-	} */
+	}
 
 }
 // a la fin plateau[*coord_y][*coord_x] = 'j';
@@ -82,7 +98,7 @@ void deplacement_test(int size, int plateau[size][size], joueur * p_j, int val_D
 		{
 			printf("Appuyez sur une touche pour vous deplaer de 6 cases....");
 			/* appuez sur entrer*/
-			plateau[coord_y][coord_x] = p_j->liste_chevaux[n_cheval].nom;
+			plateau[*coord_y][*coord_x] = p_j->liste_chevaux[n_cheval].nom;
 		}
 
 }

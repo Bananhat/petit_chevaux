@@ -15,8 +15,8 @@ void afficher_plateau(int size, char plateau[size][size])
   }
 }
 
-void init_partie() {
-  
+joueur * init_partie() {
+
   joueur liste_joueur[4];
   int nb_joueurs;
   char couleur;
@@ -42,5 +42,7 @@ void init_partie() {
     strcpy(nouveau_joueur.nom, nom);
     liste_joueur[i] = nouveau_joueur;
   }
+
+  return liste_joueur;
 
 }

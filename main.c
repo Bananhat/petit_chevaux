@@ -7,7 +7,8 @@
 
 int main(void) {
 
-  jeu();
+  joueur *liste_joueur = init_partie();
+  jeu(joueur liste_joueur[4]);
 
   return 0;
 }

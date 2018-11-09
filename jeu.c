@@ -15,7 +15,7 @@ int lancer_de()
 }
 
 
-void jeu (void)
+void jeu (joueur *liste_joueur)
 {
   int n_joueur=1+rand()%4,n_tour=1;
   int valide;
@@ -70,22 +70,7 @@ void jeu (void)
               }
             else // si il ne veut pas sortir de cheval, il se deplace donc..
               {  // a factoriser en fonction genre test_deplacement(); qui fait ca dans cheval(); avec *plateau pour modifier diredt (demander si droit de faire ca)
-                if (nb_chevaux(j.liste_chevaux > 1))
-                {
-                  printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
-                  scanf("%d", n_cheval);
-                }
-                valide = deplacement(coor_x, coord_y, val_D);
-                if (valide == 0)
-                  {
-                    printf("Vous ne pouvez pas vous deplacer ..")
-                  }
-                else
-                  {
-                    printf("Appuyez sur une touche pour vous deplaer de 6 cases....");
-                    /* appuez sur entrer*/
-                    plateau[coord_y][coord_x] = j.liste_chevaux[n_cheval];
-                  }
+                test_deplacement(15, plateau, &liste_joueur[n_joueur], &coord_x, &coord_y)
               }
           }
         else
