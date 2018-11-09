@@ -1,1 +1,1 @@
-int init_plateau();
+int update_plateau();
