@@ -1,0 +1,29 @@
+
+
+
+lancé le D !! entree..
+tirage D
+SI chevaux.joueur == 0
+	si 6 alors
+		sorti chevaux
+	sinon
+		pass
+sinon
+	si 6 alors
+		n--
+		voulez vous osrtir un pion ou bouger ?
+		si sortir ?
+			pion.ajouter a liste
+		sinon
+			deplacement()
+	si chevaux.joueur > 0
+		lequel bouger ?
+		old_x, old_y;
+
+		validité =  pion_select.deplacement()
+		deplacement_validité(validité) => if valdiité = 1 rien faire sinon coord_x = old_x, si pion a cet endroit ejecter suppr de la main du joueur detc...
+		sinon rien faire et retourner a la saisi..
+pareil pour tout les deplacement..
+
+n++;
+next_joueur = joueur[n%4]

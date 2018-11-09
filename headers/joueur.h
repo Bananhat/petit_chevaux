@@ -9,3 +9,5 @@ struct joueur {
   char nom[15];
   cheval liste_chevaux[4];
 };
+
+//int nb_chevaux(cheval* liste_chevaux)

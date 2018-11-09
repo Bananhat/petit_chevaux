@@ -5,9 +5,9 @@
 #include "headers/plateau.h"
 #include "headers/joueur.h" // pas besoin d'inclure cheval.h car il est déjà inclu dans joueur pour faire la liste de chevaux
 #include "headers/interface.h"
+//#include "headers/jeu.h"
 
-
-int main( int argc, const char* argv[] ){
+int main(int argc, const char* argv[]) {
   srand(time(NULL));
 
   char plateau[15][15] = {
