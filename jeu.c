@@ -21,6 +21,14 @@ void jeu (joueur *liste_joueur)
   int valide;
   int n_cheval;
 
+  cheval j1 {}
+  cheval j2 {}
+  cheval j3 {}
+  cheval j4 {}
+  ajouter_chevaux(liste_joueur, j1, j2, j3, j4);
+
+
+
   char plateau[15][15] = {
                     {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'},
                     {'0','0','0','0','0','0','7','1','7','0','0','0','0','0','0'},
@@ -38,10 +46,10 @@ void jeu (joueur *liste_joueur)
                     {'0','0','0','0','0','0','7','1','7','0','0','0','0','0','0'},
                     {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'}
                   };
-    printf("LE JOUEUR QUI COMMENCE EST LE JOUEUR NUMERO %d \n", n_joueur);
+    printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
     while()
     { // boucle principale du jeu;
-      val_D = lancer_de();
+      val_D = lancer_de();    joueur j;
       if (nb_chevaux(j.liste_chevaux) == 0) // si le joueur qui doit jouer n'a aucun cheval
       {
         if(val_D == 6)
