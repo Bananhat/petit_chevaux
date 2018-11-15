@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "headers/jeu.h"
 #include "headers/plateau.h"
+#include "headers/jeu.h"
 #include "headers/interface.h"
 
 int lancer_de()
@@ -13,9 +13,9 @@ int lancer_de()
 }
 
 
-void jeu (joueur *liste_joueur)
+void jeu (joueur *liste_joueur, int nb_joueur)
 {
-  int n_joueur=1+rand()%4,n_tour=1;
+  int n_joueur=1+rand()%nb_joueur,n_tour=1;
   int valide;
   int n_cheval;
 
@@ -23,7 +23,7 @@ void jeu (joueur *liste_joueur)
   cheval j2 {}
   cheval j3 {}
   cheval j4 {} */
-//  ajouter_chevaux(liste_joueur, j1, j2, j3, j4);
+//  ajouter_chevaux(liste_joueur, j1, j2, j3, j4); ajoute les chevaux dans la main du joueur
 
 
 
@@ -61,8 +61,8 @@ void jeu (joueur *liste_joueur)
       {
         if(val_D == 6)
         {
-          /* sortir les chevaux fonction à coder par arthur*/
-        /*} /*
+          sortir les chevaux fonction à coder par arthur //
+        }
         else
         {
           printf("Dommage.. Vous passez votre tour ! \n");

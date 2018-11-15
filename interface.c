@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "headers/interface.h"
+
 
 #include "headers/joueur.h"
+#include "headers/interface.h"
 
 void afficher_plateau(int size, char plateau[size][size])
 {
@@ -15,7 +16,7 @@ void afficher_plateau(int size, char plateau[size][size])
   }
 }
 
-void init_partie(joueur* liste_joueur) {
+int init_partie(joueur* liste_joueur) {
   int nb_joueurs;
   char couleur_test;
   char couleur_use[4];
@@ -59,4 +60,5 @@ void init_partie(joueur* liste_joueur) {
     while(getchar() != '\n');
   }
   printf("\n----------------------LA PARTIE COMMENCE-----------------------\n");
+  return nb_joueurs;
 }
