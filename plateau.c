@@ -7,3 +7,20 @@
 
 printf("test");
 }*/
+
+// TODO: Créer une fonction qui regarde les coords de tous les chevaux de chaque joueurs et modifie les valeurs des cases du plateau
+void update(char plateau[15][15], liste_joueur[4]) {
+    for(int i = 0; i < 4; i++) {
+
+    }
+}
+
+// TODO: Créer une fonction qui affiche le plateau et toutes les modifs qui ont eu lieu
+void refresh(char plateau[15][15]) {
+  for (int i = 0; i < 15; i++) {
+    for (int j = 0; j < 15; j++) {
+        printf(" %c ", plateau[i][j]);
+    }
+    printf("\n");
+  }
+}

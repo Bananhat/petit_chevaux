@@ -1,1 +1,1 @@
-int update_plateau();
+void refresh();
