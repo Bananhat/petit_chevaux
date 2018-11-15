@@ -1,20 +1,8 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-
 #include "headers/joueur.h"
 #include "headers/interface.h"
-
-void afficher_plateau(int size, char plateau[size][size])
-{
-  for (int i = 0; i < 15; i++) {
-    for (int j = 0; j < 15; j++) {
-        printf(" %c ", plateau[i][j]);
-    }
-    printf("\n");
-  }
-}
 
 int init_partie(joueur* liste_joueur) {
   int nb_joueurs;

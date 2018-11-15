@@ -5,7 +5,7 @@
 
 typedef struct joueur {
   char couleur;
-  char nom[15];
+  char nom[30];
   cheval liste_chevaux[4];
   cheval liste_ecurie[4];
 }joueur;

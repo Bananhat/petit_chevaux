@@ -46,11 +46,11 @@ void jeu (joueur *liste_joueur, int nb_joueur)
                   };
 
 
-   // Place les chevaux dans les écuries (ne marche pas encore)
+   // Place les chevaux dans les écuries
    placer_chevaux_joueurs(liste_joueur);
    // Update le plateau avec les chevaux dans les écuries.
    update(plateau, liste_joueur);
-   // Affiche le plateau (ne marche pas encore)
+   // Affiche le plateau
    refresh(plateau);
 
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
