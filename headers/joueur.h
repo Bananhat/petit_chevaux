@@ -10,4 +10,4 @@ typedef struct joueur {
   cheval liste_ecurie[4];
 }joueur;
 
-int nb_chevaux(joueur * p_joueur) //on declarera comme ca : joueur j et on fera nb_chevaux(&j);
+int nb_chevaux(joueur *p_joueur); //on declarera comme ca : joueur j et on fera nb_chevaux(&j);

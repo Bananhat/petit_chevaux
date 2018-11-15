@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "headers/cheval.h"
+#include "headers/joueur.h"
 
 
-int deplacement(int *coord_x, int *coord_y, int val_D)	{
+int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau)	{
 
 	int droite, gauche, bas, haut;
 	int incr=1;
 	int pas_valide = 0;
+	int valide;
+
 	int old_coord_x = *coord_x;
 	int old_coord_y = *coord_y;
 
@@ -55,15 +57,15 @@ int deplacement(int *coord_x, int *coord_y, int val_D)	{
 
 		if (plateau[y][x] == '7') //on verifie qu'il n'y ai personne
 		{
-			incre ++
+			incr++;
 		}
 		//else if (incr == Val_D) //si il ya quelqueun et qu'on a fini de se deplacer
 		//{
-		/* pion se fait ejecter developpe par arthur */
+		/* pion se fait ejecter developpe par arthur (en grso *coord_x = cheval.ecurie_val *coord_y = cheval.ecurie_val)*/
 	//  }
 		else //si on a pas fini de se deplacer et que c'est pas sept c'est que on ne peut pas se deplacer
 		{
-			valide = 0
+			valide = 0;
 			*coord_x = old_coord_x; // on revient au point initial
 			*coord_y = old_coord_y;
 		}
@@ -92,7 +94,7 @@ void deplacement_test(int size, int plateau[size][size], joueur * p_j, int val_D
 	valide = deplacement(coord_x, coord_y, val_D);
 	if (valide == 0)
 		{
-			printf("Vous ne pouvez pas vous deplacer ..")
+			printf("Vous ne pouvez pas vous deplacer ..");
 		}
 	else
 		{

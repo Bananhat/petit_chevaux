@@ -3,13 +3,13 @@
 #include <time.h>
 
 #include "headers/jeu.h"
+#include "headers/joueur.h"
 #include "headers/plateau.h"
-#include "headers/joueur.h" // pas besoin d'inclure cheval.h car il est déjà inclu dans joueur pour faire la liste de chevaux
 #include "headers/interface.h"
+
 
 int lancer_de()
 {
-  srand(time(NULL));
   int valeur_d = rand()%7-1 +1
   return valeur_d;
 }
@@ -21,11 +21,11 @@ void jeu (joueur *liste_joueur)
   int valide;
   int n_cheval;
 
-  cheval j1 {}
+/*  cheval j1 {}
   cheval j2 {}
   cheval j3 {}
-  cheval j4 {}
-  ajouter_chevaux(liste_joueur, j1, j2, j3, j4);
+  cheval j4 {} */
+//  ajouter_chevaux(liste_joueur, j1, j2, j3, j4);
 
 
 
@@ -47,15 +47,15 @@ void jeu (joueur *liste_joueur)
                     {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'}
                   };
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
-    while()
-    { // boucle principale du jeu;
+    /* while()
+    //{ // boucle principale du jeu;
       val_D = lancer_de();    joueur j;
       if (nb_chevaux(j.liste_chevaux) == 0) // si le joueur qui doit jouer n'a aucun cheval
       {
         if(val_D == 6)
         {
           /* sortir les chevaux fonction à coder par arthur*/
-        }
+        } /*
         else
         {
           printf("Dommage.. Vous passez votre tour ! \n");
@@ -91,6 +91,6 @@ void jeu (joueur *liste_joueur)
       n_tour+=1;
       n_joueur = (n_joueur+=1)%4;
 
-  }
+  } */
 
 }
