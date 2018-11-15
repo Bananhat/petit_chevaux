@@ -17,8 +17,7 @@ void afficher_plateau(int size, char plateau[size][size])
 
 void init_partie(joueur* liste_joueur) {
   int nb_joueurs;
-  char couleur;
-  char nom[15];
+  char couleur_test;
   printf("Entrez le nombre de joueur (minimum 2) :");
   scanf("%d", &nb_joueurs);
 
@@ -28,9 +27,12 @@ void init_partie(joueur* liste_joueur) {
     do {
     printf("Choisissez votre couleur: \n");
     printf("Rouge(r), Bleu(b), Vert(v), Jaune(j)");
-    scanf("%c", &couleur);
-    liste_joueur[i].couleur = couleur;
-  } while(couleur != 'r' || couleur != 'v' || couleur != 'b' || couleur != 'j');
+    scanf("%c", &couleur_test);
+    if (couleur_test == 'r' || couleur_test == 'v' || couleur_test == 'b' || couleur_test  == 'j'){
+      liste_joueur[i].couleur = couleur_test;
+    }
+
+  } while(couleur_test != 'r' || couleur_test != 'v' || couleur_test != 'b' || couleur_test != 'j');
 
     printf("Entrez votre nom : \n");
     scanf("%s", liste_joueur[i].nom);

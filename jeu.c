@@ -10,7 +10,7 @@
 
 int lancer_de()
 {
-  int valeur_d = rand()%7-1 +1
+  int valeur_d = rand()%7-1 +1;
   return valeur_d;
 }
 
@@ -55,7 +55,7 @@ void jeu (joueur *liste_joueur)
         if(val_D == 6)
         {
           /* sortir les chevaux fonction à coder par arthur*/
-        } /*
+        /*} /*
         else
         {
           printf("Dommage.. Vous passez votre tour ! \n");

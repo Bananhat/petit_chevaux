@@ -7,7 +7,7 @@ typedef struct cheval {
   int case_fin_x, case_fin_y;
 
   char couleur;
-  char nom[2];
+  char nom;
 }cheval;
 
 int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char ** plateau); // on utilise des pointeurs pour modifier directement les valeurs de coord_x ET coord_y

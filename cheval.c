@@ -85,11 +85,11 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char** pla
 
 void deplacement_test(int size, int plateau[size][size], joueur * p_j, int val_D, int*coord_x, int* coord_y)
 {
-	int n_cheval;
+	int n_cheval, valide;
 	if (nb_chevaux(p_j) > 1)
 	{
 		printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
-		scanf("%d", n_cheval);
+		scanf("%d", &n_cheval);
 	}
 	valide = deplacement(coord_x, coord_y, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau
 	if (valide == 0)
