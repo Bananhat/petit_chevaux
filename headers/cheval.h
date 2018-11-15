@@ -1,14 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef enum {J, R, B, V} couleur;
-
 typedef struct cheval {
   int case_x, case_y, numero;
   int case_debut_x, case_debut_y;
   int case_fin_x, case_fin_y;
 
-  char couleur[4];
+  char couleur;
   char nom[2];
 }cheval;
 

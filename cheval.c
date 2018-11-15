@@ -55,7 +55,7 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char** pla
     	*coord_y-=1;
 		}
 
-		if (plateau[y][x] == '7') //on verifie qu'il n'y ai personne
+		if (plateau[*coord_y][*coord_x] == '7') //on verifie qu'il n'y ai personne
 		{
 			incr++;
 		}
@@ -71,7 +71,7 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char** pla
 		}
 
 }
-	if (valide=1)
+	if (valide==1)
 	{
 	return 1;
 	}
@@ -91,7 +91,7 @@ void deplacement_test(int size, int plateau[size][size], joueur * p_j, int val_D
 		printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
 		scanf("%d", n_cheval);
 	}
-	valide = deplacement(coord_x, coord_y, val_D);
+	valide = deplacement(coord_x, coord_y, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau
 	if (valide == 0)
 		{
 			printf("Vous ne pouvez pas vous deplacer ..");

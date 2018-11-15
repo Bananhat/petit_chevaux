@@ -13,7 +13,7 @@ int main(void) {
     joueur liste_joueur[4];
 
     init_partie(liste_joueur);
-    jeu(joueur liste_joueur[4]);
+    jeu(liste_joueur);
 
   return 0;
 }
