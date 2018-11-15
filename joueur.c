@@ -39,7 +39,7 @@ void placer_chevaux(cheval liste_chevaux[4], int x, int y) {
   liste_chevaux[0].case_y = y;
 
   liste_chevaux[0].case_x = y;
-  liste_chevaux[0].case_y = x;
+  liste_chevaux[0].case_y =  x;
 
   liste_chevaux[0].case_x = y;
   liste_chevaux[0].case_y = y;
