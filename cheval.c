@@ -3,7 +3,7 @@
 #include "headers/joueur.h"
 
 
-int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau)	{
+int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char plateau[15][15])	{
 
 	int droite, gauche, bas, haut;
 	int incr=1;
@@ -83,7 +83,7 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char** pla
 }
 // a la fin plateau[*coord_y][*coord_x] = 'j';
 
-void deplacement_test(int size, int plateau[size][size], joueur * p_j, int val_D, int*coord_x, int* coord_y)
+void deplacement_test(char plateau[15][15], joueur * p_j, int val_D, int*coord_x, int* coord_y)
 {
 	int n_cheval, valide;
 	if (nb_chevaux(p_j) > 1)

@@ -28,5 +28,29 @@ void ajouter_chevaux_ecurie_init(joueur liste_joueur[], cheval* j1, cheval* j2, 
     liste_joueur[i].liste_ecurie[1] = *j2;
     liste_joueur[i].liste_ecurie[2] = *j3;
     liste_joueur[i].liste_ecurie[3] = *j4;
-
 }
+
+void placer_chevaux(cheval liste_chevaux[4], int x, int y) {
+  liste_chevaux[0].case_x = x;
+  liste_chevaux[0].case_y = x;
+
+  liste_chevaux[0].case_x = x;
+  liste_chevaux[0].case_y = y;
+
+  liste_chevaux[0].case_x = y;
+  liste_chevaux[0].case_y = x;
+
+  liste_chevaux[0].case_x = y;
+  liste_chevaux[0].case_y = y;
+}
+
+void placer_chevaux_joueurs(joueur liste_joueur[]) {
+  tab_x = [2,2,11,11];
+  tab_y = [3,11,3,11];
+  // On prend les 4 joueurs
+  for (int i = 0; i < 4; i++) {
+    // On prend 1 joueur
+    placer_chevaux(liste_joueur[i].liste_chevaux, tab_x[i], tab_y[i]);
+  }
+}
+
