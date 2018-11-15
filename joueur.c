@@ -46,8 +46,8 @@ void placer_chevaux(cheval liste_chevaux[4], int x, int y) {
 }
 
 void placer_chevaux_joueurs(joueur liste_joueur[]) {
-  tab_x = [2,2,11,11];
-  tab_y = [2,11,2,11];
+  int tab_x[4]= {2,2,11,11};
+  int tab_y[4] = {2,11,2,11};
   // On prend les 4 joueurs
   for (int i = 0; i < 4; i++) {
     // On place ses chevaux
