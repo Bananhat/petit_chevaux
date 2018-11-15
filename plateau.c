@@ -1,25 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "headers/plateau.h"// Place les chevaux dans les écuries (ne marche pas encore)
-#include "headers/joueur.h"
-  placer_chevaux_joueurs(liste_joueur);
-  // Affiche le plateau (ne marche pas encore)
-  refresh(plateau);
 
-
-/*int update_plateau(int size, char plateau[size][size], coord_x, coord_y, joueur, cheval, etc..){ // fonction qui rafraichira le plateau en fonction des nouvelles coords, etc...
-
-printf("test");
-}*/
-
-// TODO: Créer une fonction qui regarde les coords de tous les chevaux de chaque joueurs et modifie les valeurs des cases du plateau
+// Update les positions des chevaux sur le plateau
 void update(char plateau[15][15], joueur liste_joueur[4]) {
-    for(int i = 0; i < 4; i++) {
-        // Code here
+  for(int i = 0; i < 4; i++) {
+    for(int j = 0; j < 4; j++) {
+      // TODO: ajouter la couleur de chaque joueur pour chaque cheval
+      plateau[liste_joueur[i].liste_chevaux[j].case_x][liste_joueur[i].liste_chevaux[j].case_y] = 'W';
     }
+  }
 }
 
-// TODO: Créer une fonction qui affiche le plateau et toutes les modifs qui ont eu lieu
+// Affiche le plateau
 void refresh(char plateau[15][15]) {
   for (int i = 0; i < 15; i++) {
     for (int j = 0; j < 15; j++) {
@@ -27,4 +20,5 @@ void refresh(char plateau[15][15]) {
     }
     printf("\n");
   }
+  printf("\n\n");
 }

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct cheval {
+typedef struct {
   int case_x, case_y, numero;
   int case_debut_x, case_debut_y;
   int case_fin_x, case_fin_y;

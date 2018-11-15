@@ -35,14 +35,14 @@ void placer_chevaux(cheval liste_chevaux[4], int x, int y) {
   liste_chevaux[0].case_x = x;
   liste_chevaux[0].case_y = y;
 
-  liste_chevaux[0].case_x = x + 1;
-  liste_chevaux[0].case_y = y;
+  liste_chevaux[1].case_x = x + 1;
+  liste_chevaux[1].case_y = y;
 
-  liste_chevaux[0].case_x = x;
-  liste_chevaux[0].case_y = y + 1;
+  liste_chevaux[2].case_x = x;
+  liste_chevaux[2].case_y = y + 1;
 
-  liste_chevaux[0].case_x = x + 1;
-  liste_chevaux[0].case_y = y + 1;
+  liste_chevaux[3].case_x = x + 1;
+  liste_chevaux[3].case_y = y + 1;
 }
 
 void placer_chevaux_joueurs(joueur liste_joueur[]) {

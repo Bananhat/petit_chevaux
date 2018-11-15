@@ -3,10 +3,8 @@
 #include <time.h>
 
 #include "headers/jeu.h"
-#include "headers/joueur.h"
 #include "headers/plateau.h"
 #include "headers/interface.h"
-
 
 int lancer_de()
 {
@@ -47,10 +45,14 @@ void jeu (joueur *liste_joueur)
                     {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'}
                   };
 
-                   // Place les chevaux dans les écuries (ne marche pas encore)
-                   placer_chevaux_joueurs(liste_joueur);
-                   // Affiche le plateau (ne marche pas encore)
-                   refresh(plateau);
+
+   // Place les chevaux dans les écuries (ne marche pas encore)
+   placer_chevaux_joueurs(liste_joueur);
+   // Update le plateau avec les chevaux dans les écuries.
+   update(plateau, liste_joueur);
+   // Affiche le plateau (ne marche pas encore)
+   refresh(plateau);
+
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
     /* while()
     //{ // boucle principale du jeu;

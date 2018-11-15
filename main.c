@@ -4,7 +4,6 @@
 
 
 #include "headers/jeu.h"
-#include "headers/joueur.h"
 #include "headers/plateau.h"
 #include "headers/interface.h"
 
@@ -13,6 +12,7 @@ int main(void) {
     joueur liste_joueur[4];
 
     init_partie(liste_joueur);
+    printf("\n\n");
     jeu(liste_joueur);
 
   return 0;
