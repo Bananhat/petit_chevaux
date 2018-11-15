@@ -60,4 +60,9 @@ void init_partie(joueur* liste_joueur) {
   }
   printf("\n----------------------LA PARTIE COMMENCE-----------------------\n");
 
+  // Place les chevaux dans les écuries (ne marche pas encore)
+  placer_chevaux_joueurs(liste_joueur);
+  // Affiche le plateau (ne marche pas encore)
+  refresh(plateau_jeu);
+
 }
