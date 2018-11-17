@@ -82,19 +82,22 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char plate
 }
 // a la fin plateau[*coord_y][*coord_x] = 'j';
 
-void deplacement_test(char plateau[15][15], joueur * p_j, int val_D, int*coord_x, int* coord_y)
+void deplacement_test(char plateau[15][15], joueur * p_j, int val_D)
 {
 	int n_cheval, valide;
-	int old_y = *coord_y;
-	int old_x = *coord_x;
-	char val_init = plateau[old_y][old_x]
+
 	if (nb_chevaux(p_j) > 1)
 	{
 		printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
 		scanf("%d", &n_cheval);
 	}
+	int old_y = p_j->liste_chevaux[n_cheval].case_x;
+	int old_x = p_j->liste_chevaux[n_cheval].case_y;
+	int coord_x = p_j->liste_chevaux[n_cheval].case_x;
+	int coord_y = p_j->liste_chevaux[n_cheval].case_y;
+	char val_init = plateau[old_y][old_x];
 		// if cheval[n_cheval] est dans la liste des chevaux actif
-	valide = deplacement(coord_x, coord_y, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau
+	valide = deplacement(&coord_x, &coord_y, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau
 	// else si il est dans la case numerote
 	// valide = deplacement_case_numerote...
 	if (valide == 0)
@@ -109,7 +112,7 @@ void deplacement_test(char plateau[15][15], joueur * p_j, int val_D, int*coord_x
 		{
 			printf("Appuyez sur une touche pour vous deplaer de %d cases....", val_D);
 			/* appuez sur entrer*/
-			plateau[*coord_y][*coord_x] = p_j->liste_chevaux[n_cheval].nom;
+			plateau[coord_y][coord_x] = p_j->liste_chevaux[n_cheval].nom;
 			plateau[old_y][old_x] = val_init;
 		}
 

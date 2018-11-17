@@ -3,7 +3,7 @@
 #include "headers/joueur.h"
 
 
-
+// A REVOIR
 int nb_chevaux(joueur *p_joueur){ //le but est de trouver un moyen pour compter les chevaux actif du joueur (les chevaux qui serons ejecter porterons le numero -1
   int incr=0;
     for (int i =0; i<4; i++)
@@ -16,8 +16,8 @@ int nb_chevaux(joueur *p_joueur){ //le but est de trouver un moyen pour compter 
   }
   return incr;
 }
-
-void init_chevaux(joueur liste_joueur[], cheval* c1, cheval* c2, cheval* c3, cheval* c4){
+void init_chevaux(joueur liste_joueur[], cheval* c1, cheval* c2, cheval* c3, cheval* c4)
+{
     int i =0;
     while(liste_joueur[i].couleur != c1->couleur)
     {

@@ -15,9 +15,10 @@ int lancer_de()
 
 void jeu (joueur *liste_joueur, int nb_joueur)
 {
-  int n_joueur=1+rand()%nb_joueur,n_tour=1;
+  int n_joueur=1+rand()%nb_joueur,n_tour=1, val_D;
   int valide;
   int n_cheval;
+  char reponse;
 
   /*
 
@@ -65,11 +66,11 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
                   };
 
 
-   // Place les chevaux dans les écuries (ne marche pas encore)
+   // Place les chevaux dans les écuries
    placer_chevaux_joueurs(liste_joueur);
    // Update le plateau avec les chevaux dans les écuries.
    update(plateau, liste_joueur);
-   // Affiche le plateau (ne marche pas encore)
+   // Affiche le plateau
    refresh(plateau);
 
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
@@ -100,8 +101,8 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
         {
             n_joueur-=1; // rejoueras
             printf("Voulez vous sortir un nouveau cheval ? (o/n) : ");
-            scanf("%c", reponse);
-            while(get_char() != '\n'); // vide le cache
+            scanf("%c", &reponse);
+            while(getchar() != '\n'); // vide le cache
             if(reponse == 'o')
               {
               // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
@@ -109,7 +110,7 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
               }
             else // si il ne veut pas sortir de cheval, il se deplace donc..
               {
-                test_deplacement(15, plateau, &liste_joueur[n_joueur], &coord_x, &coord_y)
+                deplacement_test(plateau, &joueur_courant, val_D);
               }
           }
         else // si le joueur fait autre chose que 6 il ne peut que se deplacer ou non en fonction de si ila  le droit (deplacement_test())
@@ -120,7 +121,7 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
       }
 
       n_tour+=1;
-      n_joueur = (n_joueur+=1)%4;
+      n_joueur = (n_joueur+1)%4;
       joueur_courant = liste_joueur[n_joueur];
 
   }
