@@ -7,13 +7,13 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char plate
 
 	int droite, gauche, bas, haut;
 	int incr=1;
-	int pas_valide = 0;
-	int valide;
+
+	int valide = 1;
 
 	int old_coord_x = *coord_x;
 	int old_coord_y = *coord_y;
 
-	while(incr <= val_D && pas_valide != 1)
+	while(incr <= val_D && valide != 0)
 	{
 
 		droite=0;
@@ -63,6 +63,10 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char plate
 		//{
 		/* pion se fait ejecter developpe par arthur (en grso *coord_x = cheval.ecurie_val *coord_y = cheval.ecurie_val)*/
 	//  }
+	// else if (x= j.case_debut_x && y=case_debut_y)
+	// x = x_case_numerote_init
+		// y = y_case_numerote_init
+		// valide=2
 		else //si on a pas fini de se deplacer et que c'est pas sept c'est que on ne peut pas se deplacer
 		{
 			valide = 0;
@@ -71,14 +75,9 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char plate
 		}
 
 }
-	if (valide==1)
-	{
-	return 1;
-	}
-	else
-	{
-		return 0;
-	}
+
+
+ return valide;
 
 }
 // a la fin plateau[*coord_y][*coord_x] = 'j';
@@ -86,21 +85,32 @@ int deplacement(int *coord_x, int *coord_y, int val_D, cheval cheval, char plate
 void deplacement_test(char plateau[15][15], joueur * p_j, int val_D, int*coord_x, int* coord_y)
 {
 	int n_cheval, valide;
+	int old_y = *coord_y;
+	int old_x = *coord_x;
+	char val_init = plateau[old_y][old_x]
 	if (nb_chevaux(p_j) > 1)
 	{
 		printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
 		scanf("%d", &n_cheval);
 	}
+		// if cheval[n_cheval] est dans la liste des chevaux actif
 	valide = deplacement(coord_x, coord_y, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_x, int *coord_y, int val_D, cheval cheval, char** plateau
+	// else si il est dans la case numerote
+	// valide = deplacement_case_numerote...
 	if (valide == 0)
 		{
 			printf("Vous ne pouvez pas vous deplacer ..");
 		}
+	else if (valide == 2)
+		{
+			printf("Bien joué vous êtes dans les cases numerote !");
+		}
 	else
 		{
-			printf("Appuyez sur une touche pour vous deplaer de 6 cases....");
+			printf("Appuyez sur une touche pour vous deplaer de %d cases....", val_D);
 			/* appuez sur entrer*/
 			plateau[*coord_y][*coord_x] = p_j->liste_chevaux[n_cheval].nom;
+			plateau[old_y][old_x] = val_init;
 		}
 
 }

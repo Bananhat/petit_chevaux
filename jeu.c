@@ -19,11 +19,30 @@ void jeu (joueur *liste_joueur, int nb_joueur)
   int valide;
   int n_cheval;
 
-/*  cheval j1 {}
-  cheval j2 {}
+  /*
+
+  cheval j1 {case_x, case_y, 1, case_debut_x, case_debut_y, 'j', 'a'}
+  cheval j2 {case_x, case_y, 2, case_debut_x, case_debut_y, 'j', 'b'}
   cheval j3 {}
-  cheval j4 {} */
-//  ajouter_chevaux(liste_joueur, j1, j2, j3, j4); ajoute les chevaux dans la main du joueur
+  cheval j4 {}
+  init_chevaux(liste_joueur, &j1, &j2, &j3, &j4); //ajoute les chevaux dans la main du joueur
+  cheval r1 {}
+  cheval r2 {}
+  cheval r3 {}
+  cheval r4 {}
+  init_chevaux(liste_joueur, &r1, &r2, &r3, &r4); //ajoute les chevaux dans la main du joueur
+  cheval b1 {}
+  cheval b2 {}
+  cheval b3 {}
+  cheval b4 {}
+init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la main du joueur
+  cheval v1 {}
+  cheval v2 {}
+  cheval v3 {}
+  cheval v4 {}
+  init_chevaux(liste_joueur, &v1, &v2, &v3, &v4); //ajoute les chevaux dans la main du joueur 7
+
+  */
 
 
 
@@ -54,14 +73,19 @@ void jeu (joueur *liste_joueur, int nb_joueur)
    refresh(plateau);
 
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
-    /* while()
-    //{ // boucle principale du jeu;
-      val_D = lancer_de();    joueur j;
-      if (nb_chevaux(j.liste_chevaux) == 0) // si le joueur qui doit jouer n'a aucun cheval
+
+    joueur joueur_courant = liste_joueur[n_joueur];
+
+     while(nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) )
+    { // boucle principale du jeu;
+      val_D = lancer_de();
+
+
+      if (nb_chevaux(&joueur_courant) == 0/* && chevaux_numerote(&joueur_courant) == 0*/) // si le joueur qui doit jouer n'a aucun cheval sur le plateau ou sur les cases numerotées
       {
         if(val_D == 6)
         {
-          sortir les chevaux fonction à coder par arthur //
+          //sortir les chevaux fonction à coder par arthur
         }
         else
         {
@@ -72,7 +96,7 @@ void jeu (joueur *liste_joueur, int nb_joueur)
       else
       {
 
-        if(val_D == 6) //su le joueur fait un 6
+        if(val_D == 6) //si le joueur fait un 6
         {
             n_joueur-=1; // rejoueras
             printf("Voulez vous sortir un nouveau cheval ? (o/n) : ");
@@ -80,24 +104,25 @@ void jeu (joueur *liste_joueur, int nb_joueur)
             while(get_char() != '\n'); // vide le cache
             if(reponse == 'o')
               {
-              // fonction pour ajouter un cheval a la liste et le sortir coder par arthur
+              // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
 
               }
             else // si il ne veut pas sortir de cheval, il se deplace donc..
-              {  // a factoriser en fonction genre test_deplacement(); qui fait ca dans cheval(); avec *plateau pour modifier diredt (demander si droit de faire ca)
+              {
                 test_deplacement(15, plateau, &liste_joueur[n_joueur], &coord_x, &coord_y)
               }
           }
-        else
+        else // si le joueur fait autre chose que 6 il ne peut que se deplacer ou non en fonction de si ila  le droit (deplacement_test())
         {
-              // fonction deplacement a factoriser (voir si il peu se deplacer lequel bouger etc...)
+              // fonction deplacement et conditions..
         }
 
       }
 
       n_tour+=1;
       n_joueur = (n_joueur+=1)%4;
+      joueur_courant = liste_joueur[n_joueur];
 
-  } */
+  }
 
 }
