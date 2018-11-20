@@ -8,6 +8,14 @@
 #define YELLOW  "\x1b[33m"
 #define BLUE    "\x1b[34m"
 #define RESET   "\x1b[0m"
+#define FOND_BLACK "\x1b[40m"
+#define FOND_RED "\x1b[41m"
+#define FOND_GREEN "\x1b[42m"
+#define FOND_YELLOW "\x1b[43m"
+#define FOND_BLUE "\x1b[44m"
+#define FOND_PURPLE "\x1b[45m"
+#define FOND_WHITE "\x1b[47m"
+
 
 // Update les positions des chevaux sur le plateau
 void update(char plateau[][15], joueur liste_joueur[4]) {
@@ -22,21 +30,47 @@ void update(char plateau[][15], joueur liste_joueur[4]) {
   }
 }
 
+int search_player(joueur liste_joueur[4], char couleur) {
+  for(int i = 0; i < 4; i++) {
+    if (liste_joueur[i].couleur == couleur) {
+      return i;
+    }
+  }
+}
+
+char search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
+  for(int i = 0; i < 4; i++) {
+    if (liste_joueur[player].liste_chevaux[i].case_x == pos_x && liste_joueur[player].liste_chevaux[i].case_y == pos_y) {
+      return liste_joueur[player].liste_chevaux[i].nom;
+    }
+  }
+}
+
 // Affiche le plateau
-void refresh(char plateau[15][15]) {
+void refresh(joueur liste_joueur[4], char plateau[15][15]) {
+  char nom;
+  int player;
   for (int i = 0; i < 15; i++) {
     for (int j = 0; j < 15; j++) {
         if (plateau[i][j] == 'r') {
-          printf((RED" %c "RESET),plateau[i][j]);
+          player = search_player(liste_joueur, 'r');
+          nom = search_number(liste_joueur, player, i, j);
+          printf((FOND_RED" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'j') {
-          printf((YELLOW" %c "RESET),plateau[i][j]);
+          player = search_player(liste_joueur, 'j');
+          nom = search_number(liste_joueur, player, i, j);
+          printf((FOND_YELLOW" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'b') {
-          printf((BLUE" %c "RESET),plateau[i][j]);
+          player = search_player(liste_joueur, 'b');
+          nom = search_number(liste_joueur, player, i, j);
+          printf((FOND_BLUE" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'v') {
-          printf((GREEN" %c "RESET),plateau[i][j]);
+          player = search_player(liste_joueur, 'v');
+          nom = search_number(liste_joueur, player, i, j);
+          printf((FOND_GREEN" %c "RESET),nom);
         }
         else {
           printf(" %c ", plateau[i][j]);
