@@ -4,11 +4,14 @@
 #include "headers/joueur.h"
 #include "headers/interface.h"
 
+
+
 int init_partie(joueur* liste_joueur) {
   int nb_joueurs;
   char couleur_test;
   char couleur_use[4];
   int deja_utiliser;
+  couleur_enum e_couleur;
 
   printf("Entrez le nombre de joueur (minimum 2) : ");
   scanf("%d", &nb_joueurs);
@@ -30,7 +33,20 @@ int init_partie(joueur* liste_joueur) {
     }
 
     if ((couleur_test == 'r' || couleur_test == 'v' || couleur_test == 'b' || couleur_test  == 'j') && deja_utiliser==0){
-      liste_joueur[i].couleur = couleur_test;
+      if (couleur_test == 'j'){
+        e_couleur = JAUNE;
+
+      }else if (couleur_test == 'r'){
+        e_couleur = ROUGE;
+
+      }else if (couleur_test == 'b'){
+        e_couleur = BLEU;
+
+      }else if (couleur_test == 'v'){
+        e_couleur = VERT;
+
+      }
+      liste_joueur[e_couleur].couleur = couleur_test;
       couleur_use[i] = couleur_test;
     }
     else{

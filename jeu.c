@@ -19,13 +19,15 @@ void jeu (joueur *liste_joueur, int nb_joueur)
 
   char reponse;
 
+      // Place les chevaux dans les écuries
+      placer_chevaux_joueurs(liste_joueur);
 
 
 
-  cheval j1= {0, 0, 1, 0, 6, 'j', 'a'};
-  cheval j2 ={0, 0, 2, 0, 6, 'j', 'b'};
-  cheval j3 ={0,0,3,0,6,'j', 'c'};
-  cheval j4 ={0,0,4,0,6,'j', 'd'};
+  cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 0, 6, 'j', 'a'};
+  cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 0, 6, 'j', 'b'};
+  cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,0,6,'j', 'c'};
+  cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,0,6,'j', 'd'};
   init_chevaux(liste_joueur, &j1, &j2, &j3, &j4); //ajoute les chevaux dans la main du joueur
   /*cheval r1= {0,0,1,}
   cheval r2 {}
@@ -64,8 +66,6 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
                     {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'}
                   };
 
-    // Place les chevaux dans les écuries
-    placer_chevaux_joueurs(liste_joueur);
 
    // Update le plateau avec les chevaux dans les écuries.
    update(plateau, liste_joueur);

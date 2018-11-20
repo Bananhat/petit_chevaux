@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "cheval.h"
 
+typedef enum {JAUNE, BLEU, VERT, ROUGE} couleur_enum;
 
 typedef struct joueur {
   char couleur;
