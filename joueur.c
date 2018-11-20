@@ -54,3 +54,21 @@ void placer_chevaux_joueurs(joueur liste_joueur[]) {
     placer_chevaux(liste_joueur[i].liste_chevaux, tab_x[i], tab_y[i]);
   }
 }
+
+void ajouter_cheval_actif(joueur *p_joueur, int n_cheval)
+{
+  p_joueur->liste_chevaux[n_cheval] = p_joueur->liste_ecurie[n_cheval];
+  p_joueur->liste_ecurie[n_cheval].numero = -1;
+  p_joueur->liste_chevaux[n_cheval].case_x =  0; //p_joueur->liste_chevaux[n_cheval].case_debut_x;
+  p_joueur->liste_chevaux[n_cheval].case_y =   6;//p_joueur->liste_chevaux[n_cheval].case_debut_y;
+}
+
+void sortir_chevaux(int * n_joueur, joueur *p_joueur)
+{
+  *n_joueur -= 1; // rejoueras
+  int n_cheval;
+      printf("Quel numero de cheval ? :");
+      scanf("%d", &n_cheval);
+      // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
+      ajouter_cheval_actif(p_joueur, n_cheval);
+}

@@ -15,7 +15,7 @@ int lancer_de()
 
 void jeu (joueur *liste_joueur, int nb_joueur)
 {
-  int n_joueur=1+rand()%nb_joueur,n_tour=1, val_D;
+  int n_joueur=rand()%nb_joueur +1,n_tour=1, val_D;
   int valide;
   int n_cheval;
   char reponse;
@@ -45,7 +45,7 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
 
   */
 
-
+// fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
 
   char plateau[15][15] = {
                     {'0','0','0','0','0','0','7','7','7','0','0','0','0','0','0'},
@@ -77,16 +77,31 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
 
     joueur joueur_courant = liste_joueur[n_joueur];
 
-     while(nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) )
+     while(/*nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) */ reponse != 's')
     { // boucle principale du jeu;
       val_D = lancer_de();
+      printf("Le joueur %d a fais un %d\n", n_joueur, val_D);
 
-
-      if (nb_chevaux(&joueur_courant) == 0/* && chevaux_numerote(&joueur_courant) == 0*/) // si le joueur qui doit jouer n'a aucun cheval sur le plateau ou sur les cases numerotées
+      if(nb_chevaux(&joueur_courant) == 0)
+    /* && chevaux_numerote(&joueur_courant) == 0*/ // si le joueur qui doit jouer n'a aucun cheval sur le plateau ou sur les cases numerotées */
       {
         if(val_D == 6)
         {
-          //sortir les chevaux fonction à coder par arthur
+          printf("Voulez vous sortir un nouveau cheval ? (o/n) : ");
+          scanf("%c", &reponse);
+          while(getchar() != '\n'); // vide le cache
+          if(reponse == 'o')
+          {
+          sortir_chevaux(&n_joueur, &joueur_courant);
+          }
+          else
+          {
+            printf("Alors vous passez votre tour");
+          }
+          // Update le plateau avec les chevaux dans les écuries.
+          update(plateau, liste_joueur);
+          // Affiche le plateau
+          refresh(plateau);
         }
         else
         {
@@ -105,14 +120,14 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
             while(getchar() != '\n'); // vide le cache
             if(reponse == 'o')
               {
-              // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
+              sortir_chevaux(&n_joueur, &joueur_courant);
 
               }
             else // si il ne veut pas sortir de cheval, il se deplace donc..
               {
                 deplacement_test(plateau, &joueur_courant, val_D);
               }
-          }
+        }
         else // si le joueur fait autre chose que 6 il ne peut que se deplacer ou non en fonction de si ila  le droit (deplacement_test())
         {
               // fonction deplacement et conditions..
@@ -121,8 +136,9 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
       }
 
       n_tour+=1;
-      n_joueur = (n_joueur+1)%4;
+      n_joueur = (n_joueur)%nb_joueur +1;
       joueur_courant = liste_joueur[n_joueur];
+      printf("\nAu tour du joueur %d \n",n_joueur);
 
   }
 

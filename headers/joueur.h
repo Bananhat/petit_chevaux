@@ -17,3 +17,5 @@ void placer_chevaux(cheval liste_chevaux[4], int x, int y);
 void placer_chevaux_joueurs(joueur liste_joueur[]);
 void init_chevaux(joueur liste_joueur[], cheval* c1, cheval* c2, cheval* c3, cheval* c4);
 void deplacement_test(char plateau[15][15], joueur * p_j, int val_D);
+void sortir_chevaux(int* n_joueur, joueur *p_joueur);
+void ajouter_cheval_actif(joueur *p_joueur, int n_cheval);
