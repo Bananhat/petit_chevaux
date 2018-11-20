@@ -19,22 +19,24 @@ void jeu (joueur *liste_joueur, int nb_joueur)
 
   char reponse;
 
-      // Place les chevaux dans les écuries
-      placer_chevaux_joueurs(liste_joueur);
+    // Place les chevaux dans les écuries
+    placer_chevaux_joueurs(liste_joueur);
 
 
 
-  cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 0, 6, 'j', 'a'};
-  cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 0, 6, 'j', 'b'};
-  cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,0,6,'j', 'c'};
-  cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,0,6,'j', 'd'};
+  cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 6, 0, 'j', 'a'};
+  cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 6, 0, 'j', 'b'};
+  cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,6,0,'j', 'c'};
+  cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,6,0,'j', 'd'};
   init_chevaux(liste_joueur, &j1, &j2, &j3, &j4); //ajoute les chevaux dans la main du joueur
-  /*cheval r1= {0,0,1,}
-  cheval r2 {}
-  cheval r3 {}
-  cheval r4 {}
-  init_chevaux(liste_joueur, &r1, &r2, &r3, &r4); //ajoute les chevaux dans la main du joueur
-  cheval b1 {}
+
+
+  cheval b1 = {liste_joueur[BLEU].liste_chevaux[0].case_x, liste_joueur[BLEU].liste_chevaux[0].case_y, 1, 0, 8, 'b', 'e'};
+  cheval b2 = {liste_joueur[BLEU].liste_chevaux[1].case_x, liste_joueur[BLEU].liste_chevaux[1].case_y, 2, 0, 8, 'b', 'f'};
+  cheval b3 = {liste_joueur[BLEU].liste_chevaux[2].case_x,liste_joueur[BLEU].liste_chevaux[2].case_y,3,0,8,'b', 'g'};
+  cheval b4 = {liste_joueur[BLEU].liste_chevaux[3].case_x,liste_joueur[BLEU].liste_chevaux[3].case_y,4,0,8,'b', 'h'};
+  init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la main du joueur
+  /*cheval b1 {}
   cheval b2 {}
   cheval b3 {}
   cheval b4 {}
@@ -73,9 +75,6 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
    refresh(plateau);
 
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
-    for (int i =0; i<4;i++){
-      printf("%d\n",liste_joueur[0].liste_chevaux[i].numero);
-    }
     joueur *joueur_courant = &liste_joueur[n_joueur-1];
 
      while(/*nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) */ reponse != 's')
@@ -120,7 +119,6 @@ init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la mai
             while(getchar() != '\n'); // vide le cache
             if(reponse == 'o')
               {
-                printf("okkkkkkkkkkkkkkkkk");
               sortir_chevaux(&n_joueur, joueur_courant, plateau);
 
               }
