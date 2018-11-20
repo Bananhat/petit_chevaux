@@ -10,7 +10,7 @@
 #define RESET   "\x1b[0m"
 
 // Update les positions des chevaux sur le plateau
-void update(char plateau[15][15], joueur liste_joueur[4]) {
+void update(char plateau[][15], joueur liste_joueur[4]) {
   // (Peut être optimisé pour ne boucler que sur le nombre précis de joueurs et donc plus besoin de test avant de bouger les chevaux)
   for(int i = 0; i < 4; i++) {
     for(int j = 0; j < 4; j++) {

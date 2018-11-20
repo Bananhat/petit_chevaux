@@ -29,6 +29,16 @@ void init_chevaux(joueur liste_joueur[], cheval* c1, cheval* c2, cheval* c3, che
     liste_joueur[i].liste_ecurie[2] = *c3;
     liste_joueur[i].liste_ecurie[3] = *c4;
 
+    liste_joueur[i].liste_chevaux[0] = *c1;
+    liste_joueur[i].liste_chevaux[1] = *c2;
+    liste_joueur[i].liste_chevaux[2] = *c3;
+    liste_joueur[i].liste_chevaux[3] = *c4;
+
+    liste_joueur[i].liste_chevaux[0].numero = -1;
+    liste_joueur[i].liste_chevaux[1].numero = -1;
+    liste_joueur[i].liste_chevaux[2].numero = -1;
+    liste_joueur[i].liste_chevaux[3].numero = -1;
+
 }
 
 void placer_chevaux(cheval liste_chevaux[4], int x, int y) {
@@ -55,20 +65,22 @@ void placer_chevaux_joueurs(joueur liste_joueur[]) {
   }
 }
 
-void ajouter_cheval_actif(joueur *p_joueur, int n_cheval)
+void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
 {
-  p_joueur->liste_chevaux[n_cheval] = p_joueur->liste_ecurie[n_cheval];
-  p_joueur->liste_ecurie[n_cheval].numero = -1;
-  p_joueur->liste_chevaux[n_cheval].case_x =  0; //p_joueur->liste_chevaux[n_cheval].case_debut_x;
-  p_joueur->liste_chevaux[n_cheval].case_y =   6;//p_joueur->liste_chevaux[n_cheval].case_debut_y;
+  plateau[p_joueur->liste_chevaux[n_cheval-1].case_x][p_joueur->liste_chevaux[n_cheval-1].case_y]='0';
+  p_joueur->liste_chevaux[n_cheval-1] = p_joueur->liste_ecurie[n_cheval-1];
+  p_joueur->liste_ecurie[n_cheval-1].numero = -1;
+  p_joueur->liste_chevaux[n_cheval-1].case_x =  p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
+  p_joueur->liste_chevaux[n_cheval-1].case_y =   p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
 }
 
-void sortir_chevaux(int * n_joueur, joueur *p_joueur)
+void sortir_chevaux(int * n_joueur, joueur *p_joueur, char plateau[][15])
 {
-  *n_joueur -= 1; // rejoueras
-  int n_cheval;
+
+      int n_cheval;
       printf("Quel numero de cheval ? :");
       scanf("%d", &n_cheval);
       // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
-      ajouter_cheval_actif(p_joueur, n_cheval);
+      ajouter_cheval_actif(p_joueur, n_cheval, plateau);
+        //  *n_joueur -= 1; // rejoueras
 }
