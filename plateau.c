@@ -15,6 +15,7 @@
 #define FOND_BLUE "\x1b[44m"
 #define FOND_PURPLE "\x1b[45m"
 #define FOND_WHITE "\x1b[47m"
+#define TEST "\e[4;34m"
 
 
 // Update les positions des chevaux sur le plateau
@@ -75,8 +76,8 @@ void refresh(joueur liste_joueur[4], char plateau[15][15]) {
           printf((FOND_GREEN" %c "RESET),nom);
         }
         else if (plateau[i][j] == '0') {
-            printf((FOND_BLACK"   "RESET));
-          }
+          printf((FOND_BLACK"   "RESET));
+        }
         else if (plateau[i][j] == '7') {
           printf((FOND_WHITE"   "RESET));
         }
