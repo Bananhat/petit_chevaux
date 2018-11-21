@@ -16,29 +16,23 @@ int nb_chevaux(joueur *p_joueur){ //le but est de trouver un moyen pour compter 
   }
   return incr;
 }
-void init_chevaux(joueur liste_joueur[], cheval* c1, cheval* c2, cheval* c3, cheval* c4)
+void init_chevaux(joueur liste_joueur[], cheval c1, cheval c2, cheval c3, cheval c4, int num)
 {
-    int i =0;
-    while(liste_joueur[i].couleur != c1->couleur)
-    {
-      i+=1;
-    }
 
-    liste_joueur[i].liste_ecurie[0] = *c1;
-    liste_joueur[i].liste_ecurie[1] = *c2;
-    liste_joueur[i].liste_ecurie[2] = *c3;
-    liste_joueur[i].liste_ecurie[3] = *c4;
+    liste_joueur[num].liste_ecurie[0] = c1;
+    liste_joueur[num].liste_ecurie[1] = c2;
+    liste_joueur[num].liste_ecurie[2] = c3;
+    liste_joueur[num].liste_ecurie[3] = c4;
 
-    liste_joueur[i].liste_chevaux[0] = *c1;
-    liste_joueur[i].liste_chevaux[1] = *c2;
-    liste_joueur[i].liste_chevaux[2] = *c3;
-    liste_joueur[i].liste_chevaux[3] = *c4;
+    liste_joueur[num].liste_chevaux[0] = c1;
+    liste_joueur[num].liste_chevaux[1] = c2;
+    liste_joueur[num].liste_chevaux[2] = c3;
+    liste_joueur[num].liste_chevaux[3] = c4;
 
-    liste_joueur[i].liste_chevaux[0].numero = -1;
-    liste_joueur[i].liste_chevaux[1].numero = -1;
-    liste_joueur[i].liste_chevaux[2].numero = -1;
-    liste_joueur[i].liste_chevaux[3].numero = -1;
-
+    liste_joueur[num].liste_chevaux[0].numero = -1;
+    liste_joueur[num].liste_chevaux[1].numero = -1;
+    liste_joueur[num].liste_chevaux[2].numero = -1;
+    liste_joueur[num].liste_chevaux[3].numero = -1;
 }
 
 void placer_chevaux(cheval liste_chevaux[4], int x, int y) {

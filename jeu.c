@@ -23,31 +23,30 @@ void jeu (joueur *liste_joueur, int nb_joueur)
     placer_chevaux_joueurs(liste_joueur);
 
 
-
   cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 6, 0, 'j', '1'};
   cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 6, 0, 'j', '2'};
   cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,6,0,'j', '3'};
   cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,6,0,'j', '4'};
-  init_chevaux(liste_joueur, &j1, &j2, &j3, &j4); //ajoute les chevaux dans la main du joueur
+  init_chevaux(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chevaux dans la main du joueur
 
 
   cheval b1 = {liste_joueur[BLEU].liste_chevaux[0].case_x, liste_joueur[BLEU].liste_chevaux[0].case_y, 1, 0, 8, 'b', '1'};
   cheval b2 = {liste_joueur[BLEU].liste_chevaux[1].case_x, liste_joueur[BLEU].liste_chevaux[1].case_y, 2, 0, 8, 'b', '2'};
   cheval b3 = {liste_joueur[BLEU].liste_chevaux[2].case_x,liste_joueur[BLEU].liste_chevaux[2].case_y,3,0,8,'b', '3'};
   cheval b4 = {liste_joueur[BLEU].liste_chevaux[3].case_x,liste_joueur[BLEU].liste_chevaux[3].case_y,4,0,8,'b', '4'};
-  init_chevaux(liste_joueur, &b1, &b2, &b3, &b4); //ajoute les chevaux dans la main du joueur
+  init_chevaux(liste_joueur, b1, b2, b3, b4, BLEU); //ajoute les chevaux dans la main du joueur
 
   cheval t1 = {liste_joueur[VERT].liste_chevaux[0].case_x, liste_joueur[VERT].liste_chevaux[0].case_y, 1, 14, 6, 'v', '1'};
   cheval t2 = {liste_joueur[VERT].liste_chevaux[1].case_x, liste_joueur[VERT].liste_chevaux[1].case_y, 2, 14, 6, 'v', '2'};
   cheval t3 = {liste_joueur[VERT].liste_chevaux[2].case_x, liste_joueur[VERT].liste_chevaux[2].case_y, 3, 14, 6, 'v', '3'};
   cheval t4 = {liste_joueur[VERT].liste_chevaux[3].case_x, liste_joueur[VERT].liste_chevaux[3].case_y, 4, 14, 6, 'v', '4'};
-  init_chevaux(liste_joueur, &t1, &t2, &t3, &t4); //ajoute les chevaux dans la main du joueur
+  init_chevaux(liste_joueur, t1, t2, t3, t4, VERT); //ajoute les chevaux dans la main du joueur
 
   cheval v1 = {liste_joueur[ROUGE].liste_chevaux[0].case_x, liste_joueur[ROUGE].liste_chevaux[0].case_y, 1, 8, 14, 'r', '1'};
   cheval v2 = {liste_joueur[ROUGE].liste_chevaux[1].case_x, liste_joueur[ROUGE].liste_chevaux[1].case_y, 2, 8, 14, 'r', '2'};
   cheval v3 = {liste_joueur[ROUGE].liste_chevaux[2].case_x,liste_joueur[ROUGE].liste_chevaux[2].case_y,3,8,14,'r', '3'};
   cheval v4 = {liste_joueur[ROUGE].liste_chevaux[3].case_x,liste_joueur[ROUGE].liste_chevaux[3].case_y,4,8,14,'r', '4'};
-  init_chevaux(liste_joueur, &v1, &v2, &v3, &v4); //ajoute les chevaux dans la main du joueur
+  init_chevaux(liste_joueur, v1, v2, v3, v4, ROUGE); //ajoute les chevaux dans la main du joueur
 
 // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
 
@@ -70,10 +69,14 @@ void jeu (joueur *liste_joueur, int nb_joueur)
                   };
 
 
+    printf("Test1\n");
+
    // Update le plateau avec les chevaux dans les écuries.
    update(plateau, liste_joueur);
    // Affiche le plateau
    refresh(liste_joueur, plateau);
+
+   printf("Test1\n");
 
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
     joueur *joueur_courant = &liste_joueur[n_joueur-1];
@@ -130,7 +133,7 @@ void jeu (joueur *liste_joueur, int nb_joueur)
         }
         else // si le joueur fait autre chose que 6 il ne peut que se deplacer ou non en fonction de si ila  le droit (deplacement_test())
         {
-              // fonction deplacement et conditions..
+          deplacement_test(plateau, joueur_courant, val_D);
         }
 
       }
@@ -140,7 +143,5 @@ void jeu (joueur *liste_joueur, int nb_joueur)
       joueur_courant = &liste_joueur[n_joueur-1];
       printf("\nAu tour du joueur %d \n",n_joueur);
 
-
   }
-
 }
