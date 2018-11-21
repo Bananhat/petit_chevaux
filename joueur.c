@@ -8,8 +8,7 @@ int nb_chevaux(joueur *p_joueur){ //le but est de trouver un moyen pour compter 
   int incr=0;
     for (int i =0; i<4; i++)
     {
-      if(p_joueur->liste_chevaux[i].numero == 1 || p_joueur->liste_chevaux[i].numero == 2 ||
-         p_joueur->liste_chevaux[i].numero == 3 || p_joueur->liste_chevaux[i].numero == 4)
+      if(p_joueur->liste_ecurie[i].numero == -1)
       {
           incr+=1;
       }

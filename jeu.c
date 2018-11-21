@@ -69,14 +69,12 @@ void jeu (joueur *liste_joueur, int nb_joueur)
                   };
 
 
-    printf("Test1\n");
+
 
    // Update le plateau avec les chevaux dans les écuries.
    update(plateau, liste_joueur);
    // Affiche le plateau
    refresh(liste_joueur, plateau);
-
-   printf("Test1\n");
 
     printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
     joueur *joueur_courant = &liste_joueur[n_joueur-1];
@@ -135,6 +133,10 @@ void jeu (joueur *liste_joueur, int nb_joueur)
         {
           deplacement_test(plateau, joueur_courant, val_D);
         }
+        // Update le plateau avec les chevaux dans les écuries.
+        update(plateau, liste_joueur);
+        // Affiche le plateau
+        refresh(liste_joueur, plateau);
 
       }
 

@@ -74,6 +74,15 @@ void refresh(joueur liste_joueur[4], char plateau[15][15]) {
           nom = search_number(liste_joueur, player, i, j);
           printf((FOND_GREEN" %c "RESET),nom);
         }
+        else if (plateau[i][j] == '0') {
+            printf((FOND_BLACK"   "RESET));
+          }
+        else if (plateau[i][j] == '7') {
+          printf((FOND_WHITE"   "RESET));
+        }
+        else if (plateau[i][j] == '8') {
+          printf((FOND_PURPLE"   "RESET));
+        }
         else {
           printf(" %c ", plateau[i][j]);
         }

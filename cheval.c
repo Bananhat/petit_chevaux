@@ -55,6 +55,7 @@ int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plate
     	*coord_x-=1;
 		}
 
+		printf("%c\n",plateau[*coord_x][*coord_y]);
 		if (plateau[*coord_x][*coord_y] == '7') //on verifie qu'il n'y ai personne
 		{
 			incr++;
@@ -69,6 +70,7 @@ int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plate
 		// valide=2
 		else //si on a pas fini de se deplacer et que c'est pas sept c'est que on ne peut pas se deplacer
 		{
+			printf("PAS BON!\n");
 			valide = 0;
 			*coord_y = old_coord_y; // on revient au point initial
 			*coord_x = old_coord_x;
@@ -85,24 +87,25 @@ int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plate
 void deplacement_test(char plateau[][15], joueur * p_j, int val_D)
 {
 	int n_cheval, valide;
-
-	if (nb_chevaux(p_j) > 1)
-	{
+	//if (nb_chevaux(p_j) > 1)
+	//{
 		printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
 		scanf("%d", &n_cheval);
-	}
-	int old_y = p_j->liste_chevaux[n_cheval].case_x;
-	int old_x = p_j->liste_chevaux[n_cheval].case_y;
-	int coord_y = p_j->liste_chevaux[n_cheval].case_x;
-	int coord_x = p_j->liste_chevaux[n_cheval].case_y;
+		while(getchar() != '\n');
+	//}
+	int old_x = p_j->liste_chevaux[n_cheval-1].case_x;
+	int old_y = p_j->liste_chevaux[n_cheval-1].case_y;
+	int *coord_y = &p_j->liste_chevaux[n_cheval-1].case_y;
+	int *coord_x = &p_j->liste_chevaux[n_cheval-1].case_x;
 	char val_init = plateau[old_y][old_x];
 		// if cheval[n_cheval] est dans la liste des chevaux actif
-	valide = deplacement(&coord_y, &coord_x, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_y, int *coord_x, int val_D, cheval cheval, char** plateau
+	valide = deplacement(coord_y, coord_x, val_D, p_j->liste_chevaux[n_cheval], plateau); //int *coord_y, int *coord_x, int val_D, cheval cheval, char** plateau
+	printf("%d||%d\n", *coord_y, *coord_x);
 	// else si il est dans la case numerote
 	// valide = deplacement_case_numerote...
 	if (valide == 0)
 		{
-			printf("Vous ne pouvez pas vous deplacer ..");
+			printf("Vous ne pouvez pas vous deplacer ..\n");
 		}
 	else if (valide == 2)
 		{
@@ -110,10 +113,10 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D)
 		}
 	else
 		{
-			printf("Appuyez sur une touche pour vous deplaer de %d cases....", val_D);
+			printf("Deplacez vous\n");
 			/* appuez sur entrer*/
-			plateau[coord_x][coord_y] = p_j->liste_chevaux[n_cheval].nom;
-			plateau[old_y][old_x] = val_init;
+			plateau[*coord_x][*coord_y] = p_j->liste_chevaux[n_cheval].nom;
+			plateau[old_x][old_y] = val_init;
 		}
 
 }
