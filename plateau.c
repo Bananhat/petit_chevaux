@@ -36,6 +36,7 @@ int search_player(joueur liste_joueur[4], char couleur) {
       return i;
     }
   }
+  return 0;
 }
 
 char search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
@@ -44,6 +45,7 @@ char search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
       return liste_joueur[player].liste_chevaux[i].nom;
     }
   }
+  return 0;
 }
 
 // Affiche le plateau
