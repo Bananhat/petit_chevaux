@@ -6,7 +6,7 @@
 
 
 
-int init_partie(joueur* liste_joueur) {
+int init_partie(joueur* liste_joueur, int liste_couleurs[]) {
   int nb_joueurs;
   char couleur_test;
   char couleur_use[4];
@@ -48,6 +48,7 @@ int init_partie(joueur* liste_joueur) {
       }
       liste_joueur[e_couleur].couleur = couleur_test;
       couleur_use[i] = couleur_test;
+      liste_couleurs[i] = e_couleur;
     }
     else{
       if(deja_utiliser == 1){

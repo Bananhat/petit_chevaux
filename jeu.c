@@ -13,16 +13,16 @@ int lancer_de()
 }
 
 
-void jeu (joueur *liste_joueur, int nb_joueur)
+void jeu (joueur *liste_joueur, int nb_joueur, int liste_couleurs[])
 {
-  int n_joueur=rand()%nb_joueur +1,n_tour=1, val_D;
+  int indice_joueur = rand()%nb_joueur;
+  int n_joueur=liste_couleurs[indice_joueur],n_tour=1, val_D;
 
   char reponse;
+  char couleur[][6] = {"jaune", "bleu", "vert", "rouge"};
 
     // Place les chevaux dans les écuries
     placer_chevaux_joueurs(liste_joueur);
-
-
   cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 6, 0, 'j', '1'};
   cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 6, 0, 'j', '2'};
   cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,6,0,'j', '3'};
@@ -76,13 +76,13 @@ void jeu (joueur *liste_joueur, int nb_joueur)
    // Affiche le plateau
    refresh(liste_joueur, plateau);
 
-    printf("LE JOUEUR NUMERO %d COMMENCE \n", n_joueur);
-    joueur *joueur_courant = &liste_joueur[n_joueur-1];
+    printf("LE JOUEUR %s COMMENCE \n", couleur[n_joueur]);
+    joueur *joueur_courant = &liste_joueur[n_joueur];
 
      while(/*nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) */ reponse != 's')
     { // boucle principale du jeu;
       val_D = lancer_de();
-      printf("Le joueur %d a fais un %d\n", n_joueur, val_D);
+      printf("Le joueur %s a fais un %d\n", couleur[n_joueur], val_D);
       if(nb_chevaux(joueur_courant) == 0)
     /* && chevaux_numerote(&joueur_courant) == 0*/ // si le joueur qui doit jouer n'a aucun cheval sur le plateau ou sur les cases numerotées */
       {
@@ -141,9 +141,11 @@ void jeu (joueur *liste_joueur, int nb_joueur)
       }
 
       n_tour+=1;
-      n_joueur = (n_joueur)%nb_joueur + 1;
-      joueur_courant = &liste_joueur[n_joueur-1];
-      printf("\nAu tour du joueur %d \n",n_joueur);
+      indice_joueur+=1;
+      n_joueur=liste_couleurs[indice_joueur%nb_joueur];
+
+      joueur_courant = &liste_joueur[n_joueur];
+      printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
 
   }
 }
