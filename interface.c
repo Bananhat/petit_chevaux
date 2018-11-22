@@ -6,7 +6,7 @@
 
 
 
-int init_partie(joueur* liste_joueur, int liste_couleurs[]) {
+int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
   int nb_joueurs;
   char couleur_test;
   char couleur_use[4];
@@ -46,6 +46,7 @@ int init_partie(joueur* liste_joueur, int liste_couleurs[]) {
         e_couleur = VERT;
 
       }
+      printf("%d\n", e_couleur);
       liste_joueur[e_couleur].couleur = couleur_test;
       couleur_use[i] = couleur_test;
       liste_couleurs[i] = e_couleur;
@@ -59,10 +60,10 @@ int init_partie(joueur* liste_joueur, int liste_couleurs[]) {
       }
     }
   } while( (couleur_test != 'r' && couleur_test != 'v' && couleur_test != 'b' && couleur_test != 'j') || deja_utiliser==1);
-
+/*
     printf("Entrez votre nom : ");
-    scanf("%s", liste_joueur[i].nom);
-    while(getchar() != '\n');
+    scanf("%s", liste_joueur[e_couleur].nom);*/
+    //while(getchar() != '\n');
   }
   printf("\n----------------------LA PARTIE COMMENCE-----------------------\n");
   return nb_joueurs;

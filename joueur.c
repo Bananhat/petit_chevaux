@@ -3,6 +3,15 @@
 #include "headers/joueur.h"
 
 
+void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15]){
+  if(plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y]!='7'){
+    etat_joueur->impossible_sortir_chevaux = 1;
+  }else{
+    etat_joueur->impossible_sortir_chevaux = 0;
+  }
+}
+
+
 // A REVOIR
 int nb_chevaux(joueur *p_joueur){ //le but est de trouver un moyen pour compter les chevaux actif du joueur (les chevaux qui serons ejecter porterons le numero -1
   int incr=0;
@@ -60,11 +69,12 @@ void placer_chevaux_joueurs(joueur liste_joueur[]) {
 
 void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
 {
-  plateau[p_joueur->liste_chevaux[n_cheval-1].case_x][p_joueur->liste_chevaux[n_cheval-1].case_y]='0';
-  p_joueur->liste_chevaux[n_cheval-1] = p_joueur->liste_ecurie[n_cheval-1];
-  p_joueur->liste_ecurie[n_cheval-1].numero = -1;
+  plateau[p_joueur->liste_chevaux[n_cheval-1].case_x][p_joueur->liste_chevaux[n_cheval-1].case_y]='0'; //on reset la case de base à 0
+  p_joueur->liste_chevaux[n_cheval-1] = p_joueur->liste_ecurie[n_cheval-1]; //on ajoute dans la liste des chevaux le cheval de l'écurie
+  p_joueur->liste_ecurie[n_cheval-1].numero = -1; //on met le num du cheval de l'écurie a -1
   p_joueur->liste_chevaux[n_cheval-1].case_x =  p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
   p_joueur->liste_chevaux[n_cheval-1].case_y =   p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
+
 }
 
 void sortir_chevaux(int * n_joueur, joueur *p_joueur, char plateau[][15])
