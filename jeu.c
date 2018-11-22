@@ -81,7 +81,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
     printf("LE JOUEUR %s COMMENCE \n", couleur[n_joueur]);
     joueur *joueur_courant = &liste_joueur[n_joueur];
 
-     while(/*nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) */ reponse != 's')
+     while(/*nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) */ reponse != 's') //condition gagner par arthur
     { // boucle principale du jeu;
       update_etat_joueur(&etat_joueur, joueur_courant, plateau);
 

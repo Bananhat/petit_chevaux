@@ -14,6 +14,8 @@ typedef struct {
 typedef struct {
   int impossible_sortir_chevaux;
 }etat_joueur;
+
+
 int nb_chevaux(joueur *p_joueur); //on declarera comme ca : joueur j et on fera nb_chevaux(&j);
 
 void placer_chevaux(cheval liste_chevaux[4], int x, int y);

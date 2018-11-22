@@ -81,9 +81,12 @@ void sortir_chevaux(int * n_joueur, joueur *p_joueur, char plateau[][15])
 {
 
       int n_cheval;
+      do
+      {
       printf("Quel numero de cheval ? :");
       scanf("%d", &n_cheval);
       while(getchar()!='\n');
+    } while(p_joueur->liste_chevaux[n_cheval-1].numero != -1 || n_cheval > 4);
       // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
       ajouter_cheval_actif(p_joueur, n_cheval, plateau);
         //  *n_joueur -= 1; // rejoueras
