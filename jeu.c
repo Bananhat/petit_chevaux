@@ -106,7 +106,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
           }
           else
           {
-            printf("Alors vous passez votre tour");
+            printf("Alors vous passez votre tour....\n");
           }
           // Update le plateau avec les chevaux dans les écuries.
           update(plateau, liste_joueur);
