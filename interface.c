@@ -9,7 +9,6 @@
 int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
   int nb_joueurs;
   char couleur_test;
-  char couleur_use[4];
   int deja_utiliser;
   couleur_enum e_couleur;
 
@@ -26,36 +25,46 @@ int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
     scanf("%c", &couleur_test);
     while(getchar() != '\n');
 
-    for(int i=0; i<4; i++){
-      if(couleur_use[i] == couleur_test){
+    for(int i=0; i<4; i++)
+    {
+      if(liste_joueur[i].couleur == couleur_test)
+      {
         deja_utiliser = 1;
       }
     }
 
     if ((couleur_test == 'r' || couleur_test == 'v' || couleur_test == 'b' || couleur_test  == 'j') && deja_utiliser==0){
-      if (couleur_test == 'j'){
+      if (couleur_test == 'j')
+      {
         e_couleur = JAUNE;
 
-      }else if (couleur_test == 'r'){
+      }
+      else if (couleur_test == 'r')
+      {
         e_couleur = ROUGE;
 
-      }else if (couleur_test == 'b'){
+      }
+      else if (couleur_test == 'b')
+      {
         e_couleur = BLEU;
 
-      }else if (couleur_test == 'v'){
+      }
+      else if (couleur_test == 'v')
+      {
         e_couleur = VERT;
 
       }
-      printf("%d\n", e_couleur);
       liste_joueur[e_couleur].couleur = couleur_test;
-      couleur_use[i] = couleur_test;
       liste_couleurs[i] = e_couleur;
     }
-    else{
-      if(deja_utiliser == 1){
+    else
+    {
+      if(deja_utiliser)
+      {
         printf("Cette couleur est déjà utilise..\n");
       }
-      else{
+      else
+      {
         printf("Ce n'est pas une couleur propose !!\ns");
       }
     }
