@@ -31,24 +31,6 @@ void update(char plateau[][15], joueur liste_joueur[4]) {
   }
 }
 
-int search_player(joueur liste_joueur[4], char couleur) {
-  for(int i = 0; i < 4; i++) {
-    if (liste_joueur[i].couleur == couleur) {
-      return i;
-    }
-  }
-  return 0;
-}
-
-char search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
-  for(int i = 0; i < 4; i++) {
-    if (liste_joueur[player].liste_chevaux[i].case_x == pos_x && liste_joueur[player].liste_chevaux[i].case_y == pos_y) {
-      return liste_joueur[player].liste_chevaux[i].nom;
-    }
-  }
-  return 0;
-}
-
 // Affiche le plateau
 void refresh(joueur liste_joueur[4], char plateau[15][15]) {
   char nom;
@@ -57,22 +39,22 @@ void refresh(joueur liste_joueur[4], char plateau[15][15]) {
     for (int j = 0; j < 15; j++) {
         if (plateau[i][j] == 'r') {
           player = search_player(liste_joueur, 'r');
-          nom = search_number(liste_joueur, player, i, j);
+          nom = search_char_number(liste_joueur, player, i, j);
           printf((FOND_RED" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'j') {
           player = search_player(liste_joueur, 'j');
-          nom = search_number(liste_joueur, player, i, j);
+          nom = search_char_number(liste_joueur, player, i, j);
           printf((FOND_YELLOW" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'b') {
           player = search_player(liste_joueur, 'b');
-          nom = search_number(liste_joueur, player, i, j);
+          nom = search_char_number(liste_joueur, player, i, j);
           printf((FOND_BLUE" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'v') {
           player = search_player(liste_joueur, 'v');
-          nom = search_number(liste_joueur, player, i, j);
+          nom = search_char_number(liste_joueur, player, i, j);
           printf((FOND_GREEN" %c "RESET),nom);
         }
         else if (plateau[i][j] == '0') {

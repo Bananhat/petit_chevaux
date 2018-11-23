@@ -91,3 +91,38 @@ void sortir_chevaux(int * n_joueur, joueur *p_joueur, char plateau[][15])
       ajouter_cheval_actif(p_joueur, n_cheval, plateau);
         //  *n_joueur -= 1; // rejoueras
 }
+
+int search_player(joueur liste_joueur[4], char couleur) {
+  for(int i = 0; i < 4; i++) {
+    if (liste_joueur[i].couleur == couleur) {
+      return i;
+    }
+  }
+  return 0;
+}
+
+char search_char_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
+  for(int i = 0; i < 4; i++) {
+    if (liste_joueur[player].liste_chevaux[i].case_x == pos_x && liste_joueur[player].liste_chevaux[i].case_y == pos_y) {
+      return liste_joueur[player].liste_chevaux[i].nom;
+    }
+  }
+  return 0;
+}
+
+char search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
+  for(int i = 0; i < 4; i++) {
+    if (liste_joueur[player].liste_chevaux[i].case_x == pos_x && liste_joueur[player].liste_chevaux[i].case_y == pos_y) {
+      return liste_joueur[player].liste_chevaux[i].numero - 1;
+    }
+  }
+  return 0;
+}
+
+void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur liste_joueur[]) {
+  int player = search_player(liste_joueur, couleur);
+  int nom = search_number(liste_joueur, player, pos_x, pos_y);
+  liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
+  //(*cheval).case_x = (*cheval).case_ecurie_x;
+  liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
+}

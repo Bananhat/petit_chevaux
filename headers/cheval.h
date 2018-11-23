@@ -4,6 +4,7 @@
 typedef struct {
   int case_x, case_y, numero;
   int case_debut_x, case_debut_y;
+  int case_ecurie_x, case_ecurie_y;
 
   char couleur;
   char nom;

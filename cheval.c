@@ -59,11 +59,14 @@ int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plate
 		if (plateau[*coord_x][*coord_y] == '7') //on verifie qu'il n'y ai personne
 		{
 			incr++;
+			printf("Incr: %d\n", incr);
 		}
-		//else if (incr == Val_D) //si il ya quelqueun et qu'on a fini de se deplacer
-		//{
-		/* pion se fait ejecter developpe par arthur (en grso *coord_y = cheval.ecurie_val *coord_x = cheval.ecurie_val)*/
-	//  }
+		else if (incr == val_D) //si il ya quelqueun et qu'on a fini de se deplacer
+		{
+			printf("OK");
+			valide = 2;
+			incr++;
+	  	}
 	// else if (x= j.case_debut_x && y=case_debut_y)
 	// x = x_case_numerote_init
 		// y = y_case_numerote_init
@@ -84,7 +87,7 @@ int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plate
 }
 // a la fin plateau[*coord_x][*coord_y] = 'j';
 
-void deplacement_test(char plateau[][15], joueur * p_j, int val_D)
+void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_joueur[])
 {
 		int n_cheval, valide;
 		do{
@@ -108,7 +111,10 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D)
 		}
 	else if (valide == 2)
 		{
-			printf("Bien joué vous êtes dans les cases numerote !");
+			eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
+			plateau[old_x][old_y] = '7';
+			plateau[*coord_x][*coord_y] = p_j->liste_chevaux[n_cheval-1].nom;
+			printf("Vous avez éjecté un cheval !\n");
 		}
 	else
 		{
