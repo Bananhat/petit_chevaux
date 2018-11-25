@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "headers/joueur.h"
+#include "headers/plateau.h"
+#include "headers/interface.h"
 
 
-int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plateau[][15])
+int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15])
 {
 	int incr=1;
 	int valide = 1;
-
-	int old_coord_y = *coord_y;
-	int old_coord_x = *coord_x;
 
 	while(incr <= val_D && valide==1)
 	{
@@ -61,13 +59,8 @@ int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plate
 
 void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_joueur[])
 {
-		int n_cheval, valide;
-		do
-	{
-		printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
-		scanf("%d", &n_cheval);
-		while(getchar() != '\n');
-	} while(p_j->liste_chevaux[n_cheval-1].actif != 1 || n_cheval>4);
+
+	int n_cheval = jouer_valide_numeroCheval(p_j);
 
 	int old_x = p_j->liste_chevaux[n_cheval-1].case_x; // valeur de x avant le deplacement
 	int old_y = p_j->liste_chevaux[n_cheval-1].case_y; // valeur de y avant le deplacement
@@ -75,30 +68,39 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 	int *coord_x = &p_j->liste_chevaux[n_cheval-1].case_x;
 	int *coord_y = &p_j->liste_chevaux[n_cheval-1].case_y;
 		// if cheval[n_cheval] est dans la liste des chevaux actif
-	valide = deplacement(coord_y, coord_x, val_D, p_j->liste_chevaux[n_cheval-1], plateau); // deplacement et modifications des coordonnées
-	printf("Apres deplacement -> X : %d|| Y : %d\n", *coord_x, *coord_y);
+	int valide = deplacement(coord_y, coord_x, old_y, old_x, val_D, p_j->liste_chevaux[n_cheval-1], plateau); // deplacement et modifications des coordonnées
+
 	// else si il est dans la case numerote
 	// valide = deplacement_case_numerote...
-	if (valide == 0)
+	if (valide == 0) // si il ne peut pas se deplacer c'est déjà gerer
 		{
 			printf("Vous ne pouvez pas vous deplacer ..\n");
 		}
-	else if (valide == 2)
-		{
-			eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
 
+	else //sinon on lui demande si il est sur de vouloir se deplacer en simulant son deplacement
+	{
 			plateau[old_x][old_y] = '7';
-			plateau[*coord_x][*coord_y] = p_j->liste_chevaux[n_cheval-1].nom;
+			if(joueur_valide_deplacement(plateau, liste_joueur)) // si c'est bon on fait les tests et on delace
+			{
+				if (valide == 2)
+					{
+						eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
+						printf("Vous avez éjecté un cheval !\n");
+					}
+				// else if(valide == 3) {}
+				else
+					{
+						printf("Vous vous êtes deplacer..\n");
 
-			printf("Vous avez éjecté un cheval !\n");
-		}
-	// else if(valide == 3) {}
-	else
-		{
-			printf("Vous vous êtes deplacer..\n");
+					}
+			}
+			else // sinon on remet à 7 la ou la simulation a été faites, et on le deplace a la pos de départ
+			{
+				plateau[*coord_x][*coord_y] = '7';
+				*coord_x = old_x;
+				*coord_y = old_y;
+			}
 
-			plateau[*coord_x][*coord_y] = p_j->liste_chevaux[n_cheval-1].nom;
-			plateau[old_x][old_y] = '7';
-		}
+	}
 
 }

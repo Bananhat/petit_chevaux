@@ -11,4 +11,4 @@ typedef struct {
   int actif;
 }  cheval;
 
-int deplacement(int *coord_y, int *coord_x, int val_D, cheval cheval, char plateau[15][15]); // on utilise des pointeurs pour modifier directement les valeurs de coord_x ET coord_y
+int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15]); // on utilise des pointeurs pour modifier directement les valeurs de coord_x ET coord_y

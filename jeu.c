@@ -106,7 +106,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
                 while(getchar() != '\n'); // vide le cache
                 if(reponse == 'o')
                 {
-                  sortir_chevaux(&n_joueur, joueur_courant, plateau);
+                  sortir_chevaux(&indice_joueur, joueur_courant, plateau);
                 }
               else
               {

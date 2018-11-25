@@ -11,7 +11,6 @@ void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char
   {
     etat_joueur->impossible_sortir_chevaux = 1;
   }
-  else
   {
     etat_joueur->impossible_sortir_chevaux = 0;
   }
@@ -102,7 +101,7 @@ void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
   p_joueur->liste_chevaux[n_cheval-1].actif = 1;
 
 }
-void sortir_chevaux(int * n_joueur, joueur *p_joueur, char plateau[][15])
+void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15])
 {
 
     int n_cheval;
@@ -115,8 +114,12 @@ void sortir_chevaux(int * n_joueur, joueur *p_joueur, char plateau[][15])
     } while(p_joueur->liste_chevaux[n_cheval-1].actif == 1 || n_cheval > 4);
       // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
       ajouter_cheval_actif(p_joueur, n_cheval, plateau);
-        //  *n_joueur -= 1; // rejoueras
-}
+      *indice_joueur -= 1; // rejoueras
+      printf("Vous pouvez re-jouer !   \n");
+    }
+
+
+
 // FIN FONCTION DE PLACEMENT
 //------------------------------------------------------------------------------------
 
@@ -130,4 +133,5 @@ void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur
   liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
   //(*cheval).case_x = (*cheval).case_ecurie_x;
   liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
+  liste_joueur[player].liste_chevaux[nom].actif = 0;
 }
