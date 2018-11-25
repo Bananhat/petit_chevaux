@@ -46,10 +46,7 @@ int nb_chevaux(joueur *p_joueur)
   int incr=0;
     for (int i =0; i<4; i++)
     {
-      if(p_joueur->liste_chevaux[i].actif ==1)
-      {
-          incr+=1;
-      }
+      incr+=p_joueur->liste_chevaux[i].actif;
   }
   return incr;
 }
