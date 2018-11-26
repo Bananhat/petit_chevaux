@@ -4,7 +4,7 @@
 #include "headers/interface.h"
 
 
-int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15])
+int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15], int* final)
 {
 	int incr=1;
 	int valide = 1;
@@ -30,7 +30,13 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 		}
 
 
-		if (plateau[*coord_x][*coord_y] == '7' || plateau[*coord_x][*coord_y] == cheval.couleur) //on verifie qu'il n'y ai personne
+
+		if (*coord_x == cheval.case_fin_x && *coord_y == cheval.case_fin_y)  {
+				printf("CEST PASSE\n");
+				*final = 1;
+				valide = 3;
+		}
+		else if (plateau[*coord_x][*coord_y] == '7' || plateau[*coord_x][*coord_y] == cheval.couleur) //on verifie qu'il n'y ai personne
 		{
 			incr++;
 		}
@@ -39,10 +45,6 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 			valide = 2;
 			incr++;
 	  	}
-	// else if (x= j.case_debut_x && y=case_debut_y)
-	// x = x_case_numerote_init
-		// y = y_case_numerote_init
-		// valide=2
 		else//si on doit chevaucher un adversaire
 		{
 			printf("PAS BON!\n");
@@ -67,40 +69,51 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 
 	int *coord_x = &p_j->liste_chevaux[n_cheval-1].case_x;
 	int *coord_y = &p_j->liste_chevaux[n_cheval-1].case_y;
+	int *final = &p_j->liste_chevaux[n_cheval-1].final;
 		// if cheval[n_cheval] est dans la liste des chevaux actif
-	int valide = deplacement(coord_y, coord_x, old_y, old_x, val_D, p_j->liste_chevaux[n_cheval-1], plateau); // deplacement et modifications des coordonnées
+	printf("final = %d\n", *final);
 
-	// else si il est dans la case numerote
-	// valide = deplacement_case_numerote...
-	if (valide == 0) // si il ne peut pas se deplacer c'est déjà gerer
+	if (*final != 1) {
+		int valide = deplacement(coord_y, coord_x, old_y, old_x, val_D, p_j->liste_chevaux[n_cheval-1], plateau, final); // deplacement et modifications des coordonnées
+
+		if (valide == 0) // si il ne peut pas se deplacer c'est déjà gerer
+			{
+				printf("Vous ne pouvez pas vous deplacer ..\n");
+			}
+		else //sinon on lui demande si il est sur de vouloir se deplacer en simulant son deplacement
 		{
-			printf("Vous ne pouvez pas vous deplacer ..\n");
-		}
-
-	else //sinon on lui demande si il est sur de vouloir se deplacer en simulant son deplacement
-	{
-			plateau[old_x][old_y] = '7';
-			if(joueur_valide_deplacement(plateau, liste_joueur)) // si c'est bon on fait les tests et on delace
-			{
+				plateau[old_x][old_y] = '7';
 				if (valide == 2)
+						{
+							eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
+							printf("Vous avez éjecté un cheval !\n");
+						}
+				else {
+					if(joueur_valide_deplacement(plateau, liste_joueur) && valide) // si c'est bon on fait les tests et on delace
 					{
-						eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
-						printf("Vous avez éjecté un cheval !\n");
+								printf("Vous vous êtes deplacer..\n");
 					}
-				// else if(valide == 3) {}
-				else
+					else // sinon on remet à 7 la ou la simulation a été faites, et on le deplace a la pos de départ
 					{
-						printf("Vous vous êtes deplacer..\n");
-
+						plateau[*coord_x][*coord_y] = '7';
+						*coord_x = old_x;
+						*coord_y = old_y;
 					}
-			}
-			else // sinon on remet à 7 la ou la simulation a été faites, et on le deplace a la pos de départ
-			{
-				plateau[*coord_x][*coord_y] = '7';
-				*coord_x = old_x;
-				*coord_y = old_y;
-			}
-
+				}
+		}
+	}
+	else {
+		printf("Cheval_test x = %d\n", p_j->liste_chevaux[n_cheval-1].case_x);
+		printf("Cheval_test y = %d\n", p_j->liste_chevaux[n_cheval-1].case_y);
+		printf("Cheval_test final = %d\n", p_j->liste_chevaux[n_cheval-1].final);
+		printf("old_x = %d\n", old_x);
+		printf("old_y = %d\n", old_y);
+		deplacement_final(plateau, old_x, old_y, &(p_j->liste_chevaux[n_cheval-1]));
+		/* Le cheval a gagné :
+		if (p_j->liste_chevaux[n_cheval-1].case_x == 7 && p_j->liste_chevaux[n_cheval-1].case_y == 7) {
+			// Fonction victoire()
+		}
+		*/
 	}
 
 }

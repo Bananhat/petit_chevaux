@@ -132,3 +132,56 @@ void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur
   liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
   liste_joueur[player].liste_chevaux[nom].actif = 0;
 }
+
+void replace_case(char plateau[][15], int pos_x, int pos_y, char next_case) {
+  if (next_case == '1') {
+    plateau[pos_x][pos_y] = '7';
+  }
+  else if (next_case == '2') {
+    plateau[pos_x][pos_y] = '1';
+  }
+  else if (next_case == '3') {
+    plateau[pos_x][pos_y] = '2';
+  }
+  else if (next_case == '4') {
+    plateau[pos_x][pos_y] = '3';
+  }
+  else if (next_case == '5') {
+    plateau[pos_x][pos_y] = '4';
+  }
+  else if (next_case == '6') {
+    plateau[pos_x][pos_y] = '5';
+  }
+  else if (next_case == '8') {
+    plateau[pos_x][pos_y] = '6';
+  }
+  else {
+    printf("RIEN\n");
+  }
+}
+
+void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval) {
+  if(cheval->couleur == 'j') {
+    cheval->case_y+=1;
+    replace_case(plateau, pos_x, pos_y, plateau[pos_x][pos_y+1]);
+    plateau[pos_x][pos_y+1] = cheval->couleur;
+  }
+  else if(cheval->couleur == 'b') {
+    cheval->case_x+=1;
+    replace_case(plateau, pos_x, pos_y, plateau[pos_x+1][pos_y]);
+    plateau[pos_x+1][pos_y] = cheval->couleur;
+  }
+  else if(cheval->couleur == 'v') {
+    cheval->case_x-=1;
+    replace_case(plateau, pos_x, pos_y, plateau[pos_x-1][pos_y]);
+    plateau[pos_x-1][pos_y] = cheval->couleur;
+  }
+  else if(cheval->couleur == 'r') {
+    cheval->case_y-=1;
+    replace_case(plateau, pos_x, pos_y, plateau[pos_x][pos_y-1]);
+    plateau[pos_x][pos_y-1] = cheval->couleur;
+  }
+
+  printf("cheval x = %d\n", cheval->case_x);
+  printf("cheval y = %d\n", cheval->case_y);
+}
