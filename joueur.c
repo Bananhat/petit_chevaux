@@ -21,7 +21,7 @@ int search_player(joueur liste_joueur[4], char couleur) {
       return i;
     }
   }
-  return 0;
+  return -1;
 }
 
 char search_char_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
@@ -38,7 +38,7 @@ char search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
       return liste_joueur[player].liste_chevaux[i].numero - 1;
     }
   }
-  return 0;
+  return -1;
 }
 
 int nb_chevaux(joueur *p_joueur)
@@ -96,9 +96,9 @@ void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
   p_joueur->liste_chevaux[n_cheval-1].case_x =  p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
   p_joueur->liste_chevaux[n_cheval-1].case_y =   p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
   p_joueur->liste_chevaux[n_cheval-1].actif = 1;
-
 }
-void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15])
+
+void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
 {
 
     int n_cheval;
@@ -107,13 +107,27 @@ void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15])
       printf("Quel numero de cheval ? :");
       scanf("%d", &n_cheval);
       while(getchar()!='\n');
-
     } while(p_joueur->liste_chevaux[n_cheval-1].actif == 1 || n_cheval > 4);
-      // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
+    // ON EJECTE LES CHEVAUX PRESENTS SUR CETTE CASE SAUF SI C'EST SA COULEUR
+    int debut_x = p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
+    int debut_y = p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
+    char couleur = p_joueur->liste_chevaux[n_cheval-1].couleur;
+    printf("Case debut x = %d\n", debut_x);
+    printf("Case debut y = %d\n", debut_y);
+    printf("Couleur = %d\n", couleur);
+    if(plateau[debut_x][debut_y] != couleur && plateau[debut_x][debut_y] != '7') {
+      eject_cheval(plateau, plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);
+    }
+    // On ajoute le cheval sauf si il a gagné
+    if (p_joueur->liste_chevaux[n_cheval-1].case_x != 7 && p_joueur->liste_chevaux[n_cheval-1].case_y != 7) {
       ajouter_cheval_actif(p_joueur, n_cheval, plateau);
       *indice_joueur -= 1; // rejoueras
       printf("Vous pouvez re-jouer !   \n");
     }
+    else {
+      printf("Vous avez déja gagné avec ce cheval !\n");
+    }
+}
 
 
 
@@ -125,12 +139,16 @@ void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15])
 // fonction qui ejecte un cheval quand un joueur arrive pile dessus
 void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur liste_joueur[])
 {
-  int player = search_player(liste_joueur, couleur);
-  int nom = search_number(liste_joueur, player, pos_x, pos_y);
-  liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
-  //(*cheval).case_x = (*cheval).case_ecurie_x;
-  liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
-  liste_joueur[player].liste_chevaux[nom].actif = 0;
+  int player = -1, nom = -1;
+  // On éjecte tous les chevaux de cette case (si il y en a plusieurs)
+  do {
+    player = search_player(liste_joueur, couleur);
+    nom = search_number(liste_joueur, player, pos_x, pos_y);
+    liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
+    //(*cheval).case_x = (*cheval).case_ecurie_x;
+    liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
+    liste_joueur[player].liste_chevaux[nom].actif = 0;
+  } while(player != -1 && nom != -1);
 }
 
 void replace_case(char plateau[][15], int pos_x, int pos_y, char next_case) {
@@ -155,8 +173,10 @@ void replace_case(char plateau[][15], int pos_x, int pos_y, char next_case) {
   else if (next_case == '8') {
     plateau[pos_x][pos_y] = '6';
   }
+  // Il y a 1 cheval sur la case
   else {
-    printf("RIEN\n");
+    // VOIR COMMENT GERER SI UN CHEVAL DEVANT
+    plateau[pos_x][pos_y] = '6'; // temporaire
   }
 }
 
@@ -184,4 +204,20 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval)
 
   printf("cheval x = %d\n", cheval->case_x);
   printf("cheval y = %d\n", cheval->case_y);
+}
+
+void cheval_victoire(char plateau[][15], cheval* cheval) {
+  printf("Ce cheval a terminé la partie !\n");
+  cheval->actif = 0;
+}
+
+int test_victoire(joueur* joueur_courant) {
+  int victoire = 0;
+  for(int i = 0; i < 4; i++) {
+    if(joueur_courant->liste_chevaux[i].case_x == '7' && joueur_courant->liste_chevaux[i].case_y == '7') {
+        victoire++;
+    }
+  }
+  printf("victoire = %d\n", victoire);
+  return victoire;
 }

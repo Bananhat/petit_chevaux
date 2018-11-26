@@ -84,14 +84,15 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 		{
 				plateau[old_x][old_y] = '7';
 				if (valide == 2)
-						{
-							eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
-							printf("Vous avez éjecté un cheval !\n");
-						}
-				else {
+				{
+					eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
+					printf("Vous avez éjecté un cheval !\n");
+				}
+				else
+				{
 					if(joueur_valide_deplacement(plateau, liste_joueur) && valide) // si c'est bon on fait les tests et on delace
 					{
-								printf("Vous vous êtes deplacer..\n");
+						printf("Vous vous êtes deplacer..\n");
 					}
 					else // sinon on remet à 7 la ou la simulation a été faites, et on le deplace a la pos de départ
 					{
@@ -109,11 +110,10 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 		printf("old_x = %d\n", old_x);
 		printf("old_y = %d\n", old_y);
 		deplacement_final(plateau, old_x, old_y, &(p_j->liste_chevaux[n_cheval-1]));
-		/* Le cheval a gagné :
+		// Le cheval a gagné :
 		if (p_j->liste_chevaux[n_cheval-1].case_x == 7 && p_j->liste_chevaux[n_cheval-1].case_y == 7) {
-			// Fonction victoire()
+			cheval_victoire(plateau, &(p_j->liste_chevaux[n_cheval-1]));
 		}
-		*/
 	}
 
 }

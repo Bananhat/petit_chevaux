@@ -106,7 +106,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
                 while(getchar() != '\n'); // vide le cache
                 if(reponse == 'o')
                 {
-                  sortir_chevaux(&indice_joueur, joueur_courant, plateau);
+                  sortir_chevaux(&indice_joueur, joueur_courant, plateau, liste_joueur);
                 }
               else
               {
@@ -137,7 +137,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
                 while(getchar() != '\n'); // vide le cache
                 if(reponse == 'o')
                   {
-                  sortir_chevaux(&n_joueur, joueur_courant, plateau);
+                  sortir_chevaux(&n_joueur, joueur_courant, plateau, liste_joueur);
                   }
                 else // si il ne veut pas sortir de cheval, il se deplace donc..
                   {
@@ -160,11 +160,18 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
         refresh(liste_joueur, plateau);
 
         }
-        indice_joueur+=1;
-        n_joueur=liste_couleurs[indice_joueur%nb_joueur];
 
-        joueur_courant = &liste_joueur[n_joueur];
-        printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
-
+        // On test si le joueur a gagné (possiblement à revoir)
+        if(test_victoire(joueur_courant) == 4) {
+          // A REVOIR (faire des conditions pour afficher la couleur complète)
+          printf("Le joueur %s remporte la partie !", couleur[n_joueur]);
+          reponse = 's';
+        }
+        else {
+          indice_joueur+=1;
+          n_joueur=liste_couleurs[indice_joueur%nb_joueur];
+          joueur_courant = &liste_joueur[n_joueur];
+          printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
+        }
   }
 }
