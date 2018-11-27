@@ -141,14 +141,15 @@ void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur
 {
   int player = -1, nom = -1;
   // On éjecte tous les chevaux de cette case (si il y en a plusieurs)
+  player = search_player(liste_joueur, couleur);
   do {
-    player = search_player(liste_joueur, couleur);
     nom = search_number(liste_joueur, player, pos_x, pos_y);
-    liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
-    //(*cheval).case_x = (*cheval).case_ecurie_x;
-    liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
-    liste_joueur[player].liste_chevaux[nom].actif = 0;
-  } while(player != -1 && nom != -1);
+    if (nom >= 0 && nom <=3) {
+      liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
+      liste_joueur[player].liste_chevaux[nom].case_y = liste_joueur[player].liste_chevaux[nom].case_ecurie_y;
+      liste_joueur[player].liste_chevaux[nom].actif = 0;
+    }
+  } while(nom != -1);
 }
 
 void replace_case(char plateau[][15], int pos_x, int pos_y, char next_case) {
