@@ -80,6 +80,22 @@ void refresh(joueur liste_joueur[4], char plateau[15][15])
         {
           printf((FOND_PURPLE"   "RESET));
         }
+        else if (plateau[i][j] == 'c')
+        {
+          printf((FOND_BLUE"   "RESET));
+        }
+        else if (plateau[i][j] == 's')
+        {
+          printf((FOND_RED"   "RESET));
+        }
+        else if (plateau[i][j] == 'w')
+        {
+          printf((FOND_GREEN"   "RESET));
+        }
+        else if (plateau[i][j] == 'k')
+        {
+          printf((FOND_YELLOW"   "RESET));
+        }
         else
         {
           printf(" %c ", plateau[i][j]);
