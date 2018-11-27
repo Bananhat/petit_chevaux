@@ -8,10 +8,12 @@
 #define YELLOW  "\x1b[33m"
 #define BLUE    "\x1b[34m"
 #define RESET   "\x1b[0m"
+#define RESET1  "\e[0m"
 #define FOND_BLACK "\x1b[40m"
 #define FOND_RED "\x1b[41m"
 #define FOND_GREEN "\x1b[42m"
-#define FOND_YELLOW "\x1b[43m"
+#define FOND_YELLOW "\e[48;5;214m"
+#define FOND_YELLOW1 "\e[48;5;214m"
 #define FOND_BLUE "\x1b[44m"
 #define FOND_PURPLE "\x1b[45m"
 #define FOND_WHITE "\x1b[47m"
@@ -94,7 +96,7 @@ void refresh(joueur liste_joueur[4], char plateau[15][15])
         }
         else if (plateau[i][j] == 'k')
         {
-          printf((FOND_YELLOW"   "RESET));
+          printf((FOND_YELLOW1"   "RESET1));
         }
         else
         {
