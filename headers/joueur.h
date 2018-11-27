@@ -22,7 +22,7 @@ void placer_chevaux(cheval liste_chevaux[4], int x, int y);
 void placer_chevaux_joueurs(joueur liste_joueur[]);
 void init_chevaux_dans_ecurie(joueur liste_joueur[], cheval c1, cheval c2, cheval c3, cheval c4, int num);
 void deplacement_test(char plateau[15][15], joueur * p_j, int val_D, joueur liste_joueur[]);
-void sortir_chevaux(int* indice_joueur, joueur *p_joueur, char plateau[][15], joueur liste_joueur[]);
+void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[]);
 void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15]);
 
 int search_player(joueur liste_joueur[4], char couleur);

@@ -92,6 +92,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
         getchar();
 
         val_D = lancer_de();
+
         printf("Le joueur %s a fais un %d\n", couleur[n_joueur], val_D);
 
         if(nb_chevaux(joueur_courant) == 0)
@@ -99,6 +100,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
         {
           if(val_D == 6)
           {
+              indice_joueur-=1;
               if(etat_joueur.impossible_sortir_chevaux == 0)
               {
                 printf("Voulez vous sortir un nouveau cheval ? (o/n) : "); // PENSER A METTRE CE GENRE DE SCANF DANS UNE FONCTION DANS INTERFACE
@@ -106,7 +108,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
                 while(getchar() != '\n'); // vide le cache
                 if(reponse == 'o')
                 {
-                  sortir_chevaux(&indice_joueur, joueur_courant, plateau, liste_joueur);
+                  sortir_chevaux(joueur_courant, plateau, liste_joueur);
                 }
               else
               {
@@ -129,7 +131,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
 
           if(val_D == 6) //si le joueur fait un 6
           {
-            n_joueur-=1; // rejoueras
+            indice_joueur-=1; // rejoueras
             if(etat_joueur.impossible_sortir_chevaux == 0)
             {
                 printf("Voulez vous sortir un nouveau cheval ? (o/n) : ");
@@ -137,7 +139,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
                 while(getchar() != '\n'); // vide le cache
                 if(reponse == 'o')
                   {
-                  sortir_chevaux(&n_joueur, joueur_courant, plateau, liste_joueur);
+                  sortir_chevaux(joueur_courant, plateau, liste_joueur);
                   }
                 else // si il ne veut pas sortir de cheval, il se deplace donc..
                   {
@@ -146,7 +148,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
               }
               else
               {
-                printf("Tu as déjà un cheval à la position de départ\n");
+                printf("Tu ne peux pas sortir de cheval\n");
                 deplacement_test(plateau, joueur_courant, val_D, liste_joueur);
               }
         }

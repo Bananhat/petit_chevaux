@@ -6,14 +6,18 @@
 // FONCTIONS CALCULS
 void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15])
 {
-  if(plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y]!='7'
-  && plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y] != joueur_courant->couleur)
+
+  if( (plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y]!='7'
+    && plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y] != joueur_courant->couleur)
+  || nb_chevaux(joueur_courant) == 4)
   {
     etat_joueur->impossible_sortir_chevaux = 1;
   }
+  else
   {
     etat_joueur->impossible_sortir_chevaux = 0;
   }
+
 }
 int search_player(joueur liste_joueur[4], char couleur) {
   for(int i = 0; i < 4; i++) {
@@ -98,7 +102,7 @@ void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
   p_joueur->liste_chevaux[n_cheval-1].actif = 1;
 }
 
-void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
+void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
 {
 
     int n_cheval;
@@ -121,7 +125,6 @@ void sortir_chevaux(int * indice_joueur, joueur *p_joueur, char plateau[][15], j
     // On ajoute le cheval sauf si il a gagné
     if (p_joueur->liste_chevaux[n_cheval-1].case_x != 7 && p_joueur->liste_chevaux[n_cheval-1].case_y != 7) {
       ajouter_cheval_actif(p_joueur, n_cheval, plateau);
-      *indice_joueur -= 1; // rejoueras
       printf("Vous pouvez re-jouer !   \n");
     }
     else {
