@@ -33,7 +33,6 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
   cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,6,0,3,3,7,0,'j', '4',0,0};
   init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chevaux dans la main du joueur
 
-
   cheval b1 = {liste_joueur[BLEU].liste_chevaux[0].case_x, liste_joueur[BLEU].liste_chevaux[0].case_y, 1, 0, 8, 2, 11, 0, 7, 'b', '1',0,0};
   cheval b2 = {liste_joueur[BLEU].liste_chevaux[1].case_x, liste_joueur[BLEU].liste_chevaux[1].case_y, 2, 0, 8, 3, 11, 0, 7, 'b', '2',0,0};
   cheval b3 = {liste_joueur[BLEU].liste_chevaux[2].case_x,liste_joueur[BLEU].liste_chevaux[2].case_y,3,0,8,2,12,0,7,'b', '3',0,0};

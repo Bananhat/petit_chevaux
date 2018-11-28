@@ -73,7 +73,7 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 		// if cheval[n_cheval] est dans la liste des chevaux actif
 	printf("final = %d\n", *final);
 
-	if (*final != 1) {
+	if (*final != 1 && *final != 2) {
 		int valide = deplacement(coord_y, coord_x, old_y, old_x, val_D, p_j->liste_chevaux[n_cheval-1], plateau, final); // deplacement et modifications des coordonnées
 
 		if (valide == 0) // si il ne peut pas se deplacer c'est déjà gerer

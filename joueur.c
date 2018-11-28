@@ -6,7 +6,6 @@
 // FONCTIONS CALCULS
 void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15])
 {
-
   if( (plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y]!='7'
     && plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y] != joueur_courant->couleur)
   || nb_chevaux(joueur_courant) == 4)
@@ -205,6 +204,7 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval)
     replace_case(plateau, pos_x, pos_y, plateau[pos_x][pos_y-1]);
     plateau[pos_x][pos_y-1] = cheval->couleur;
   }
+  cheval->final = 2;
 
   printf("cheval x = %d\n", cheval->case_x);
   printf("cheval y = %d\n", cheval->case_y);
@@ -218,7 +218,7 @@ void cheval_victoire(char plateau[][15], cheval* cheval) {
 int test_victoire(joueur* joueur_courant) {
   int victoire = 0;
   for(int i = 0; i < 4; i++) {
-    if(joueur_courant->liste_chevaux[i].case_x == '7' && joueur_courant->liste_chevaux[i].case_y == '7') {
+    if(joueur_courant->liste_chevaux[i].final == 2) {
         victoire++;
     }
   }
