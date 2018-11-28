@@ -26,7 +26,6 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
   placer_chevaux_joueurs(liste_joueur);
 
 
-
   cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 6, 0, 2, 2, 7, 0, 'j', '1',0,0};
   cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 6, 0, 3, 2, 7, 0, 'j', '2',0,0};
   cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,6,0,2,3,7,0,'j', '3',0,0};
@@ -77,9 +76,6 @@ init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chev
                     {'w','w','w','w','w','w','7','7','7','s','s','s','s','s','s'}
                   };
 
-
-
-
    // Update le plateau avec les chevaux dans les écuries.
    update(plateau, liste_joueur);
    // Affiche le plateau
@@ -123,7 +119,7 @@ init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chev
               update(plateau, liste_joueur);
               // Affiche le plateau
               refresh(liste_joueur, plateau);
-            } 
+            }
           }
           else
           {
