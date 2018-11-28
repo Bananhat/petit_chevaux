@@ -51,6 +51,12 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
   cheval v4 = {liste_joueur[ROUGE].liste_chevaux[3].case_x,liste_joueur[ROUGE].liste_chevaux[3].case_y,4,8,14,12,12,7,14,'r', '4',0,0};
   init_chevaux_dans_ecurie(liste_joueur, v1, v2, v3, v4, ROUGE); //ajoute les chevaux dans la main du joueur
 
+/* test_victoire
+cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 8, 3, 2, 2, 7, 0, 'j', '1',0,0};
+cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 8, 4, 3, 2, 7, 0, 'j', '2',0,0};
+cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,8,5,2,3,7,0,'j', '3',0,0};
+cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,8,6,3,3,7,0,'j', '4',0,0};
+init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chevaux dans la main du joueur*/
 // fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
 
   char plateau[15][15] = {
@@ -117,7 +123,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
               update(plateau, liste_joueur);
               // Affiche le plateau
               refresh(liste_joueur, plateau);
-            }
+            } 
           }
           else
           {
@@ -165,7 +171,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
         // On test si le joueur a gagné (possiblement à revoir)
         if(test_victoire(joueur_courant) == 4) {
           // A REVOIR (faire des conditions pour afficher la couleur complète)
-          printf("Le joueur %s remporte la partie !", couleur[n_joueur]);
+          printf("Le joueur %s remporte la partie !\n", couleur[n_joueur]);
           reponse = 's';
         }
         else {

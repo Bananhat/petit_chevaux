@@ -109,7 +109,7 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 		printf("Cheval_test final = %d\n", p_j->liste_chevaux[n_cheval-1].final);
 		printf("old_x = %d\n", old_x);
 		printf("old_y = %d\n", old_y);
-		deplacement_final(plateau, old_x, old_y, &(p_j->liste_chevaux[n_cheval-1]));
+		deplacement_final(plateau, old_x, old_y, &(p_j->liste_chevaux[n_cheval-1]), val_D);
 		// Le cheval a gagné :
 		if (p_j->liste_chevaux[n_cheval-1].case_x == 7 && p_j->liste_chevaux[n_cheval-1].case_y == 7) {
 			cheval_victoire(plateau, &(p_j->liste_chevaux[n_cheval-1]));
