@@ -13,78 +13,19 @@ int lancer_de()
 }
 
 
-void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[])
+void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plateau[][15])
 {
-  int indice_joueur = rand()%nb_joueur;
-  int n_joueur=liste_couleurs[indice_joueur], val_D;
+    int indice_joueur = rand()%nb_joueur;
+    int n_joueur=liste_couleurs[indice_joueur], val_D;
 
-  etat_joueur etat_joueur = {0};
-  char reponse;
-  char couleur[][6] = {"JAUNE", "BLEU", "VERT", "ROUGE"};
-
-  // Place les chevaux dans les écuries
-  placer_chevaux_joueurs(liste_joueur);
-
-
-  cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 6, 0, 2, 2, 7, 0, 'j', '1',0,0};
-  cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 6, 0, 3, 2, 7, 0, 'j', '2',0,0};
-  cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,6,0,2,3,7,0,'j', '3',0,0};
-  cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,6,0,3,3,7,0,'j', '4',0,0};
-  init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chevaux dans la main du joueur
-
-  cheval b1 = {liste_joueur[BLEU].liste_chevaux[0].case_x, liste_joueur[BLEU].liste_chevaux[0].case_y, 1, 0, 8, 2, 11, 0, 7, 'b', '1',0,0};
-  cheval b2 = {liste_joueur[BLEU].liste_chevaux[1].case_x, liste_joueur[BLEU].liste_chevaux[1].case_y, 2, 0, 8, 3, 11, 0, 7, 'b', '2',0,0};
-  cheval b3 = {liste_joueur[BLEU].liste_chevaux[2].case_x,liste_joueur[BLEU].liste_chevaux[2].case_y,3,0,8,2,12,0,7,'b', '3',0,0};
-  cheval b4 = {liste_joueur[BLEU].liste_chevaux[3].case_x,liste_joueur[BLEU].liste_chevaux[3].case_y,4,0,8,3,12,0,7,'b', '4',0,0};
-  init_chevaux_dans_ecurie(liste_joueur, b1, b2, b3, b4, BLEU); //ajoute les chevaux dans la main du joueur
-
-  cheval t1 = {liste_joueur[VERT].liste_chevaux[0].case_x, liste_joueur[VERT].liste_chevaux[0].case_y, 1, 14, 6, 11, 2, 14, 7, 'v', '1',0,0};
-  cheval t2 = {liste_joueur[VERT].liste_chevaux[1].case_x, liste_joueur[VERT].liste_chevaux[1].case_y, 2, 14, 6, 12, 2, 14, 7, 'v', '2',0,0};
-  cheval t3 = {liste_joueur[VERT].liste_chevaux[2].case_x, liste_joueur[VERT].liste_chevaux[2].case_y, 3, 14, 6, 11, 3, 14, 7, 'v', '3',0,0};
-  cheval t4 = {liste_joueur[VERT].liste_chevaux[3].case_x, liste_joueur[VERT].liste_chevaux[3].case_y, 4, 14, 6, 12, 3, 14, 7, 'v', '4',0,0};
-  init_chevaux_dans_ecurie(liste_joueur, t1, t2, t3, t4, VERT); //ajoute les chevaux dans la main du joueur
-
-  cheval v1 = {liste_joueur[ROUGE].liste_chevaux[0].case_x, liste_joueur[ROUGE].liste_chevaux[0].case_y, 1, 8, 14, 11, 11, 7, 14, 'r', '1',0,0};
-  cheval v2 = {liste_joueur[ROUGE].liste_chevaux[1].case_x, liste_joueur[ROUGE].liste_chevaux[1].case_y, 2, 8, 14, 12, 11, 7, 14, 'r', '2',0,0};
-  cheval v3 = {liste_joueur[ROUGE].liste_chevaux[2].case_x,liste_joueur[ROUGE].liste_chevaux[2].case_y,3,8,14,11,12,7,14,'r', '3',0,0};
-  cheval v4 = {liste_joueur[ROUGE].liste_chevaux[3].case_x,liste_joueur[ROUGE].liste_chevaux[3].case_y,4,8,14,12,12,7,14,'r', '4',0,0};
-  init_chevaux_dans_ecurie(liste_joueur, v1, v2, v3, v4, ROUGE); //ajoute les chevaux dans la main du joueur
-
-/* test_victoire
-cheval j1= {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 8, 3, 2, 2, 7, 0, 'j', '1',0,0};
-cheval j2 ={liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 8, 4, 3, 2, 7, 0, 'j', '2',0,0};
-cheval j3 ={liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,8,5,2,3,7,0,'j', '3',0,0};
-cheval j4 ={liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,8,6,3,3,7,0,'j', '4',0,0};
-init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chevaux dans la main du joueur*/
-// fonction pour ajouter un cheval a la liste active et le sortir coder par arthur
-
-  char plateau[15][15] = {
-                    {'k','k','k','k','k','k','7','7','7','c','c','c','c','c','c'},
-                    {'k','0','0','0','0','k','7','1','7','c','0','0','0','0','c'},
-                    {'k','0','0','0','0','k','7','2','7','c','0','0','0','0','c'},
-                    {'k','0','0','0','0','k','7','3','7','c','0','0','0','0','c'},
-                    {'k','0','0','0','0','k','7','4','7','c','0','0','0','0','c'},
-                    {'k','k','k','k','k','k','7','5','7','c','c','c','c','c','c'},
-                    {'7','7','7','7','7','7','7','6','7','7','7','7','7','7','7'},
-                    {'7','1','2','3','4','5','6','8','6','5','4','3','2','1','7'},
-                    {'7','7','7','7','7','7','7','6','7','7','7','7','7','7','7'},
-                    {'w','w','w','w','w','w','7','5','7','s','s','s','s','s','s'},
-                    {'w','0','0','0','0','w','7','4','7','s','0','0','0','0','s'},
-                    {'w','0','0','0','0','w','7','3','7','s','0','0','0','0','s'},
-                    {'w','0','0','0','0','w','7','2','7','s','0','0','0','0','s'},
-                    {'w','0','0','0','0','w','7','1','7','s','0','0','0','0','s'},
-                    {'w','w','w','w','w','w','7','7','7','s','s','s','s','s','s'}
-                  };
-
-   // Update le plateau avec les chevaux dans les écuries.
-   update(plateau, liste_joueur);
-   // Affiche le plateau
-   refresh(liste_joueur, plateau);
+    etat_joueur etat_joueur = {0};
+    char reponse;
+    char couleur[][6] = {"JAUNE", "BLEU", "ROUGE", "VERT"};
 
     printf("LE JOUEUR %s COMMENCE \n", couleur[n_joueur]);
     joueur *joueur_courant = &liste_joueur[n_joueur];
 
-     while(/*nb_chevaux(&liste_joueur[0]) && nb_chevaux(&liste_joueur[1]) && nb_chevaux(&liste_joueur[2]) && nb_chevaux(&liste_joueur[3]) */ reponse != 's') //condition gagner par arthur
+     while(test_victoire(joueur_courant) != 4) //condition gagner
     { // boucle principale du jeu;
 
         update_etat_joueur(&etat_joueur, joueur_courant, plateau);
@@ -96,8 +37,7 @@ init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chev
 
         printf("Le joueur %s a fais un %d\n", couleur[n_joueur], val_D);
 
-        if(nb_chevaux(joueur_courant) == 0)
-      /* && chevaux_numerote(&joueur_courant) == 0*/ // si le joueur qui doit jouer n'a aucun cheval sur le plateau ou sur les cases numerotées */
+        if(nb_chevaux(joueur_courant) == 0) // si le joueur qui doit jouer n'a aucun cheval sur le plateau ou sur les cases numerotées */
         {
           if(val_D == 6)
           {
@@ -123,7 +63,7 @@ init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chev
           }
           else
           {
-              printf("Dommage.. Vous passez votre tour ! \n");
+              printf("Impossible de sortir un cheval sur cette case.. Vous passez votre tour ! \n");
           }
 
         }
@@ -168,12 +108,12 @@ init_chevaux_dans_ecurie(liste_joueur, j1, j2, j3, j4, JAUNE); //ajoute les chev
         if(test_victoire(joueur_courant) == 4) {
           // A REVOIR (faire des conditions pour afficher la couleur complète)
           printf("Le joueur %s remporte la partie !\n", couleur[n_joueur]);
-          reponse = 's';
         }
         else {
           indice_joueur+=1;
           n_joueur=liste_couleurs[indice_joueur%nb_joueur];
           joueur_courant = &liste_joueur[n_joueur];
+
           printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
         }
   }

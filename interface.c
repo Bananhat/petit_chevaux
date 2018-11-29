@@ -5,8 +5,23 @@
 #include "headers/plateau.h"
 #include "headers/interface.h"
 
+void trie_tab( int tab[], int nb_joueur)
+{
+  int tmp=0;
 
-
+  for(int i = 0; i < nb_joueur; i++)          //On veut remplir la case i du tableau
+    {
+      for(int j= i+1; j<nb_joueur; j++)    //On vérifie s'il n'y a pas de nombre inférieur
+        {                                //Dans les cases suivantes
+          if(tab[j] < tab[i])
+            {
+              tmp = tab[i];              //Si c'est le cas on intervertit les cases
+              tab[i] = tab[j];
+              tab[j] = tmp;
+            }
+        }
+    }
+}
 
 int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
   int nb_joueurs;
@@ -23,7 +38,7 @@ int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
     printf("\n-------------------------------------------------------\n");
     do {
       deja_utiliser =0;
-    printf("Choisissez votre couleur ( Rouge(r), Bleu(b), Vert(v), Jaune(j) ): ");
+    printf("Choisissez votre couleur ( Jaune(j), Bleu(b), Rouge(r), Vert(v) ): ");
     scanf("%c", &couleur_test);
     while(getchar() != '\n');
 
@@ -76,6 +91,7 @@ int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
     scanf("%s", liste_joueur[e_couleur].nom);*/
     //while(getchar() != '\n');
   }
+  trie_tab(liste_couleurs, nb_joueurs);
   printf("\n----------------------LA PARTIE COMMENCE-----------------------\n");
   return nb_joueurs;
 }

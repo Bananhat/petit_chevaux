@@ -29,10 +29,8 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
     		*coord_x-=1;
 		}
 
-
-
-		if (*coord_x == cheval.case_fin_x && *coord_y == cheval.case_fin_y)  {
-				printf("CEST PASSE\n");
+		if (*coord_x == cheval.case_fin_x && *coord_y == cheval.case_fin_y)
+		{
 				*final = 1;
 				valide = 3;
 		}
@@ -47,7 +45,6 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 	  	}
 		else//si on doit chevaucher un adversaire
 		{
-			printf("PAS BON!\n");
 			valide = 0;
 			*coord_y = old_coord_y; // on revient au point initial
 			*coord_x = old_coord_x;
@@ -71,17 +68,17 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 	int *coord_y = &p_j->liste_chevaux[n_cheval-1].case_y;
 	int *final = &p_j->liste_chevaux[n_cheval-1].final;
 		// if cheval[n_cheval] est dans la liste des chevaux actif
-	printf("final = %d\n", *final);
 
-	if (*final != 1 && *final != 2) {
+	if (*final != 1 && *final != 2)
+	{
 		int valide = deplacement(coord_y, coord_x, old_y, old_x, val_D, p_j->liste_chevaux[n_cheval-1], plateau, final); // deplacement et modifications des coordonnées
 
 		if (valide == 0) // si il ne peut pas se deplacer c'est déjà gerer
 			{
-				printf("Vous ne pouvez pas vous deplacer ..\n");
+				printf("Vous ne pouvez pas vous sauter par dessus un cheval..\n");
 			}
 		else //sinon on lui demande si il est sur de vouloir se deplacer en simulant son deplacement
-		{
+			{
 				plateau[old_x][old_y] = '7';
 				if (valide == 2)
 				{
@@ -92,7 +89,7 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 				{
 					if(joueur_valide_deplacement(plateau, liste_joueur) && valide) // si c'est bon on fait les tests et on delace
 					{
-						printf("Vous vous êtes deplacer..\n");
+						printf("Deplacement réalisé avec succès ! \n");
 					}
 					else // sinon on remet à 7 la ou la simulation a été faites, et on le deplace a la pos de départ
 					{
@@ -101,19 +98,16 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 						*coord_y = old_y;
 					}
 				}
-		}
+			}
 	}
-	else {
-		printf("Cheval_test x = %d\n", p_j->liste_chevaux[n_cheval-1].case_x);
-		printf("Cheval_test y = %d\n", p_j->liste_chevaux[n_cheval-1].case_y);
-		printf("Cheval_test final = %d\n", p_j->liste_chevaux[n_cheval-1].final);
-		printf("old_x = %d\n", old_x);
-		printf("old_y = %d\n", old_y);
+	else
+	{
 		deplacement_final(plateau, old_x, old_y, &(p_j->liste_chevaux[n_cheval-1]), val_D);
 		// Le cheval a gagné :
-		if (p_j->liste_chevaux[n_cheval-1].case_x == 7 && p_j->liste_chevaux[n_cheval-1].case_y == 7) {
+		// FONCTION A MODIFIER POUR DESACTIVER LES CHEVAUX QUI NE PEUVENT PLUS BOUGER
+	/*	if (p_j->liste_chevaux[n_cheval-1].case_x == 7 && p_j->liste_chevaux[n_cheval-1].case_y == 7) {
 			cheval_victoire(plateau, &(p_j->liste_chevaux[n_cheval-1]));
-		}
+		}*/
 	}
 
 }
