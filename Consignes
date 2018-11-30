@@ -1,6 +1,6 @@
 Documenation (dans le .h):
 
-/** 
+/**
 *Retourne la somme de 2 entiers
 *@param nb1 premier nb
 *....
@@ -16,11 +16,20 @@ strucutre du projet (module)
 strucutre de donnes
 propret" code = 1 fonction => 1 role uniquement => nommage=> Documentaiton
 => absence de repetition....
+=> attention a a la complexité
+=> sortir condition dans une autre fonction (qui verifie couleur par exemple) si plein de fonction
 
 Respect normes/standar
 Implementaiton commplete
 Coherence Interface
 
+#ifndef INTERFACE_H
+#define AFFICHAGE_H
+//DECLARATIONS
+#endif
+
+Si majuscule entre 2 mots pour separer les noms => il faut s'y tenir !!
+valorsier les regles a l'oral! (genre _ entre chaque noms)
 Oral:
 preparer jeux dessai pour demonstration (reprise sauvegarde de parties commencé)
 Montrer les fonctionnalités/les points importants du code

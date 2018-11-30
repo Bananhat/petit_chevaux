@@ -125,3 +125,15 @@ int jouer_valide_numeroCheval(joueur * p_j)
   } while(p_j->liste_chevaux[n_cheval-1].actif != 1 || n_cheval>4);
   return n_cheval;
 }
+
+int joueur_valide_cheval_sortir(joueur p_joueur)
+{
+int n_cheval;
+do
+{
+  printf("Quel numero de cheval ? :");
+  scanf("%d", &n_cheval);
+  while(getchar()!='\n');
+} while(p_joueur.liste_chevaux[n_cheval-1].actif == 1 || n_cheval > 4);
+return n_cheval;
+}

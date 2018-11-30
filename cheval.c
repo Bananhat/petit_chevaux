@@ -36,7 +36,7 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 	while(incr <= val_D && valide==1)
 	{
 
-		if ( (*coord_x == 0 && 6 <= *coord_y&&*coord_y <=7) || (*coord_x==6 && 8 <= *coord_y&&*coord_y <= 13) || (0<=*coord_y&&*coord_y<= 5 && *coord_x == 6) )
+		if ( (*coord_x == 0 && 6 <= *coord_y && *coord_y <=7) || (*coord_x==6 && 8 <= *coord_y&&*coord_y <= 13) || (0<=*coord_y&&*coord_y<= 5 && *coord_x == 6) )
 		{
 			*coord_y+=1;
 		}
@@ -55,7 +55,7 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 
 		valide = validation_deplacement(coord_x, coord_y, val_D, plateau,cheval, &incr, old_coord_x, old_coord_y, final);
 
-}
+	}
 
  return valide;
 
@@ -115,4 +115,34 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 		}*/
 	}
 
+}
+
+void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
+{
+
+    int n_cheval;
+    n_cheval = joueur_valide_cheval_sortir(*p_joueur);
+
+    // ON EJECTE LES CHEVAUX PRESENTS SUR CETTE CASE SAUF SI C'EST SA COULEUR
+    int debut_x = p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
+    int debut_y = p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
+    char couleur = p_joueur->liste_chevaux[n_cheval-1].couleur;
+  /*  printf("Case debut x = %d\n", debut_x);
+    printf("Case debut y = %d\n", debut_y);
+    printf("Couleur = %d\n", couleur);
+  */
+    if(plateau[debut_x][debut_y] != couleur && plateau[debut_x][debut_y] != '7')
+    {
+      eject_cheval(plateau, plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);
+    }
+    // On ajoute le cheval sauf si il a gagné
+    if (p_joueur->liste_chevaux[n_cheval-1].case_x != 7 && p_joueur->liste_chevaux[n_cheval-1].case_y != 7)
+    {
+      ajouter_cheval_actif(p_joueur, n_cheval, plateau);
+      printf("Vous pouvez re-jouer !   \n");
+    }
+    else
+    {
+      printf("Vous avez déja gagné avec ce cheval !\n");
+    }
 }

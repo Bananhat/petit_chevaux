@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "headers/joueur.h"
-
 //------------------------------------------------------------------------------------
 // FONCTIONS CALCULS
 void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15])
@@ -42,7 +41,8 @@ char search_char_number(joueur liste_joueur[4], int player, int pos_x, int pos_y
   }
   return nom;
 }
-int search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
+int search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y)
+{
   int numero=-1;
   for(int i = 0; i < 4; i++)
   {
@@ -148,41 +148,6 @@ void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
   p_joueur->liste_chevaux[n_cheval-1].actif = 1;
 }
 
-void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
-{
-
-    int n_cheval;
-    do
-    {
-      printf("Quel numero de cheval ? :");
-      scanf("%d", &n_cheval);
-      while(getchar()!='\n');
-    } while(p_joueur->liste_chevaux[n_cheval-1].actif == 1 || n_cheval > 4);
-    // ON EJECTE LES CHEVAUX PRESENTS SUR CETTE CASE SAUF SI C'EST SA COULEUR
-    int debut_x = p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
-    int debut_y = p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
-    char couleur = p_joueur->liste_chevaux[n_cheval-1].couleur;
-  /*  printf("Case debut x = %d\n", debut_x);
-    printf("Case debut y = %d\n", debut_y);
-    printf("Couleur = %d\n", couleur);
-  */
-    if(plateau[debut_x][debut_y] != couleur && plateau[debut_x][debut_y] != '7')
-    {
-      eject_cheval(plateau, plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);
-    }
-    // On ajoute le cheval sauf si il a gagné
-    if (p_joueur->liste_chevaux[n_cheval-1].case_x != 7 && p_joueur->liste_chevaux[n_cheval-1].case_y != 7)
-    {
-      ajouter_cheval_actif(p_joueur, n_cheval, plateau);
-      printf("Vous pouvez re-jouer !   \n");
-    }
-    else
-    {
-      printf("Vous avez déja gagné avec ce cheval !\n");
-    }
-}
-
-
 
 // FIN FONCTION DE PLACEMENT
 //------------------------------------------------------------------------------------
@@ -229,7 +194,7 @@ void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D,
   }
 
 }
-
+// Sortric condition dans une autre fonction
 int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][15])
 {
   int cheval_present=0;
@@ -290,30 +255,37 @@ int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int v
 }
 
 
+int numero_case(cheval cheval, int pos_x, int pos_y){
+  int num=0;
+  if(cheval.couleur == 'j' || cheval.couleur == 'r')
+  {
+    num = abs(7 - (7 - pos_y));
+  }
+  else if (cheval.couleur == 'v' || cheval.couleur == 'b')
+  {
+    num = abs(7 - (7 - pos_x));
+  }
+  return num;
+}
 
 void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D)
 {
 
   char tab_result[7] = {'7','1','2','3','4','5','6'};
-  int num = 0;
+  int num;
 
   if (check_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0 && cheval_present(pos_x, pos_y, val_D, *cheval, plateau) == 0)
   {
 
-    if(cheval->couleur == 'j' || cheval -> couleur == 'r')
-    {
-      num = abs(7 - (7 - pos_y));
-    }
-    else if (cheval->couleur == 'v' || cheval -> couleur == 'b')
-    {
-      num = abs(7 - (7 - pos_x));
-    }
+    num = numero_case(*cheval, pos_x, pos_y);
 
     if(cheval->couleur == 'j')
     {
       plateau[pos_x][cheval->case_y+=val_D] = cheval->couleur;
       cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num+val_D, pos_x, plateau);
     }
+
+//-------------------
     else if(cheval->couleur == 'b')
     {
       plateau[cheval->case_x+=val_D][pos_y] = cheval->couleur;
@@ -331,8 +303,6 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
       cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num, pos_x, plateau);
 
     }
-
-
 
     plateau[pos_x][pos_y] = tab_result[num];
     cheval->final = 2;
