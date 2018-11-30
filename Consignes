@@ -1,0 +1,26 @@
+Documenation (dans le .h):
+
+/** 
+*Retourne la somme de 2 entiers
+*@param nb1 premier nb
+*....
+@reutrn la somme **/
+int somme()
+
+
+
+Consignens
+
+points important:
+strucutre du projet (module)
+strucutre de donnes
+propret" code = 1 fonction => 1 role uniquement => nommage=> Documentaiton
+=> absence de repetition....
+
+Respect normes/standar
+Implementaiton commplete
+Coherence Interface
+
+Oral:
+preparer jeux dessai pour demonstration (reprise sauvegarde de parties commencé)
+Montrer les fonctionnalités/les points importants du code

@@ -40,3 +40,5 @@ int search_player(joueur liste_joueur[4], char couleur);
 int search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y);
 void init_chevaux(joueur liste_joueur[]);
 void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D, int num, int pos_2, char plateau[][15]);
+
+int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][15]);

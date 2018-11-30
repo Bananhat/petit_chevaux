@@ -3,7 +3,31 @@
 #include "headers/plateau.h"
 #include "headers/interface.h"
 
-
+int validation_deplacement(int *coord_x, int *coord_y, int val_D, char plateau[][15],cheval cheval, int *incr, int old_coord_x, int old_coord_y, int*final)
+{
+	int valide=1;
+	if (*coord_x == cheval.case_fin_x && *coord_y == cheval.case_fin_y)
+	{
+			*final = 1;
+			valide = 3;
+	}
+	else if (plateau[*coord_x][*coord_y] == '7' || plateau[*coord_x][*coord_y] == cheval.couleur) //on verifie qu'il n'y ai personne
+	{
+		*incr+=1;
+	}
+	else if (*incr == val_D) //si on doit ejecter quelqu'un
+	{
+		valide = 2;
+		*incr+=1;
+		}
+	else//si on doit chevaucher un adversaire
+	{
+		valide = 0;
+		*coord_y = old_coord_y; // on revient au point initial
+		*coord_x = old_coord_x;
+	}
+	return valide;
+}
 int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15], int* final)
 {
 	int incr=1;
@@ -29,26 +53,7 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
     		*coord_x-=1;
 		}
 
-		if (*coord_x == cheval.case_fin_x && *coord_y == cheval.case_fin_y)
-		{
-				*final = 1;
-				valide = 3;
-		}
-		else if (plateau[*coord_x][*coord_y] == '7' || plateau[*coord_x][*coord_y] == cheval.couleur) //on verifie qu'il n'y ai personne
-		{
-			incr++;
-		}
-		else if (incr == val_D) //si on doit ejecter quelqu'un
-		{
-			valide = 2;
-			incr++;
-	  	}
-		else//si on doit chevaucher un adversaire
-		{
-			valide = 0;
-			*coord_y = old_coord_y; // on revient au point initial
-			*coord_x = old_coord_x;
-		}
+		valide = validation_deplacement(coord_x, coord_y, val_D, plateau,cheval, &incr, old_coord_x, old_coord_y, final);
 
 }
 

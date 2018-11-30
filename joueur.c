@@ -230,6 +230,31 @@ void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D,
 
 }
 
+int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][15])
+{
+  int cheval_present=0;
+  for(int i=1; i<=val_D;i++)
+  {
+    if (cheval.couleur=='j' && plateau[pos1][pos2+i] == 'j')
+    {
+      cheval_present=1;
+    }
+    else if (cheval.couleur=='b' && plateau[pos1+i][pos2] == 'b')
+    {
+      cheval_present=1;
+    }
+    else if (cheval.couleur=='r'  && plateau[pos1-i][pos2] == 'r')
+    {
+      cheval_present=1;
+    }
+    else if (cheval.couleur=='v'  && plateau[pos1][pos2-i] == 'v')
+    {
+      cheval_present=1;
+    }
+
+  }
+  return cheval_present;
+}
 int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D)
 {
   int obstacle_cheval=0;
@@ -272,7 +297,7 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
   char tab_result[7] = {'7','1','2','3','4','5','6'};
   int num = 0;
 
-  if (check_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0)
+  if (check_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0 && cheval_present(pos_x, pos_y, val_D, *cheval, plateau) == 0)
   {
 
     if(cheval->couleur == 'j' || cheval -> couleur == 'r')
