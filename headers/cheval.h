@@ -15,3 +15,4 @@ typedef struct {
 
 int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15], int* final); // on utilise des pointeurs pour modifier directement les valeurs de coord_x ET coord_y
 int validation_deplacement(int *coord_x, int *coord_y, int val_D, char plateau[][15],cheval cheval, int *incr, int old_coord_x, int old_coord_y, int *final);
+void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D);

@@ -31,7 +31,7 @@ char search_char_number(joueur liste_joueur[4], int player, int pos_x, int pos_y
 
 void update_etat_joueur(etat_joueur * etat_joueur, joueur * jouer_courant, char plateau[][15]);
 void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur liste_joueur[]);
-void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D);
+
 
 int test_victoire(joueur* joueur_courant);
 
@@ -42,4 +42,5 @@ void init_chevaux(joueur liste_joueur[]);
 void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D, int num, int pos_2, char plateau[][15]);
 
 int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][15]);
+int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D);
 int numero_case(cheval cheval, int pos_x, int pos_y);

@@ -105,20 +105,20 @@ void placer_chevaux_joueurs(joueur liste_joueur[])
 
 void init_chevaux(joueur liste_joueur[])
 {
-      /*
+
         cheval c1 = {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 6, 0, 2, 2, 7, 0, 'j', '1',0,0};
         cheval c2 = {liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 6, 0, 3, 2, 7, 0, 'j', '2',0,0};
         cheval c3 = {liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,6,0,2,3,7,0,'j', '3',0,0};
         cheval c4 = {liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,6,0,3,3,7,0,'j', '4',0,0};
         init_chevaux_dans_ecurie(liste_joueur, c1, c2, c3, c4, JAUNE  );
-        */
 
+          /* Tester fonction victoire joueur Jaune
           cheval c1 = {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 8, 2, 2, 2, 7, 0, 'j', '1',0,0};
           cheval c2 = {liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 8, 3, 3, 2, 7, 0, 'j', '2',0,0};
           cheval c3 = {liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,8,4,4,3,7,0,'j', '3',0,0};
           cheval c4 = {liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,8,5,5,3,7,0,'j', '4',0,0};
           init_chevaux_dans_ecurie(liste_joueur, c1, c2, c3, c4, JAUNE  );
-
+          */
 
          cheval d1 = {liste_joueur[BLEU].liste_chevaux[0].case_x, liste_joueur[BLEU].liste_chevaux[0].case_y, 1, 0, 8, 2, 11, 0, 7, 'b', '1',0,0};
          cheval d2 = {liste_joueur[BLEU].liste_chevaux[1].case_x, liste_joueur[BLEU].liste_chevaux[1].case_y, 2, 0, 8, 3, 11, 0, 7, 'b', '2',0,0};
@@ -268,47 +268,7 @@ int numero_case(cheval cheval, int pos_x, int pos_y){
   return num;
 }
 
-void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D)
-{
 
-  char tab_result[7] = {'7','1','2','3','4','5','6'};
-  int num;
-
-  if (check_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0 && cheval_present(pos_x, pos_y, val_D, *cheval, plateau) == 0)
-  {
-
-    num = numero_case(*cheval, pos_x, pos_y);
-
-    if(cheval->couleur == 'j')
-    {
-      plateau[pos_x][cheval->case_y+=val_D] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num+val_D, pos_x, plateau);
-    }
-
-//-------------------
-    else if(cheval->couleur == 'b')
-    {
-      plateau[cheval->case_x+=val_D][pos_y] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_x+val_D, cheval, val_D, num, pos_y, plateau);
-    }
-    else if(cheval->couleur == 'v')
-    {
-      plateau[cheval->case_x-=val_D][pos_y] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_x-val_D, cheval, val_D, num, pos_y, plateau);
-
-    }
-    else if(cheval->couleur == 'r')
-    {
-      plateau[pos_x][cheval->case_y-=val_D] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num, pos_x, plateau);
-
-    }
-
-    plateau[pos_x][pos_y] = tab_result[num];
-    cheval->final = 2;
-  }
-
-}
 /* FONCTION A CHANGER EN DESACTIVER CHEVAUX
 void cheval_victoire(char plateau[][15], cheval* cheval) {
   printf("Ce cheval a terminé la partie !\n");

@@ -22,7 +22,7 @@ int main(void)
 
 
     int nb_joueur = init_partie(liste_joueur, liste_couleurs);
-  
+
     // Place les chevaux dans les écuries
     placer_chevaux_joueurs(liste_joueur);
     init_chevaux(liste_joueur);

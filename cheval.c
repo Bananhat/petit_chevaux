@@ -101,6 +101,7 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 						plateau[*coord_x][*coord_y] = '7';
 						*coord_x = old_x;
 						*coord_y = old_y;
+						*final =0;
 					}
 				}
 			}
@@ -114,6 +115,48 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 			cheval_victoire(plateau, &(p_j->liste_chevaux[n_cheval-1]));
 		}*/
 	}
+
+}
+
+void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D)
+{
+
+  char tab_result[7] = {'7','1','2','3','4','5','6'};
+  int num;
+
+  if (check_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0 && cheval_present(pos_x, pos_y, val_D, *cheval, plateau) == 0)
+  {
+
+    num = numero_case(*cheval, pos_x, pos_y);
+
+    if(cheval->couleur == 'j')
+    {
+      plateau[pos_x][cheval->case_y+=val_D] = cheval->couleur;
+      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num+val_D, pos_x, plateau);
+    }
+
+//-------------------
+    else if(cheval->couleur == 'b')
+    {
+      plateau[cheval->case_x+=val_D][pos_y] = cheval->couleur;
+      cheval_inactif_case_numerote(pos_x+val_D, cheval, val_D, num, pos_y, plateau);
+    }
+    else if(cheval->couleur == 'v')
+    {
+      plateau[cheval->case_x-=val_D][pos_y] = cheval->couleur;
+      cheval_inactif_case_numerote(pos_x-val_D, cheval, val_D, num, pos_y, plateau);
+
+    }
+    else if(cheval->couleur == 'r')
+    {
+      plateau[pos_x][cheval->case_y-=val_D] = cheval->couleur;
+      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num, pos_x, plateau);
+
+    }
+
+    plateau[pos_x][pos_y] = tab_result[num];
+    cheval->final = 2;
+  }
 
 }
 
