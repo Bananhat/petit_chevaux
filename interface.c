@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "headers/plateau.h"
+#include "headers/sauvegarde.h"
 #include "headers/interface.h"
 
 void trie_tab( int tab[], int nb_joueur)

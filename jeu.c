@@ -15,7 +15,7 @@ int lancer_de()
 
 void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plateau[][15])
 {
-    
+
     int indice_joueur = rand()%nb_joueur;
     int n_joueur=liste_couleurs[indice_joueur], val_D;
 

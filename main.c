@@ -3,8 +3,8 @@
 #include <time.h>
 
 
-
 #include "headers/plateau.h"
+#include "headers/sauvegarde.h"
 #include "headers/jeu.h"
 #include "headers/interface.h"
 
@@ -19,13 +19,6 @@ int main(void)
     {
       liste_joueur[i].couleur = 0;
     }
-
-
-    int nb_joueur = init_partie(liste_joueur, liste_couleurs);
-
-    // Place les chevaux dans les écuries
-    placer_chevaux_joueurs(liste_joueur);
-    init_chevaux(liste_joueur);
 
     //Initialisation du plateau de Jeu.
     char plateau[15][15] = {
@@ -45,6 +38,29 @@ int main(void)
                       {'w','0','0','0','0','w','7','1','7','s','0','0','0','0','s'},
                       {'w','w','w','w','w','w','7','7','7','s','s','s','s','s','s'}
                     };
+
+
+    int nb_joueur = init_partie(liste_joueur, liste_couleurs);
+    // Place les chevaux dans les écuries
+    placer_chevaux_joueurs(liste_joueur);
+    init_chevaux(liste_joueur);
+
+
+    // TODO: POUVOIR RECUPERER LES INFOS DE LA PARTIE AVANT D'INIT LA PARTIE ET AMELIORER SAUVEGARDE
+    char charger;
+    printf("Voulez vous charger une partie ? (o/n) :");
+    scanf("%c", &charger);
+
+    if(charger == 'o') {
+      char path[50];
+      printf("Entrez le chemin du fichier de sauvegarde : ");
+      scanf("%s", path);
+      recup_sauvegarde(liste_joueur, path, plateau);
+    }
+
+    // sauvegarde la partie
+    // sauvegarde_partie(plateau, "test.txt", liste_joueur);
+
 
      // Update le plateau avec les chevaux dans les écuries.
      update(plateau, liste_joueur);
