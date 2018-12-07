@@ -109,11 +109,6 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 	else
 	{
 		deplacement_final(plateau, old_x, old_y, &(p_j->liste_chevaux[n_cheval-1]), val_D);
-		// Le cheval a gagné :
-		// FONCTION A MODIFIER POUR DESACTIVER LES CHEVAUX QUI NE PEUVENT PLUS BOUGER
-	/*	if (p_j->liste_chevaux[n_cheval-1].case_x == 7 && p_j->liste_chevaux[n_cheval-1].case_y == 7) {
-			cheval_victoire(plateau, &(p_j->liste_chevaux[n_cheval-1]));
-		}*/
 	}
 
 }
@@ -132,7 +127,7 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
     if(cheval->couleur == 'j')
     {
       plateau[pos_x][cheval->case_y+=val_D] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num+val_D, pos_x, plateau);
+      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num+val_D, pos_x, plateau); //rend inactif le cheval si besoin est
     }
 
 //-------------------
@@ -170,10 +165,7 @@ void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
     int debut_x = p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
     int debut_y = p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
     char couleur = p_joueur->liste_chevaux[n_cheval-1].couleur;
-  /*  printf("Case debut x = %d\n", debut_x);
-    printf("Case debut y = %d\n", debut_y);
-    printf("Couleur = %d\n", couleur);
-  */
+
     if(plateau[debut_x][debut_y] != couleur && plateau[debut_x][debut_y] != '7')
     {
       eject_cheval(plateau, plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);

@@ -5,6 +5,7 @@
 #include "headers/plateau.h"
 #include "headers/jeu.h"
 #include "headers/interface.h"
+#include "headers/sauvegarde.h"
 
 int lancer_de()
 {
@@ -18,6 +19,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
 
     int indice_joueur = rand()%nb_joueur;
     int n_joueur=liste_couleurs[indice_joueur], val_D;
+    int exit=0;
 
     etat_joueur etat_joueur = {0};
     char reponse;
@@ -26,13 +28,12 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
     printf("LE JOUEUR %s COMMENCE \n", couleur[n_joueur]);
     joueur *joueur_courant = &liste_joueur[n_joueur];
 
-     while(test_victoire(joueur_courant) != 4) //condition gagner
+     while(test_victoire(joueur_courant) != 4 && exit!=1) //condition gagner
     { // boucle principale du jeu;
 
         update_etat_joueur(&etat_joueur, joueur_courant, plateau);
 
-        printf("Lancer le dé ...");
-        getchar();
+
 
         val_D = lancer_de();
 
@@ -103,7 +104,8 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
         // Affiche le plateau
         refresh(liste_joueur, plateau);
 
-        }
+      }
+
 
         // On test si le joueur a gagné (possiblement à revoir)
         if(test_victoire(joueur_courant) == 4) {
@@ -117,5 +119,14 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
 
           printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
         }
+        printf("Lancer le dé ...");
+        if(getchar() == 's')
+        {
+          exit=1;
+        }
   }
+char nom_fichier[15];
+printf("Entrez le nom du fichier de sauvegarde : ");
+scanf("%s", nom_fichier);
+sauvegarde_partie(plateau, nom_fichier, liste_joueur, nb_joueur, liste_couleurs);
 }

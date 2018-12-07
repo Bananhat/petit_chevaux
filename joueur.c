@@ -112,14 +112,6 @@ void init_chevaux(joueur liste_joueur[])
         cheval c4 = {liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,6,0,3,3,7,0,'j', '4',0,0};
         init_chevaux_dans_ecurie(liste_joueur, c1, c2, c3, c4, JAUNE  );
 
-          /* Tester fonction victoire joueur Jaune
-          cheval c1 = {liste_joueur[JAUNE].liste_chevaux[0].case_x, liste_joueur[JAUNE].liste_chevaux[0].case_y, 1, 8, 2, 2, 2, 7, 0, 'j', '1',0,0};
-          cheval c2 = {liste_joueur[JAUNE].liste_chevaux[1].case_x, liste_joueur[JAUNE].liste_chevaux[1].case_y, 2, 8, 3, 3, 2, 7, 0, 'j', '2',0,0};
-          cheval c3 = {liste_joueur[JAUNE].liste_chevaux[2].case_x,liste_joueur[JAUNE].liste_chevaux[2].case_y,3,8,4,4,3,7,0,'j', '3',0,0};
-          cheval c4 = {liste_joueur[JAUNE].liste_chevaux[3].case_x,liste_joueur[JAUNE].liste_chevaux[3].case_y,4,8,5,5,3,7,0,'j', '4',0,0};
-          init_chevaux_dans_ecurie(liste_joueur, c1, c2, c3, c4, JAUNE  );
-          */
-
          cheval d1 = {liste_joueur[BLEU].liste_chevaux[0].case_x, liste_joueur[BLEU].liste_chevaux[0].case_y, 1, 0, 8, 2, 11, 0, 7, 'b', '1',0,0};
          cheval d2 = {liste_joueur[BLEU].liste_chevaux[1].case_x, liste_joueur[BLEU].liste_chevaux[1].case_y, 2, 0, 8, 3, 11, 0, 7, 'b', '2',0,0};
          cheval d3 = {liste_joueur[BLEU].liste_chevaux[2].case_x,liste_joueur[BLEU].liste_chevaux[2].case_y,3,0,8,2,12,0,7,'b', '3',0,0};
@@ -173,7 +165,7 @@ void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur
 
 void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D, int num, int pos_2, char plateau[][15])
 {
-  printf("entree\n");
+  
   int i=num+1;
   int personne=0;
 
@@ -189,7 +181,6 @@ void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D,
 
   if(personne==0)
   {
-    printf("okkk\n");
     cheval->actif=0;
   }
 
@@ -220,6 +211,7 @@ int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][
   }
   return cheval_present;
 }
+
 int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D)
 {
   int obstacle_cheval=0;
@@ -268,12 +260,6 @@ int numero_case(cheval cheval, int pos_x, int pos_y){
   return num;
 }
 
-
-/* FONCTION A CHANGER EN DESACTIVER CHEVAUX
-void cheval_victoire(char plateau[][15], cheval* cheval) {
-  printf("Ce cheval a terminé la partie !\n");
-  cheval->actif = 0;
-}*/
 
 int test_victoire(joueur* joueur_courant)
 {

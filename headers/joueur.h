@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef JOUEUR_H
+#define JOUEUR_H
+
 #include "cheval.h"
 
 typedef enum {JAUNE, BLEU, ROUGE, VERT} couleur_enum;
@@ -44,3 +45,5 @@ void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D,
 int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][15]);
 int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D);
 int numero_case(cheval cheval, int pos_x, int pos_y);
+
+#endif

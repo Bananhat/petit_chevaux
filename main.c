@@ -7,6 +7,7 @@
 #include "headers/sauvegarde.h"
 #include "headers/jeu.h"
 #include "headers/interface.h"
+#include "headers/cheval.h"
 
 int main(void)
 {
@@ -58,10 +59,8 @@ int main(void)
       nb_joueur = init_partie(liste_joueur, liste_couleurs);
       // Place les chevaux dans les écuries
       placer_chevaux_joueurs(liste_joueur);
-      char path[] = "test.txt";
+
       // Update le plateau avec les chevaux dans les écuries.
-      update(plateau, liste_joueur);
-      sauvegarde_partie(plateau, path, liste_joueur, nb_joueur, liste_couleurs);
     }
 
     // Update le plateau avec les chevaux dans les écuries.

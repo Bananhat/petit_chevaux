@@ -112,6 +112,9 @@ int joueur_valide_deplacement(char plateau[][15], joueur liste_joueur[])
 		{
 			choix_return = 1;
 		}
+    else if(choix=='s'){
+      choix_return=2;
+    }
 		return choix_return;
 }
 
