@@ -1,3 +1,3 @@
-void sauvegarde_partie(char plateau[][15], char nom[30], joueur liste_joueur[]);
+void sauvegarde_partie(char plateau[][15], char nom[30], joueur liste_joueur[], int nb_joueurs, int liste_couleurs[4]);
 
-void recup_sauvegarde(joueur liste_joueur[], char nom[30], char plateau[][15]);
+int recup_sauvegarde(joueur liste_joueur[], char nom[30], char plateau[][15], int liste_couleurs[4]);
