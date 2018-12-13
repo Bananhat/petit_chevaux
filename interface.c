@@ -87,10 +87,7 @@ int init_partie(joueur liste_joueur[], int liste_couleurs[]) {
       }
     }
   } while( (couleur_test != 'r' && couleur_test != 'v' && couleur_test != 'b' && couleur_test != 'j') || deja_utiliser==1);
-/*
-    printf("Entrez votre nom : ");
-    scanf("%s", liste_joueur[e_couleur].nom);*/
-    //while(getchar() != '\n');
+
   }
   trie_tab(liste_couleurs, nb_joueurs);
   printf("\n----------------------LA PARTIE COMMENCE-----------------------\n");
@@ -112,9 +109,12 @@ int joueur_valide_deplacement(char plateau[][15], joueur liste_joueur[])
 		{
 			choix_return = 1;
 		}
-    else if(choix=='s'){
+    else if (choix == 's')
+    {
       choix_return=2;
     }
+    while(getchar() != '\n'){};
+
 		return choix_return;
 }
 

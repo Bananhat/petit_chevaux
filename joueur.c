@@ -18,7 +18,8 @@ void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char
 
 }
 
-int search_player(joueur liste_joueur[4], char couleur) {
+int search_player(joueur liste_joueur[4], char couleur)
+{
   int indice=-1;
   for(int i = 0; i < 4; i++)
   {
@@ -147,7 +148,7 @@ void ajouter_cheval_actif(joueur *p_joueur, int n_cheval, char plateau[][15])
 
 //------------------------------------------------------------------------------------
 // fonction qui ejecte un cheval quand un joueur arrive pile dessus
-void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur liste_joueur[])
+void eject_cheval(char couleur, int pos_x, int pos_y, joueur liste_joueur[])
 {
   int player = -1, nom = -1;
   // On éjecte tous les chevaux de cette case (si il y en a plusieurs)
@@ -163,10 +164,10 @@ void eject_cheval(char plateau[][15], char couleur, int pos_x, int pos_y, joueur
   } while(nom != -1);
 }
 
-void cheval_inactif_case_numerote(int position_apres, cheval *cheval, int val_D, int num, int pos_2, char plateau[][15])
+void cheval_inactif_case_numerote(cheval *cheval,int num, int pos_2, char plateau[][15])
 {
-  
-  int i=num+1;
+
+  int i=num;
   int personne=0;
 
   while(personne==0 && i<=6) //rend inactif si quelqu'un devant lui ou la fin (i==6 a la fin)
@@ -215,34 +216,22 @@ int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][
 int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D)
 {
   int obstacle_cheval=0;
-  if(cheval->couleur == 'j')
-  {
-    if(plateau[pos_x][pos_y+val_D] == cheval->couleur || pos_y+val_D>6)
+  if(cheval->couleur == 'j'&& pos_y+val_D>6)
     {
        obstacle_cheval=1;
     }
-  }
-  else if(cheval->couleur == 'b')
-  {
-    if(plateau[pos_x+val_D][pos_y] == cheval->couleur || pos_x+val_D > 6)
+  else if(cheval->couleur == 'b' && pos_x+val_D > 6)
     {
        obstacle_cheval= 1;
     }
-  }
-  else if(cheval->couleur == 'v')
-  {
-    if(plateau[pos_x-val_D][pos_y] == cheval->couleur || pos_x-val_D > 6)
+  else if(cheval->couleur == 'v' && pos_x-val_D > 6)
     {
        obstacle_cheval=1;
     }
-  }
-  else if(cheval->couleur == 'r')
-  {
-    if(plateau[pos_x][pos_y-val_D] == cheval->couleur || pos_y-val_D>6)
+  else if(cheval->couleur == 'r' && pos_y-val_D>6)
     {
        obstacle_cheval=1;
     }
-  }
   return  obstacle_cheval;
 }
 

@@ -119,7 +119,9 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
 
           printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
         }
+
         printf("Lancer le dé ...");
+
         if(getchar() == 's')
         {
           exit=1;

@@ -87,7 +87,7 @@ void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_
 				plateau[old_x][old_y] = '7';
 				if (valide == 2)
 				{
-					eject_cheval(plateau, plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
+					eject_cheval(plateau[*coord_x][*coord_y], *coord_x, *coord_y, liste_joueur);
 					printf("Vous avez éjecté un cheval !\n");
 				}
 				else
@@ -127,25 +127,25 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
     if(cheval->couleur == 'j')
     {
       plateau[pos_x][cheval->case_y+=val_D] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num+val_D, pos_x, plateau); //rend inactif le cheval si besoin est
+      cheval_inactif_case_numerote(cheval, num+val_D, pos_x, plateau); //rend inactif le cheval si besoin est
     }
 
 //-------------------
     else if(cheval->couleur == 'b')
     {
       plateau[cheval->case_x+=val_D][pos_y] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_x+val_D, cheval, val_D, num, pos_y, plateau);
+      cheval_inactif_case_numerote(cheval, num+val_D, pos_y, plateau);
     }
     else if(cheval->couleur == 'v')
     {
       plateau[cheval->case_x-=val_D][pos_y] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_x-val_D, cheval, val_D, num, pos_y, plateau);
+      cheval_inactif_case_numerote(cheval, num+val_D, pos_y, plateau);
 
     }
     else if(cheval->couleur == 'r')
     {
       plateau[pos_x][cheval->case_y-=val_D] = cheval->couleur;
-      cheval_inactif_case_numerote(pos_y+val_D, cheval, val_D, num, pos_x, plateau);
+      cheval_inactif_case_numerote(cheval, num+val_D, pos_x, plateau);
 
     }
 
@@ -168,7 +168,7 @@ void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
 
     if(plateau[debut_x][debut_y] != couleur && plateau[debut_x][debut_y] != '7')
     {
-      eject_cheval(plateau, plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);
+      eject_cheval(plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);
     }
     // On ajoute le cheval sauf si il a gagné
     if (p_joueur->liste_chevaux[n_cheval-1].case_x != 7 && p_joueur->liste_chevaux[n_cheval-1].case_y != 7)
