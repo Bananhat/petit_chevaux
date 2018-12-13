@@ -65,7 +65,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
           }
           else
           {
-              printf("Impossible de sortir un cheval sur cette case.. Vous passez votre tour ! \n");
+              printf("Impossible de sortir un cheval.. Vous passez votre tour ! \n");
           }
 
         }
