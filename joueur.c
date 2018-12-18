@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "headers/joueur.h"
+#include "headers/interface.h"
 //------------------------------------------------------------------------------------
 // FONCTIONS CALCULS
 void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15])
