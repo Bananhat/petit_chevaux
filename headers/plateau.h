@@ -24,8 +24,18 @@
 #define TEST "\e[4;34m"
 
 
+/**
+*Met à jour la position des chevaux sur le plateau
+*@param1 plateau de jeu
+*@param2 liste des joueurs
+**/
 void update(char plateau[][15], joueur liste_joueur[4]);
-void refresh(joueur liste_joueur[4], char plateau[15][15]);
+/**
+*Affiche le plateau dans la console avec les différentes couleurs
+*@param1 liste des joueurs
+*@param2 plateau de jeu
+**/
+void refresh(joueur liste_joueur[4], char plateau[][15]);
 
 
 
