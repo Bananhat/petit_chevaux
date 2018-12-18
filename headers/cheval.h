@@ -15,33 +15,33 @@ typedef struct {
 
 /**
 *Déplace le cheval sur le plateau en fonction des coordonnées du plateau de jeu
-*@param1, @param2 coordoonées du cheval
-*@param3,@param4 coordonnées du cheval avant son déplacement
-*@param5 valeur du dé
-*@param6 cheval qui va subir le déplacement
-@param7 plateau de jeu
-@param8 variable qui indique si le cheval est sur les cases numérotées
+*@param, @param coordoonées du cheval
+*@param,@param coordonnées du cheval avant son déplacement
+*@param valeur du dé
+*@param cheval qui va subir le déplacement
+@param plateau de jeu
+@param variable qui indique si le cheval est sur les cases numérotées
 @return la validité final du déplacement sous forme d'un entier qui peut prendre 3 valeurs (0,1,2)
 **/
 int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15], int* final); // on utilise des pointeurs pour modifier directement les valeurs de coord_x ET coord_y
 /**
 *Vérifie si un déplacement sur une case donnée est valide
-*@param1, @param2 coordoonées du cheval
-*@param3 valeur du dé
-*@param4 plateau de jeu
-*@param5 cheval qui va subir le déplacement
-@param6 variable qui indique le nombre déplacement
-*@param7,@param8 coordonnées du cheval avant son déplacement
-@param9 variable qui indique si le cheval est sur les cases numérotées
+*@param, @param coordoonées du cheval
+*@param valeur du dé
+*@param plateau de jeu
+*@param cheval qui va subir le déplacement
+@param variable qui indique le nombre déplacement
+*@param,@param coordonnées du cheval avant son déplacement
+*@param variable qui indique si le cheval est sur les cases numérotées
 @return la validité de chaque déplacements sous forme d'un entier qui peut prendre 3 valeurs (0,1,2)
 **/
 int validation_deplacement(int *coord_x, int *coord_y, int val_D, char plateau[][15],cheval cheval, int *incr, int old_coord_x, int old_coord_y, int *final);
 /**
 *Permet le déplacement du cheval sur les cases numérotées
-*@param1 plateau de jeu
-*@param2,@param3 coordoonées du cheval
-*@param4 cheval courant
-*@param5 valeur du dé
+*@param plateau de jeu
+*@param,@param coordoonées du cheval
+*@param cheval courant
+*@param valeur du dé
 **/
 void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D);
 

@@ -28,6 +28,8 @@ int validation_deplacement(int *coord_x, int *coord_y, int val_D, char plateau[]
 	}
 	return valide;
 }
+
+
 int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15], int* final)
 {
 	int incr=1;
@@ -129,8 +131,6 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
       plateau[pos_x][cheval->case_y+=val_D] = cheval->couleur;
       cheval_inactif_case_numerote(cheval, num+val_D, pos_x, plateau); //rend inactif le cheval si besoin est
     }
-
-//-------------------
     else if(cheval->couleur == 'b')
     {
       plateau[cheval->case_x+=val_D][pos_y] = cheval->couleur;
@@ -146,7 +146,6 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
     {
       plateau[pos_x][cheval->case_y-=val_D] = cheval->couleur;
       cheval_inactif_case_numerote(cheval, num+val_D, pos_x, plateau);
-
     }
 
     plateau[pos_x][pos_y] = tab_result[num];
