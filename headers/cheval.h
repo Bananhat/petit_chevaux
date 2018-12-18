@@ -25,7 +25,7 @@ typedef struct {
 **/
 int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, int val_D, cheval cheval, char plateau[][15], int* final); // on utilise des pointeurs pour modifier directement les valeurs de coord_x ET coord_y
 /**
-*Vérifie si un déplacemen@param8 variable qui indique si le cheval est sur les cases numérotéest sur une case donnée est valide
+*Vérifie si un déplacement sur une case donnée est valide
 *@param1, @param2 coordoonées du cheval
 *@param3 valeur du dé
 *@param4 plateau de jeu
@@ -36,6 +36,13 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 @return la validité de chaque déplacements sous forme d'un entier qui peut prendre 3 valeurs (0,1,2)
 **/
 int validation_deplacement(int *coord_x, int *coord_y, int val_D, char plateau[][15],cheval cheval, int *incr, int old_coord_x, int old_coord_y, int *final);
+/**
+*Permet le déplacement du cheval sur les cases numérotées
+*@param1 plateau de jeu
+*@param2,@param3 coordoonées du cheval
+*@param4 cheval courant
+*@param5 valeur du dé
+**/
 void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval, int val_D);
 
 #endif
