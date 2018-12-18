@@ -154,30 +154,3 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
   }
 
 }
-
-void sortir_chevaux(joueur *p_joueur, char plateau[][15], joueur liste_joueur[])
-{
-
-    int n_cheval;
-    n_cheval = joueur_valide_cheval_sortir(*p_joueur);
-
-    // ON EJECTE LES CHEVAUX PRESENTS SUR CETTE CASE SAUF SI C'EST SA COULEUR
-    int debut_x = p_joueur->liste_chevaux[n_cheval-1].case_debut_x;
-    int debut_y = p_joueur->liste_chevaux[n_cheval-1].case_debut_y;
-    char couleur = p_joueur->liste_chevaux[n_cheval-1].couleur;
-
-    if(plateau[debut_x][debut_y] != couleur && plateau[debut_x][debut_y] != '7')
-    {
-      eject_cheval(plateau[debut_x][debut_y], debut_x, debut_y, liste_joueur);
-    }
-    // On ajoute le cheval sauf si il a gagné
-    if (p_joueur->liste_chevaux[n_cheval-1].case_x != 7 && p_joueur->liste_chevaux[n_cheval-1].case_y != 7)
-    {
-      ajouter_cheval_actif(p_joueur, n_cheval, plateau);
-      printf("Vous pouvez re-jouer !   \n");
-    }
-    else
-    {
-      printf("Vous avez déja gagné avec ce cheval !\n");
-    }
-}
