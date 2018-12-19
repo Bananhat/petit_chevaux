@@ -100,9 +100,9 @@ int joueur_valide_deplacement(char plateau[][15], joueur liste_joueur[])
 		char choix;
 		int choix_return = 0;
     // Update le plateau avec les chevaux dans les écuries.
-    update(plateau, liste_joueur);
+    mettre_a_jour(plateau, liste_joueur);
     // Affiche le plateau
-    refresh(liste_joueur, plateau);
+    rafraichir(liste_joueur, plateau);
 		printf("Voici votre position apres un deplacement ? \n Etes vous sur de vouloir vous deplacer (o/n) : ");
 		scanf("%c", &choix);
 		if (choix == 'o')
@@ -118,7 +118,7 @@ int joueur_valide_deplacement(char plateau[][15], joueur liste_joueur[])
 		return choix_return;
 }
 
-int jouer_valide_numeroCheval(joueur * p_j)
+int joueur_valide_numeroCheval(joueur p_j)
 {
   int n_cheval;
   do
@@ -126,7 +126,7 @@ int jouer_valide_numeroCheval(joueur * p_j)
     printf("Le quel voulez vous deplacer ? : (1,2,3,4)");
     scanf("%d", &n_cheval);
     while(getchar() != '\n');
-  } while(p_j->liste_chevaux[n_cheval-1].actif != 1 || n_cheval>4);
+  } while(p_j.liste_chevaux[n_cheval-1].actif != 1 || n_cheval>4);
   return n_cheval;
 }
 

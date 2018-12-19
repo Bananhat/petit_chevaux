@@ -4,7 +4,7 @@
 #include "headers/interface.h"
 //------------------------------------------------------------------------------------
 // FONCTIONS CALCULS
-void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15])
+void mettre_a_jour_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char plateau[][15])
 {
   if( (plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y]!='7'
     && plateau[joueur_courant->liste_chevaux[0].case_debut_x][joueur_courant->liste_chevaux[0].case_debut_y] != joueur_courant->couleur)
@@ -19,7 +19,7 @@ void update_etat_joueur(etat_joueur * etat_joueur, joueur * joueur_courant, char
 
 }
 
-int search_player(joueur liste_joueur[4], char couleur)
+int cherche_indice_joueur(joueur liste_joueur[4], char couleur)
 {
   int indice=-1;
   for(int i = 0; i < 4; i++)
@@ -32,7 +32,7 @@ int search_player(joueur liste_joueur[4], char couleur)
   return indice;
 }
 
-char search_char_number(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
+char cherche_numero_cheval_caractere(joueur liste_joueur[4], int player, int pos_x, int pos_y) {
   char nom=0;
   for(int i = 0; i < 4; i++)
   {
@@ -43,7 +43,7 @@ char search_char_number(joueur liste_joueur[4], int player, int pos_x, int pos_y
   }
   return nom;
 }
-int search_number(joueur liste_joueur[4], int player, int pos_x, int pos_y)
+int cherhce_numero_cheval_entier(joueur liste_joueur[4], int player, int pos_x, int pos_y)
 {
   int numero=-1;
   for(int i = 0; i < 4; i++)
@@ -180,9 +180,9 @@ void eject_cheval(char couleur, int pos_x, int pos_y, joueur liste_joueur[])
 {
   int player = -1, nom = -1;
   // On éjecte tous les chevaux de cette case (si il y en a plusieurs)
-  player = search_player(liste_joueur, couleur);
+  player = cherche_indice_joueur(liste_joueur, couleur);
   do {
-      nom = search_number(liste_joueur, player, pos_x, pos_y);
+      nom = cherhce_numero_cheval_entier(liste_joueur, player, pos_x, pos_y);
       if (nom >= 0 && nom <=3)
       {
         liste_joueur[player].liste_chevaux[nom].case_x = liste_joueur[player].liste_chevaux[nom].case_ecurie_x;
@@ -241,7 +241,7 @@ int cheval_present(int pos1, int pos2, int val_D, cheval cheval, char plateau[][
   return cheval_present;
 }
 
-int check_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D)
+int test_obstacle_cheval(char plateau[][15], int pos_x, int pos_y, cheval *cheval, int val_D)
 {
   int obstacle_cheval=0;
   if(cheval->couleur == 'j'&& pos_y+val_D>6)

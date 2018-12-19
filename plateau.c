@@ -4,7 +4,7 @@
 
 
 // Update les positions des chevaux sur le plateau
-void update(char plateau[][15], joueur liste_joueur[4])
+void mettre_a_jour(char plateau[][15], joueur liste_joueur[4])
 {
   // (Peut être optimisé pour ne boucler que sur le nombre précis de joueurs et donc plus besoin de test avant de bouger les chevaux)
   for(int i = 0; i < 4; i++)
@@ -21,7 +21,7 @@ void update(char plateau[][15], joueur liste_joueur[4])
 }
 
 // Affiche le plateau
-void refresh(joueur liste_joueur[4], char plateau[15][15])
+void rafraichir(joueur liste_joueur[4], char plateau[15][15])
 {
   char nom;
   int player;
@@ -31,26 +31,26 @@ void refresh(joueur liste_joueur[4], char plateau[15][15])
     {
         if (plateau[i][j] == 'r')
         {
-          player = search_player(liste_joueur, 'r');
-          nom = search_char_number(liste_joueur, player, i, j);
+          player = cherche_indice_joueur(liste_joueur, 'r');
+          nom = cherche_numero_cheval_caractere(liste_joueur, player, i, j);
           printf((FOND_RED" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'j')
         {
-          player = search_player(liste_joueur, 'j');
-          nom = search_char_number(liste_joueur, player, i, j);
+          player = cherche_indice_joueur(liste_joueur, 'j');
+          nom = cherche_numero_cheval_caractere(liste_joueur, player, i, j);
           printf((FOND_YELLOW" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'b')
         {
-          player = search_player(liste_joueur, 'b');
-          nom = search_char_number(liste_joueur, player, i, j);
+          player = cherche_indice_joueur(liste_joueur, 'b');
+          nom = cherche_numero_cheval_caractere(liste_joueur, player, i, j);
           printf((FOND_BLUE" %c "RESET),nom);
         }
         else if (plateau[i][j] == 'v')
         {
-          player = search_player(liste_joueur, 'v');
-          nom = search_char_number(liste_joueur, player, i, j);
+          player = cherche_indice_joueur(liste_joueur, 'v');
+          nom = cherche_numero_cheval_caractere(liste_joueur, player, i, j);
           printf((FOND_GREEN" %c "RESET),nom);
         }
         else if (plateau[i][j] == '0')

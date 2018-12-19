@@ -64,9 +64,9 @@ int main(void)
     }
 
     // Update le plateau avec les chevaux dans les écuries.
-    update(plateau, liste_joueur);
+    mettre_a_jour(plateau, liste_joueur);
     // Affiche le plateau
-    refresh(liste_joueur, plateau);
+    rafraichir(liste_joueur, plateau);
     printf("\n\n");
     jeu(liste_joueur, nb_joueur,liste_couleurs, plateau);
 

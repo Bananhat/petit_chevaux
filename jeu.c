@@ -31,7 +31,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
      while(test_victoire(joueur_courant) != 4 && exit!=1) //condition gagner
     { // boucle principale du jeu;
 
-        update_etat_joueur(&etat_joueur, joueur_courant, plateau);
+        mettre_a_jour_etat_joueur(&etat_joueur, joueur_courant, plateau);
 
 
 
@@ -58,9 +58,9 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
                 printf("Alors vous passez votre tour....\n");
               }
               // Update le plateau avec les chevaux dans les écuries.
-              update(plateau, liste_joueur);
+              mettre_a_jour(plateau, liste_joueur);
               // Affiche le plateau
-              refresh(liste_joueur, plateau);
+              rafraichir(liste_joueur, plateau);
             }
           }
           else
@@ -100,9 +100,9 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
           deplacement_test(plateau, joueur_courant, val_D, liste_joueur);
         }
         // Update le plateau avec les chevaux dans les écuries.
-        update(plateau, liste_joueur);
+        mettre_a_jour(plateau, liste_joueur);
         // Affiche le plateau
-        refresh(liste_joueur, plateau);
+        rafraichir(liste_joueur, plateau);
 
       }
 

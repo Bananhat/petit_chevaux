@@ -28,14 +28,14 @@
 *Met à jour la position des chevaux sur le plateau
 *@param plateau de jeu
 *@param liste des joueurs
-**/
-void update(char plateau[][15], joueur liste_joueur[4]);
+*/
+void mettre_a_jour(char plateau[][15], joueur liste_joueur[4]);
 /**
 *Affiche le plateau dans la console avec les différentes couleurs
 *@param liste des joueurs
 *@param plateau de jeu
-**/
-void refresh(joueur liste_joueur[4], char plateau[][15]);
+*/
+void rafraichir(joueur liste_joueur[4], char plateau[][15]);
 
 
 

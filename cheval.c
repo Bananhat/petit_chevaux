@@ -66,7 +66,7 @@ int deplacement(int *coord_y, int *coord_x, int old_coord_y, int old_coord_x, in
 void deplacement_test(char plateau[][15], joueur * p_j, int val_D, joueur liste_joueur[])
 {
 
-	int n_cheval = jouer_valide_numeroCheval(p_j);
+	int n_cheval = joueur_valide_numeroCheval(*p_j);
 
 	int old_x = p_j->liste_chevaux[n_cheval-1].case_x; // valeur de x avant le deplacement
 	int old_y = p_j->liste_chevaux[n_cheval-1].case_y; // valeur de y avant le deplacement
@@ -121,7 +121,7 @@ void deplacement_final(char plateau[][15], int pos_x, int pos_y, cheval* cheval,
   char tab_result[7] = {'7','1','2','3','4','5','6'};
   int num;
 
-  if (check_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0 && cheval_present(pos_x, pos_y, val_D, *cheval, plateau) == 0)
+  if (test_obstacle_cheval(plateau, pos_x, pos_y, cheval, val_D) == 0 && cheval_present(pos_x, pos_y, val_D, *cheval, plateau) == 0)
   {
 
     num = numero_case(*cheval, pos_x, pos_y);
