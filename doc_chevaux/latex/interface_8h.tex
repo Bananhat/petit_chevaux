@@ -1,0 +1,127 @@
+\hypertarget{interface_8h}{}\section{headers/interface.h File Reference}
+\label{interface_8h}\index{headers/interface.h@{headers/interface.h}}
+
+
+Fonctions concernant l\textquotesingle{}interface.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{interface_8h_a31756fa19db3072b9c12f6fc08f9fafc}\label{interface_8h_a31756fa19db3072b9c12f6fc08f9fafc}} 
+\#define {\bfseries I\+N\+T\+E\+R\+F\+A\+C\+E\+\_\+H}~$\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{interface_8h_a19af74d876bfbbcea3397ed42fc1ad80}{init\+\_\+partie}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]}, int liste\+\_\+couleurs\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise la partie (nombre de joueurs, choix couleur) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interface_8h_a77ff1b57fc0f42022434db20629c3725}{joueur\+\_\+valide\+\_\+deplacement}} (char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, \mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Demande à l\textquotesingle{}utilisateur si il veut valider son déplacement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interface_8h_aebeff1b6456b12a54561dc9a1cdfaa65}{joueur\+\_\+valide\+\_\+numero\+Cheval}} (\mbox{\hyperlink{structjoueur}{joueur}} p\+\_\+j)
+\begin{DoxyCompactList}\small\item\em Demande à l\textquotesingle{}utilisateur quel numéro de cheval il veut déplacer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interface_8h_a3917a7ef0d243613cb7cc41e8f3120a5}{joueur\+\_\+valide\+\_\+cheval\+\_\+sortir}} (\mbox{\hyperlink{structjoueur}{joueur}} p\+\_\+joueur)
+\begin{DoxyCompactList}\small\item\em Demande à l\textquotesingle{}utilisateur quel numéro de cheval il veut sortir. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_8h_a0c637bece85f16bf339f64e1228836dd}{trie\+\_\+tab}} (int tab\mbox{[}$\,$\mbox{]}, int nb\+\_\+joueur)
+\begin{DoxyCompactList}\small\item\em Trie un tableau par ordre croissant (permet de jouer dans l\textquotesingle{}ordre des aiguilles d\textquotesingle{}une montre) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions concernant l\textquotesingle{}interface. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{interface_8h_a19af74d876bfbbcea3397ed42fc1ad80}\label{interface_8h_a19af74d876bfbbcea3397ed42fc1ad80}} 
+\index{interface.h@{interface.h}!init\_partie@{init\_partie}}
+\index{init\_partie@{init\_partie}!interface.h@{interface.h}}
+\subsubsection{\texorpdfstring{init\_partie()}{init\_partie()}}
+{\footnotesize\ttfamily int init\+\_\+partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]},  }\item[{int}]{liste\+\_\+couleurs\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Initialise la partie (nombre de joueurs, choix couleur) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em liste\+\_\+couleurs} & liste contenant l\textquotesingle{}énumeration des couleurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le nombre de joueurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_8h_a3917a7ef0d243613cb7cc41e8f3120a5}\label{interface_8h_a3917a7ef0d243613cb7cc41e8f3120a5}} 
+\index{interface.h@{interface.h}!joueur\_valide\_cheval\_sortir@{joueur\_valide\_cheval\_sortir}}
+\index{joueur\_valide\_cheval\_sortir@{joueur\_valide\_cheval\_sortir}!interface.h@{interface.h}}
+\subsubsection{\texorpdfstring{joueur\_valide\_cheval\_sortir()}{joueur\_valide\_cheval\_sortir()}}
+{\footnotesize\ttfamily int joueur\+\_\+valide\+\_\+cheval\+\_\+sortir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{p\+\_\+joueur }\end{DoxyParamCaption})}
+
+
+
+Demande à l\textquotesingle{}utilisateur quel numéro de cheval il veut sortir. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+joueur} & joueur courant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le numéro choisi 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_8h_a77ff1b57fc0f42022434db20629c3725}\label{interface_8h_a77ff1b57fc0f42022434db20629c3725}} 
+\index{interface.h@{interface.h}!joueur\_valide\_deplacement@{joueur\_valide\_deplacement}}
+\index{joueur\_valide\_deplacement@{joueur\_valide\_deplacement}!interface.h@{interface.h}}
+\subsubsection{\texorpdfstring{joueur\_valide\_deplacement()}{joueur\_valide\_deplacement()}}
+{\footnotesize\ttfamily int joueur\+\_\+valide\+\_\+deplacement (\begin{DoxyParamCaption}\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Demande à l\textquotesingle{}utilisateur si il veut valider son déplacement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le choix du joueur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_8h_aebeff1b6456b12a54561dc9a1cdfaa65}\label{interface_8h_aebeff1b6456b12a54561dc9a1cdfaa65}} 
+\index{interface.h@{interface.h}!joueur\_valide\_numeroCheval@{joueur\_valide\_numeroCheval}}
+\index{joueur\_valide\_numeroCheval@{joueur\_valide\_numeroCheval}!interface.h@{interface.h}}
+\subsubsection{\texorpdfstring{joueur\_valide\_numeroCheval()}{joueur\_valide\_numeroCheval()}}
+{\footnotesize\ttfamily int joueur\+\_\+valide\+\_\+numero\+Cheval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{p\+\_\+j }\end{DoxyParamCaption})}
+
+
+
+Demande à l\textquotesingle{}utilisateur quel numéro de cheval il veut déplacer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+j} & joueur courant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le numéro choisi 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_8h_a0c637bece85f16bf339f64e1228836dd}\label{interface_8h_a0c637bece85f16bf339f64e1228836dd}} 
+\index{interface.h@{interface.h}!trie\_tab@{trie\_tab}}
+\index{trie\_tab@{trie\_tab}!interface.h@{interface.h}}
+\subsubsection{\texorpdfstring{trie\_tab()}{trie\_tab()}}
+{\footnotesize\ttfamily void trie\+\_\+tab (\begin{DoxyParamCaption}\item[{int}]{tab\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb\+\_\+joueur }\end{DoxyParamCaption})}
+
+
+
+Trie un tableau par ordre croissant (permet de jouer dans l\textquotesingle{}ordre des aiguilles d\textquotesingle{}une montre) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tab} & tableau à trier \\
+\hline
+{\em nb\+\_\+joueur} & nombre de joueurs \\
+\hline
+\end{DoxyParams}

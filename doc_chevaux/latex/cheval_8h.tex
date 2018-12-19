@@ -1,0 +1,100 @@
+\hypertarget{cheval_8h}{}\section{headers/cheval.h File Reference}
+\label{cheval_8h}\index{headers/cheval.h@{headers/cheval.h}}
+
+
+Fonctions concernant les chevaux.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{cheval_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcheval}{cheval}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cheval_8h_ab6b50e793edcd3a5bbf450ff9d561697}\label{cheval_8h_ab6b50e793edcd3a5bbf450ff9d561697}} 
+\#define {\bfseries C\+H\+E\+V\+A\+L\+\_\+H}~$\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cheval_8h_aba69cf47ff938d02a3696dc28050ec41}\label{cheval_8h_aba69cf47ff938d02a3696dc28050ec41}} 
+int {\bfseries deplacement} (int $\ast$coord\+\_\+y, int $\ast$coord\+\_\+x, int old\+\_\+coord\+\_\+y, int old\+\_\+coord\+\_\+x, int val\+\_\+D, \mbox{\hyperlink{structcheval}{cheval}} \mbox{\hyperlink{structcheval}{cheval}}, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, int $\ast$final)
+\item 
+int \mbox{\hyperlink{cheval_8h_af884028e5f939c524dfb575467712e91}{validation\+\_\+deplacement}} (int $\ast$coord\+\_\+x, int $\ast$coord\+\_\+y, int val\+\_\+D, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, \mbox{\hyperlink{structcheval}{cheval}} \mbox{\hyperlink{structcheval}{cheval}}, int $\ast$incr, int old\+\_\+coord\+\_\+x, int old\+\_\+coord\+\_\+y, int $\ast$final)
+\begin{DoxyCompactList}\small\item\em Vérifie si un déplacement sur une case donnée est valide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cheval_8h_a9a41f7eaf064ee739907aeca68fc2fe1}{deplacement\+\_\+final}} (char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, int pos\+\_\+x, int pos\+\_\+y, \mbox{\hyperlink{structcheval}{cheval}} $\ast$\mbox{\hyperlink{structcheval}{cheval}}, int val\+\_\+D)
+\begin{DoxyCompactList}\small\item\em Permet le déplacement du cheval sur les cases numérotées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions concernant les chevaux. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{cheval_8h_a9a41f7eaf064ee739907aeca68fc2fe1}\label{cheval_8h_a9a41f7eaf064ee739907aeca68fc2fe1}} 
+\index{cheval.h@{cheval.h}!deplacement\_final@{deplacement\_final}}
+\index{deplacement\_final@{deplacement\_final}!cheval.h@{cheval.h}}
+\subsubsection{\texorpdfstring{deplacement\_final()}{deplacement\_final()}}
+{\footnotesize\ttfamily void deplacement\+\_\+final (\begin{DoxyParamCaption}\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{int}]{pos\+\_\+x,  }\item[{int}]{pos\+\_\+y,  }\item[{\mbox{\hyperlink{structcheval}{cheval}} $\ast$}]{cheval,  }\item[{int}]{val\+\_\+D }\end{DoxyParamCaption})}
+
+
+
+Permet le déplacement du cheval sur les cases numérotées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em pos\+\_\+x} & coordoonées du cheval \\
+\hline
+{\em pos\+\_\+y} & coordoonées du cheval \\
+\hline
+{\em cheval} & cheval courant \\
+\hline
+{\em val\+\_\+D} & valeur du dé \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cheval_8h_af884028e5f939c524dfb575467712e91}\label{cheval_8h_af884028e5f939c524dfb575467712e91}} 
+\index{cheval.h@{cheval.h}!validation\_deplacement@{validation\_deplacement}}
+\index{validation\_deplacement@{validation\_deplacement}!cheval.h@{cheval.h}}
+\subsubsection{\texorpdfstring{validation\_deplacement()}{validation\_deplacement()}}
+{\footnotesize\ttfamily int validation\+\_\+deplacement (\begin{DoxyParamCaption}\item[{int $\ast$}]{coord\+\_\+x,  }\item[{int $\ast$}]{coord\+\_\+y,  }\item[{int}]{val\+\_\+D,  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{cheval,  }\item[{int $\ast$}]{incr,  }\item[{int}]{old\+\_\+coord\+\_\+x,  }\item[{int}]{old\+\_\+coord\+\_\+y,  }\item[{int $\ast$}]{final }\end{DoxyParamCaption})}
+
+
+
+Vérifie si un déplacement sur une case donnée est valide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord\+\_\+x} & coordoonées du cheval \\
+\hline
+{\em coord\+\_\+y} & coordoonées du cheval \\
+\hline
+{\em val\+\_\+D} & valeur du dé \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+{\em cheval} & cheval qui va subir le déplacement \\
+\hline
+{\em incr} & variable qui indique le nombre déplacement \\
+\hline
+{\em old\+\_\+coord\+\_\+x} & coordonnées du cheval avant son déplacement \\
+\hline
+{\em old\+\_\+coord\+\_\+y} & coordonnées du cheval avant son déplacement \\
+\hline
+{\em final} & variable qui indique si le cheval est sur les cases numérotées \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la validité de chaque déplacements sous forme d\textquotesingle{}un entier qui peut prendre 3 valeurs (0,1,2) 
+\end{DoxyReturn}

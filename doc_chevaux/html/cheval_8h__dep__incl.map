@@ -1,0 +1,5 @@
+<map id="headers/cheval.h" name="headers/cheval.h">
+<area shape="rect" id="node1" title="Fonctions concernant les chevaux." alt="" coords="7,5,129,32"/>
+<area shape="rect" id="node2" href="$joueur_8h.html" title="Fonctions concernant le joueur." alt="" coords="9,80,127,107"/>
+<area shape="rect" id="node3" href="$plateau_8h.html" title="Fonctions concernant le plateau." alt="" coords="5,155,131,181"/>
+</map>

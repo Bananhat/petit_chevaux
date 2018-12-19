@@ -1,0 +1,72 @@
+\hypertarget{sauvegarde_8h}{}\section{headers/sauvegarde.h File Reference}
+\label{sauvegarde_8h}\index{headers/sauvegarde.h@{headers/sauvegarde.h}}
+
+
+Fonctions concernant la sauvegarde.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sauvegarde_8h_a1a0e6e8446fc5775bc7e8a3ae36c164b}\label{sauvegarde_8h_a1a0e6e8446fc5775bc7e8a3ae36c164b}} 
+\#define {\bfseries S\+A\+U\+V\+E\+G\+A\+R\+D\+E\+\_\+H}~$\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sauvegarde_8h_a0b71d44d50dd358d5b7831be89b75b82}{sauvegarde\+\_\+partie}} (char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, char nom\mbox{[}30\mbox{]}, \mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]}, int nb\+\_\+joueurs, int liste\+\_\+couleurs\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Sauvegarde toutes les informations necessaire du jeu dans un fichier de sauvegarde (positions chevaux, etc...) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8h_aa9a16f0026402aa7b808a2ed26ebf609}{recup\+\_\+sauvegarde}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]}, char nom\mbox{[}30\mbox{]}, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, int liste\+\_\+couleurs\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Recupère toutes les infos provenant d\textquotesingle{}un fichier de sauvegarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions concernant la sauvegarde. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sauvegarde_8h_aa9a16f0026402aa7b808a2ed26ebf609}\label{sauvegarde_8h_aa9a16f0026402aa7b808a2ed26ebf609}} 
+\index{sauvegarde.h@{sauvegarde.h}!recup\_sauvegarde@{recup\_sauvegarde}}
+\index{recup\_sauvegarde@{recup\_sauvegarde}!sauvegarde.h@{sauvegarde.h}}
+\subsubsection{\texorpdfstring{recup\_sauvegarde()}{recup\_sauvegarde()}}
+{\footnotesize\ttfamily int recup\+\_\+sauvegarde (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]},  }\item[{char}]{nom\mbox{[}30\mbox{]},  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{int}]{liste\+\_\+couleurs\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Recupère toutes les infos provenant d\textquotesingle{}un fichier de sauvegarde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em nom} & nom du fichier de sauvegarde à ouvrir \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+{\em liste\+\_\+couleurs} & liste contenant l\textquotesingle{}énumeration des couleurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sauvegarde_8h_a0b71d44d50dd358d5b7831be89b75b82}\label{sauvegarde_8h_a0b71d44d50dd358d5b7831be89b75b82}} 
+\index{sauvegarde.h@{sauvegarde.h}!sauvegarde\_partie@{sauvegarde\_partie}}
+\index{sauvegarde\_partie@{sauvegarde\_partie}!sauvegarde.h@{sauvegarde.h}}
+\subsubsection{\texorpdfstring{sauvegarde\_partie()}{sauvegarde\_partie()}}
+{\footnotesize\ttfamily void sauvegarde\+\_\+partie (\begin{DoxyParamCaption}\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{char}]{nom\mbox{[}30\mbox{]},  }\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb\+\_\+joueurs,  }\item[{int}]{liste\+\_\+couleurs\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde toutes les informations necessaire du jeu dans un fichier de sauvegarde (positions chevaux, etc...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em nom} & nom du fichier de sauvegarde à ouvrir ou créer \\
+\hline
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em nb\+\_\+joueurs} & nombre de joueurs \\
+\hline
+{\em liste\+\_\+couleurs} & liste contenant l\textquotesingle{}énumeration des couleurs \\
+\hline
+\end{DoxyParams}

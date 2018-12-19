@@ -1,0 +1,124 @@
+\hypertarget{plateau_8h}{}\section{headers/plateau.h File Reference}
+\label{plateau_8h}\index{headers/plateau.h@{headers/plateau.h}}
+
+
+Fonctions concernant le plateau.  
+
+
+{\ttfamily \#include \char`\"{}joueur.\+h\char`\"{}}\newline
+Include dependency graph for plateau.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{plateau_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{plateau_8h_ab990f70af60d454cf086938f805928a0}\label{plateau_8h_ab990f70af60d454cf086938f805928a0}} 
+\#define {\bfseries P\+L\+A\+T\+E\+A\+U\+\_\+H}~$\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a8d23feea868a983c8c2b661e1e16972f}\label{plateau_8h_a8d23feea868a983c8c2b661e1e16972f}} 
+\#define {\bfseries R\+ED}~\char`\"{}\textbackslash{}x1b\mbox{[}31m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_acfbc006ea433ad708fdee3e82996e721}\label{plateau_8h_acfbc006ea433ad708fdee3e82996e721}} 
+\#define {\bfseries G\+R\+E\+EN}~\char`\"{}\textbackslash{}x1b\mbox{[}32m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_abf681265909adf3d3e8116c93c0ba179}\label{plateau_8h_abf681265909adf3d3e8116c93c0ba179}} 
+\#define {\bfseries Y\+E\+L\+L\+OW}~\char`\"{}\textbackslash{}x1b\mbox{[}33m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a79d10e672abb49ad63eeaa8aaef57c38}\label{plateau_8h_a79d10e672abb49ad63eeaa8aaef57c38}} 
+\#define {\bfseries B\+L\+UE}~\char`\"{}\textbackslash{}x1b\mbox{[}34m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_ab702106cf3b3e96750b6845ded4e0299}\label{plateau_8h_ab702106cf3b3e96750b6845ded4e0299}} 
+\#define {\bfseries R\+E\+S\+ET}~\char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a3f6adb5c6f97aca7de28b260f424da32}\label{plateau_8h_a3f6adb5c6f97aca7de28b260f424da32}} 
+\#define {\bfseries R\+E\+S\+E\+T1}~\char`\"{}\textbackslash{}e\mbox{[}0m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_ab758ba5e8ea7296ad3fc44d2b72e6db7}\label{plateau_8h_ab758ba5e8ea7296ad3fc44d2b72e6db7}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+B\+L\+A\+CK}~\char`\"{}\textbackslash{}x1b\mbox{[}40m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a5654ecf48e0bfa4a33ac527be46497c8}\label{plateau_8h_a5654ecf48e0bfa4a33ac527be46497c8}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+R\+ED}~\char`\"{}\textbackslash{}e\mbox{[}48;5;196m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a12420d197645638337433752a81077a9}\label{plateau_8h_a12420d197645638337433752a81077a9}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+R\+E\+D1}~\char`\"{}\textbackslash{}e\mbox{[}48;5;088m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a45ed4b6d1e13f49f4f0631d4c1de513d}\label{plateau_8h_a45ed4b6d1e13f49f4f0631d4c1de513d}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+G\+R\+E\+EN}~\char`\"{}\textbackslash{}x1b\mbox{[}42m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a5d8ef0b2db920f0942063bfe4b7e733b}\label{plateau_8h_a5d8ef0b2db920f0942063bfe4b7e733b}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+G\+R\+E\+E\+N1}~\char`\"{}\textbackslash{}e\mbox{[}48;5;022m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_ae28060ce8cb4e7698c4035b5be4a5983}\label{plateau_8h_ae28060ce8cb4e7698c4035b5be4a5983}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+Y\+E\+L\+L\+OW}~\char`\"{}\textbackslash{}e\mbox{[}48;5;214m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_aaaab7dcc0bf7fc800d439fcd81b49c1b}\label{plateau_8h_aaaab7dcc0bf7fc800d439fcd81b49c1b}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+Y\+E\+L\+L\+O\+W1}~\char`\"{}\textbackslash{}e\mbox{[}48;5;220m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a563ae695c321f45a636e01d89b5ac761}\label{plateau_8h_a563ae695c321f45a636e01d89b5ac761}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+B\+L\+UE}~\char`\"{}\textbackslash{}x1b\mbox{[}44m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_aa89148bdb718239b065810fb5166d685}\label{plateau_8h_aa89148bdb718239b065810fb5166d685}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+B\+L\+U\+E1}~\char`\"{}\textbackslash{}e\mbox{[}48;5;027m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_a6c16d67630c5fb10667674ae80261cc4}\label{plateau_8h_a6c16d67630c5fb10667674ae80261cc4}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+P\+U\+R\+P\+LE}~\char`\"{}\textbackslash{}x1b\mbox{[}45m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_acbf532baf1296009033eb56a6a4b1545}\label{plateau_8h_acbf532baf1296009033eb56a6a4b1545}} 
+\#define {\bfseries F\+O\+N\+D\+\_\+\+W\+H\+I\+TE}~\char`\"{}\textbackslash{}x1b\mbox{[}47m\char`\"{} $\ast$/
+\item 
+\mbox{\Hypertarget{plateau_8h_ab946e2e7f7679350627acfded8e2658b}\label{plateau_8h_ab946e2e7f7679350627acfded8e2658b}} 
+\#define {\bfseries T\+E\+ST}~\char`\"{}\textbackslash{}e\mbox{[}4;34m\char`\"{} $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plateau_8h_a10558016d6aa3bb278a156e243c30abd}{mettre\+\_\+a\+\_\+jour}} (char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, \mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Met à jour la position des chevaux sur le plateau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plateau_8h_a75565c8d9199be44d16ce43c1869b5b4}{rafraichir}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}4\mbox{]}, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche le plateau dans la console avec les différentes couleurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions concernant le plateau. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{plateau_8h_a10558016d6aa3bb278a156e243c30abd}\label{plateau_8h_a10558016d6aa3bb278a156e243c30abd}} 
+\index{plateau.h@{plateau.h}!mettre\_a\_jour@{mettre\_a\_jour}}
+\index{mettre\_a\_jour@{mettre\_a\_jour}!plateau.h@{plateau.h}}
+\subsubsection{\texorpdfstring{mettre\_a\_jour()}{mettre\_a\_jour()}}
+{\footnotesize\ttfamily void mettre\+\_\+a\+\_\+jour (\begin{DoxyParamCaption}\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Met à jour la position des chevaux sur le plateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{plateau_8h_a75565c8d9199be44d16ce43c1869b5b4}\label{plateau_8h_a75565c8d9199be44d16ce43c1869b5b4}} 
+\index{plateau.h@{plateau.h}!rafraichir@{rafraichir}}
+\index{rafraichir@{rafraichir}!plateau.h@{plateau.h}}
+\subsubsection{\texorpdfstring{rafraichir()}{rafraichir()}}
+{\footnotesize\ttfamily void rafraichir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}4\mbox{]},  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Affiche le plateau dans la console avec les différentes couleurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+\end{DoxyParams}

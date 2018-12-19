@@ -1,0 +1,458 @@
+\hypertarget{joueur_8h}{}\section{headers/joueur.h File Reference}
+\label{joueur_8h}\index{headers/joueur.h@{headers/joueur.h}}
+
+
+Fonctions concernant le joueur.  
+
+
+{\ttfamily \#include \char`\"{}cheval.\+h\char`\"{}}\newline
+Include dependency graph for joueur.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{joueur_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{joueur_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structjoueur}{joueur}}
+\item 
+struct \mbox{\hyperlink{structetat__joueur}{etat\+\_\+joueur}}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{joueur_8h_af852c8e5dada1f6a64867034343d4416}\label{joueur_8h_af852c8e5dada1f6a64867034343d4416}} 
+enum {\bfseries couleur\+\_\+enum} \{ {\bfseries J\+A\+U\+NE}, 
+{\bfseries B\+L\+EU}, 
+{\bfseries R\+O\+U\+GE}, 
+{\bfseries V\+E\+RT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{joueur_8h_a3fa26d9d863e0f42434f29887cf84285}{nb\+\_\+chevaux}} (\mbox{\hyperlink{structjoueur}{joueur}} $\ast$p\+\_\+joueur)
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de chevaux posés sur le plateau d\textquotesingle{}un joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a7f2e8df9537b279155faec3b186018e2}{placer\+\_\+chevaux}} (\mbox{\hyperlink{structcheval}{cheval}} liste\+\_\+chevaux\mbox{[}4\mbox{]}, int x, int y)
+\begin{DoxyCompactList}\small\item\em Défini les coordonnées de placement dans l\textquotesingle{}écurie d\textquotesingle{}un joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a09fbff8f23ac40fc8838b46262ad5046}{placer\+\_\+chevaux\+\_\+joueurs}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Place effectivement tous les joueurs grace a une boucle qui parcours tous les joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a220e5ca3ef86469aab2b487d839285be}{init\+\_\+chevaux\+\_\+dans\+\_\+ecurie}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structcheval}{cheval}} c1, \mbox{\hyperlink{structcheval}{cheval}} c2, \mbox{\hyperlink{structcheval}{cheval}} c3, \mbox{\hyperlink{structcheval}{cheval}} c4, int num)
+\begin{DoxyCompactList}\small\item\em Rempli la liste de chevaux d\textquotesingle{}un joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a648ce0bcec78cb3a7a41262d6ed5bec3}{deplacement\+\_\+test}} (char plateau\mbox{[}15\mbox{]}\mbox{[}15\mbox{]}, \mbox{\hyperlink{structjoueur}{joueur}} $\ast$p\+\_\+j, int val\+\_\+D, \mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Test le deplacement et gère les différents cas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a8ff581ba4cc0b9acdee40565eae055ea}{sortir\+\_\+chevaux}} (\mbox{\hyperlink{structjoueur}{joueur}} $\ast$p\+\_\+joueur, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, \mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gere les différents cas de sorti de chevaux (si un cheval est déjà sur le case, etc...) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_aff7df38a55346b42f17d85f95cccac4a}{ajouter\+\_\+cheval\+\_\+actif}} (\mbox{\hyperlink{structjoueur}{joueur}} $\ast$p\+\_\+joueur, int n\+\_\+cheval, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]})
+\begin{DoxyCompactList}\small\item\em Sors effectivement un cheval à sa position initiale. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{joueur_8h_a3e7e4686f28a52eb1a6c5374adcb6a2f}{cherche\+\_\+indice\+\_\+joueur}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}4\mbox{]}, char couleur)
+\begin{DoxyCompactList}\small\item\em Cherche l\textquotesingle{}indice du joueur correspondant à sa couleur, passé en entrée. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{joueur_8h_a5bbdb2747abf9ad58fa45bf84bd62a1e}{cherche\+\_\+numero\+\_\+cheval\+\_\+caractere}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}4\mbox{]}, int player, int pos\+\_\+x, int pos\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Cherche le numéro du cheval présent sur une case en type caractère à partir de l\textquotesingle{}indice du joueur et d\textquotesingle{}une position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{joueur_8h_a783778c08b6f8f97c81a7c1cce484d33}{cherhce\+\_\+numero\+\_\+cheval\+\_\+entier}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}4\mbox{]}, int player, int pos\+\_\+x, int pos\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Cherche le numéro du cheval présent sur une case en type entier à partir de l\textquotesingle{}indice du joueur et d\textquotesingle{}une position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a509a35e63e0a5835599639aa088327fa}{mettre\+\_\+a\+\_\+jour\+\_\+etat\+\_\+joueur}} (\mbox{\hyperlink{structetat__joueur}{etat\+\_\+joueur}} $\ast$\mbox{\hyperlink{structetat__joueur}{etat\+\_\+joueur}}, \mbox{\hyperlink{structjoueur}{joueur}} $\ast$joueur\+\_\+courant, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui met à jour les booléens qui traduise de l\textquotesingle{}état du joueur dans la structure état joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a721af052543f632be28da55cd9ac34cc}{eject\+\_\+cheval}} (char couleur, int pos\+\_\+x, int pos\+\_\+y, \mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Remet un cheval à sa position dans l\textquotesingle{}écurie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{joueur_8h_acb9bcfda84ed7b1957432386588540a8}{test\+\_\+victoire}} (\mbox{\hyperlink{structjoueur}{joueur}} $\ast$joueur\+\_\+courant)
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de personne qui sont sur les cases nunmérotés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a7fad78c0d7b9c9fccdcdc6d2adbb5bab}{init\+\_\+chevaux}} (\mbox{\hyperlink{structjoueur}{joueur}} liste\+\_\+joueur\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise tous les chevaux pour les mettre dans la liste de chevaux des joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a740efdd503cc6b2ec078a46fbdd6466e}{cheval\+\_\+inactif\+\_\+case\+\_\+numerote}} (\mbox{\hyperlink{structcheval}{cheval}} $\ast$\mbox{\hyperlink{structcheval}{cheval}}, int num, int pos\+\_\+2, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]})
+\begin{DoxyCompactList}\small\item\em Rend un cheval inactif si il a fini de jouer, qu\textquotesingle{}on ne pourra plus jamais le déplacer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{joueur_8h_a19d02cbd755f807e6cc5f7a99e66327d}{cheval\+\_\+present}} (int pos1, int pos2, int val\+\_\+D, \mbox{\hyperlink{structcheval}{cheval}} \mbox{\hyperlink{structcheval}{cheval}}, char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui informe de la presence d\textquotesingle{}un cheval sur son parcours sur les cases numérotés. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{joueur_8h_a79160155b2020d3cf1a6d3c4a59c7dec}{test\+\_\+obstacle\+\_\+cheval}} (char plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]}, int pos\+\_\+x, int pos\+\_\+y, \mbox{\hyperlink{structcheval}{cheval}} $\ast$\mbox{\hyperlink{structcheval}{cheval}}, int val\+\_\+D)
+\begin{DoxyCompactList}\small\item\em Fonction test si un cheval va hors de sa limite dans les cases numérotés. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{joueur_8h_a6dccfa9409b4dcc87977ac3babc2e19d}{numero\+\_\+case}} (\mbox{\hyperlink{structcheval}{cheval}} \mbox{\hyperlink{structcheval}{cheval}}, int pos\+\_\+x, int pos\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie le numéro de case sur lequelle un cheval se trouve. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions concernant le joueur. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{joueur_8h_aff7df38a55346b42f17d85f95cccac4a}\label{joueur_8h_aff7df38a55346b42f17d85f95cccac4a}} 
+\index{joueur.h@{joueur.h}!ajouter\_cheval\_actif@{ajouter\_cheval\_actif}}
+\index{ajouter\_cheval\_actif@{ajouter\_cheval\_actif}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{ajouter\_cheval\_actif()}{ajouter\_cheval\_actif()}}
+{\footnotesize\ttfamily void ajouter\+\_\+cheval\+\_\+actif (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}} $\ast$}]{p\+\_\+joueur,  }\item[{int}]{n\+\_\+cheval,  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Sors effectivement un cheval à sa position initiale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+joueur} & joueur courant \\
+\hline
+{\em n\+\_\+cheval} & numero du cheval \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a3e7e4686f28a52eb1a6c5374adcb6a2f}\label{joueur_8h_a3e7e4686f28a52eb1a6c5374adcb6a2f}} 
+\index{joueur.h@{joueur.h}!cherche\_indice\_joueur@{cherche\_indice\_joueur}}
+\index{cherche\_indice\_joueur@{cherche\_indice\_joueur}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{cherche\_indice\_joueur()}{cherche\_indice\_joueur()}}
+{\footnotesize\ttfamily int cherche\+\_\+indice\+\_\+joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}4\mbox{]},  }\item[{char}]{couleur }\end{DoxyParamCaption})}
+
+
+
+Cherche l\textquotesingle{}indice du joueur correspondant à sa couleur, passé en entrée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em couleur} & couleur du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}indice du joueur en type int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a5bbdb2747abf9ad58fa45bf84bd62a1e}\label{joueur_8h_a5bbdb2747abf9ad58fa45bf84bd62a1e}} 
+\index{joueur.h@{joueur.h}!cherche\_numero\_cheval\_caractere@{cherche\_numero\_cheval\_caractere}}
+\index{cherche\_numero\_cheval\_caractere@{cherche\_numero\_cheval\_caractere}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{cherche\_numero\_cheval\_caractere()}{cherche\_numero\_cheval\_caractere()}}
+{\footnotesize\ttfamily char cherche\+\_\+numero\+\_\+cheval\+\_\+caractere (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}4\mbox{]},  }\item[{int}]{player,  }\item[{int}]{pos\+\_\+x,  }\item[{int}]{pos\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Cherche le numéro du cheval présent sur une case en type caractère à partir de l\textquotesingle{}indice du joueur et d\textquotesingle{}une position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em player} & indice du joueur \\
+\hline
+{\em pos\+\_\+x} & coordonée x de la case \\
+\hline
+{\em pos\+\_\+y} & coordonnée y de la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le numero du cheval en type caractere si il est present sur une case 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a783778c08b6f8f97c81a7c1cce484d33}\label{joueur_8h_a783778c08b6f8f97c81a7c1cce484d33}} 
+\index{joueur.h@{joueur.h}!cherhce\_numero\_cheval\_entier@{cherhce\_numero\_cheval\_entier}}
+\index{cherhce\_numero\_cheval\_entier@{cherhce\_numero\_cheval\_entier}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{cherhce\_numero\_cheval\_entier()}{cherhce\_numero\_cheval\_entier()}}
+{\footnotesize\ttfamily int cherhce\+\_\+numero\+\_\+cheval\+\_\+entier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}4\mbox{]},  }\item[{int}]{player,  }\item[{int}]{pos\+\_\+x,  }\item[{int}]{pos\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Cherche le numéro du cheval présent sur une case en type entier à partir de l\textquotesingle{}indice du joueur et d\textquotesingle{}une position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em player} & indice du joueur \\
+\hline
+{\em pos\+\_\+x} & coordonée x de la case \\
+\hline
+{\em pos\+\_\+y} & coordonnée y de la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le numero du cheval en type entier si il est present sur une case 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a740efdd503cc6b2ec078a46fbdd6466e}\label{joueur_8h_a740efdd503cc6b2ec078a46fbdd6466e}} 
+\index{joueur.h@{joueur.h}!cheval\_inactif\_case\_numerote@{cheval\_inactif\_case\_numerote}}
+\index{cheval\_inactif\_case\_numerote@{cheval\_inactif\_case\_numerote}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{cheval\_inactif\_case\_numerote()}{cheval\_inactif\_case\_numerote()}}
+{\footnotesize\ttfamily void cheval\+\_\+inactif\+\_\+case\+\_\+numerote (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcheval}{cheval}} $\ast$}]{cheval,  }\item[{int}]{num,  }\item[{int}]{pos\+\_\+2,  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Rend un cheval inactif si il a fini de jouer, qu\textquotesingle{}on ne pourra plus jamais le déplacer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cheval} & cheval a rendre potentiellement inactif \\
+\hline
+{\em num} & Premiere coordonnée \+: numero de la case sur laquelle le joueur se trouvera apres son deplacement \\
+\hline
+{\em pos\+\_\+2} & Deuxieme coordonnée \+: permet de bien déplacer le joueur sur les cases numérotés \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a19d02cbd755f807e6cc5f7a99e66327d}\label{joueur_8h_a19d02cbd755f807e6cc5f7a99e66327d}} 
+\index{joueur.h@{joueur.h}!cheval\_present@{cheval\_present}}
+\index{cheval\_present@{cheval\_present}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{cheval\_present()}{cheval\_present()}}
+{\footnotesize\ttfamily int cheval\+\_\+present (\begin{DoxyParamCaption}\item[{int}]{pos1,  }\item[{int}]{pos2,  }\item[{int}]{val\+\_\+D,  }\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{cheval,  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui informe de la presence d\textquotesingle{}un cheval sur son parcours sur les cases numérotés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos1} & coordonée x \\
+\hline
+{\em pos2} & coordonnée y \\
+\hline
+{\em val\+\_\+D} & valeur du dé \\
+\hline
+{\em cheval} & cheval qui se déplace \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie 1 si un cheval est present et 0 autrement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a648ce0bcec78cb3a7a41262d6ed5bec3}\label{joueur_8h_a648ce0bcec78cb3a7a41262d6ed5bec3}} 
+\index{joueur.h@{joueur.h}!deplacement\_test@{deplacement\_test}}
+\index{deplacement\_test@{deplacement\_test}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{deplacement\_test()}{deplacement\_test()}}
+{\footnotesize\ttfamily void deplacement\+\_\+test (\begin{DoxyParamCaption}\item[{char}]{plateau\mbox{[}15\mbox{]}\mbox{[}15\mbox{]},  }\item[{\mbox{\hyperlink{structjoueur}{joueur}} $\ast$}]{p\+\_\+j,  }\item[{int}]{val\+\_\+D,  }\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Test le deplacement et gère les différents cas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em p\+\_\+j} & joueur courant \\
+\hline
+{\em val\+\_\+D} & valeur du dé \\
+\hline
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a721af052543f632be28da55cd9ac34cc}\label{joueur_8h_a721af052543f632be28da55cd9ac34cc}} 
+\index{joueur.h@{joueur.h}!eject\_cheval@{eject\_cheval}}
+\index{eject\_cheval@{eject\_cheval}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{eject\_cheval()}{eject\_cheval()}}
+{\footnotesize\ttfamily void eject\+\_\+cheval (\begin{DoxyParamCaption}\item[{char}]{couleur,  }\item[{int}]{pos\+\_\+x,  }\item[{int}]{pos\+\_\+y,  }\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Remet un cheval à sa position dans l\textquotesingle{}écurie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em couleur} & couleur du joueur qui va se faire ejecter \\
+\hline
+{\em pos\+\_\+x} & coordonée x avant l\textquotesingle{}éjection \\
+\hline
+{\em pos\+\_\+y} & coordonnée y avant l\textquotesingle{}éjection \\
+\hline
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a7fad78c0d7b9c9fccdcdc6d2adbb5bab}\label{joueur_8h_a7fad78c0d7b9c9fccdcdc6d2adbb5bab}} 
+\index{joueur.h@{joueur.h}!init\_chevaux@{init\_chevaux}}
+\index{init\_chevaux@{init\_chevaux}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{init\_chevaux()}{init\_chevaux()}}
+{\footnotesize\ttfamily void init\+\_\+chevaux (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Initialise tous les chevaux pour les mettre dans la liste de chevaux des joueurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a220e5ca3ef86469aab2b487d839285be}\label{joueur_8h_a220e5ca3ef86469aab2b487d839285be}} 
+\index{joueur.h@{joueur.h}!init\_chevaux\_dans\_ecurie@{init\_chevaux\_dans\_ecurie}}
+\index{init\_chevaux\_dans\_ecurie@{init\_chevaux\_dans\_ecurie}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{init\_chevaux\_dans\_ecurie()}{init\_chevaux\_dans\_ecurie()}}
+{\footnotesize\ttfamily void init\+\_\+chevaux\+\_\+dans\+\_\+ecurie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{c1,  }\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{c2,  }\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{c3,  }\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{c4,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Rempli la liste de chevaux d\textquotesingle{}un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+{\em c1} & cheval 1 \\
+\hline
+{\em c2} & cheval 2 \\
+\hline
+{\em c3} & cheval 3 \\
+\hline
+{\em c4} & cheval 4 \\
+\hline
+{\em num} & couleur du joueur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a509a35e63e0a5835599639aa088327fa}\label{joueur_8h_a509a35e63e0a5835599639aa088327fa}} 
+\index{joueur.h@{joueur.h}!mettre\_a\_jour\_etat\_joueur@{mettre\_a\_jour\_etat\_joueur}}
+\index{mettre\_a\_jour\_etat\_joueur@{mettre\_a\_jour\_etat\_joueur}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{mettre\_a\_jour\_etat\_joueur()}{mettre\_a\_jour\_etat\_joueur()}}
+{\footnotesize\ttfamily void mettre\+\_\+a\+\_\+jour\+\_\+etat\+\_\+joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetat__joueur}{etat\+\_\+joueur}} $\ast$}]{etat\+\_\+joueur,  }\item[{\mbox{\hyperlink{structjoueur}{joueur}} $\ast$}]{joueur\+\_\+courant,  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui met à jour les booléens qui traduise de l\textquotesingle{}état du joueur dans la structure état joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structetat__joueur}{etat\+\_\+joueur}}} & structure etat du joueur \\
+\hline
+{\em joueur\+\_\+courant} & joueur courant \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a3fa26d9d863e0f42434f29887cf84285}\label{joueur_8h_a3fa26d9d863e0f42434f29887cf84285}} 
+\index{joueur.h@{joueur.h}!nb\_chevaux@{nb\_chevaux}}
+\index{nb\_chevaux@{nb\_chevaux}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{nb\_chevaux()}{nb\_chevaux()}}
+{\footnotesize\ttfamily int nb\+\_\+chevaux (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}} $\ast$}]{p\+\_\+joueur }\end{DoxyParamCaption})}
+
+
+
+Retourne le nombre de chevaux posés sur le plateau d\textquotesingle{}un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+joueur} & Joueur courant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le nombre de chevaux actifs sur le plateau 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a6dccfa9409b4dcc87977ac3babc2e19d}\label{joueur_8h_a6dccfa9409b4dcc87977ac3babc2e19d}} 
+\index{joueur.h@{joueur.h}!numero\_case@{numero\_case}}
+\index{numero\_case@{numero\_case}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{numero\_case()}{numero\_case()}}
+{\footnotesize\ttfamily int numero\+\_\+case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{cheval,  }\item[{int}]{pos\+\_\+x,  }\item[{int}]{pos\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie le numéro de case sur lequelle un cheval se trouve. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cheval} & cheval courant \\
+\hline
+{\em pos\+\_\+x} & coordonnée x du cheval \\
+\hline
+{\em pos\+\_\+y} & coordonnée y du cheval \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le numéro de la case (numérotée) sur lequel le cheval se trouve 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a7f2e8df9537b279155faec3b186018e2}\label{joueur_8h_a7f2e8df9537b279155faec3b186018e2}} 
+\index{joueur.h@{joueur.h}!placer\_chevaux@{placer\_chevaux}}
+\index{placer\_chevaux@{placer\_chevaux}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{placer\_chevaux()}{placer\_chevaux()}}
+{\footnotesize\ttfamily void placer\+\_\+chevaux (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcheval}{cheval}}}]{liste\+\_\+chevaux\mbox{[}4\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Défini les coordonnées de placement dans l\textquotesingle{}écurie d\textquotesingle{}un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+chevaux} & liste de chevaux du joueur \\
+\hline
+{\em x} & coordonée x de placement dans l\textquotesingle{}écurie \\
+\hline
+{\em y} & coordonée y de placement dans l\textquotesingle{}écurie \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a09fbff8f23ac40fc8838b46262ad5046}\label{joueur_8h_a09fbff8f23ac40fc8838b46262ad5046}} 
+\index{joueur.h@{joueur.h}!placer\_chevaux\_joueurs@{placer\_chevaux\_joueurs}}
+\index{placer\_chevaux\_joueurs@{placer\_chevaux\_joueurs}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{placer\_chevaux\_joueurs()}{placer\_chevaux\_joueurs()}}
+{\footnotesize\ttfamily void placer\+\_\+chevaux\+\_\+joueurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Place effectivement tous les joueurs grace a une boucle qui parcours tous les joueurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a8ff581ba4cc0b9acdee40565eae055ea}\label{joueur_8h_a8ff581ba4cc0b9acdee40565eae055ea}} 
+\index{joueur.h@{joueur.h}!sortir\_chevaux@{sortir\_chevaux}}
+\index{sortir\_chevaux@{sortir\_chevaux}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{sortir\_chevaux()}{sortir\_chevaux()}}
+{\footnotesize\ttfamily void sortir\+\_\+chevaux (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}} $\ast$}]{p\+\_\+joueur,  }\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{\mbox{\hyperlink{structjoueur}{joueur}}}]{liste\+\_\+joueur\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gere les différents cas de sorti de chevaux (si un cheval est déjà sur le case, etc...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+joueur} & joueur courant \\
+\hline
+{\em plateau} & plateau de jeu \\
+\hline
+{\em liste\+\_\+joueur} & liste des joueurs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{joueur_8h_a79160155b2020d3cf1a6d3c4a59c7dec}\label{joueur_8h_a79160155b2020d3cf1a6d3c4a59c7dec}} 
+\index{joueur.h@{joueur.h}!test\_obstacle\_cheval@{test\_obstacle\_cheval}}
+\index{test\_obstacle\_cheval@{test\_obstacle\_cheval}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{test\_obstacle\_cheval()}{test\_obstacle\_cheval()}}
+{\footnotesize\ttfamily int test\+\_\+obstacle\+\_\+cheval (\begin{DoxyParamCaption}\item[{char}]{plateau\mbox{[}$\,$\mbox{]}\mbox{[}15\mbox{]},  }\item[{int}]{pos\+\_\+x,  }\item[{int}]{pos\+\_\+y,  }\item[{\mbox{\hyperlink{structcheval}{cheval}} $\ast$}]{cheval,  }\item[{int}]{val\+\_\+D }\end{DoxyParamCaption})}
+
+
+
+Fonction test si un cheval va hors de sa limite dans les cases numérotés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em pos\+\_\+x} & coordonnée x du cheval avant son déplacement \\
+\hline
+{\em pos\+\_\+y} & coordonnée y du cheval avant son déplacement \\
+\hline
+{\em cheval} & cheval qui veut se déplacer \\
+\hline
+{\em val\+\_\+D} & valeur du dé \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie 1 si le cheval est hors de ces limites, 0 autrement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_acb9bcfda84ed7b1957432386588540a8}\label{joueur_8h_acb9bcfda84ed7b1957432386588540a8}} 
+\index{joueur.h@{joueur.h}!test\_victoire@{test\_victoire}}
+\index{test\_victoire@{test\_victoire}!joueur.h@{joueur.h}}
+\subsubsection{\texorpdfstring{test\_victoire()}{test\_victoire()}}
+{\footnotesize\ttfamily int test\+\_\+victoire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjoueur}{joueur}} $\ast$}]{joueur\+\_\+courant }\end{DoxyParamCaption})}
+
+
+
+Retourne le nombre de personne qui sont sur les cases nunmérotés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joueur\+\_\+courant} & joueur courants \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le nombre de joueur dont la variable final de leur chevaux vaut 2 
+\end{DoxyReturn}
