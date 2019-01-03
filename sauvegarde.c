@@ -11,8 +11,8 @@ void sauvegarde_partie(char plateau[][15], char nom[30], joueur liste_joueur[], 
     FILE *f = fopen(nom, "w");
     if (f == NULL)
     {
-        printf("Error opening file!\n");
-        // We stop the programm
+        printf("Le fichier n'existe pas!\n");
+        // On stop le programme
         exit(1);
     }
 
@@ -40,8 +40,8 @@ int recup_sauvegarde(joueur liste_joueur[], char nom[30], char plateau[][15], in
     FILE *f = fopen(nom, "r");
     if (f == NULL)
     {
-        printf("Error opening file!\n");
-        // We stop the programm
+        printf("Le fichier n'existe pas!\n");
+        // On stop le programme
         exit(1);
     }
 

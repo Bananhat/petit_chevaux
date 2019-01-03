@@ -43,31 +43,26 @@ int main(void)
 
     int nb_joueur;
     init_chevaux(liste_joueur);
-
-    // TODO: POUVOIR RECUPERER LES INFOS DE LA PARTIE AVANT D'INIT LA PARTIE ET AMELIORER SAUVEGARDE
     char charger;
+
     printf("Voulez vous charger une partie ? (o/n) :");
     scanf("%c", &charger);
 
-    if(charger == 'o') {
+    if(charger == 'o')
+    {
       char path[50];
       printf("Entrez le chemin du fichier de sauvegarde : ");
       scanf("%s", path);
       nb_joueur = recup_sauvegarde(liste_joueur, path, plateau, liste_couleurs);
     }
-    else {
+    else
+    {
       nb_joueur = init_partie(liste_joueur, liste_couleurs);
       // Place les chevaux dans les écuries
       placer_chevaux_joueurs(liste_joueur);
-
       // Update le plateau avec les chevaux dans les écuries.
     }
-
-    // Update le plateau avec les chevaux dans les écuries.
-    mettre_a_jour(plateau, liste_joueur);
-    // Affiche le plateau
-    rafraichir(liste_joueur, plateau);
-    printf("\n\n");
+    
     jeu(liste_joueur, nb_joueur,liste_couleurs, plateau);
 
   return 0;

@@ -1,7 +1,7 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
 
-#include "cheval.h" */
+#include "cheval.h" 
 
 /**
 * \file joueur.h

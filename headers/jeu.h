@@ -1,5 +1,5 @@
 #ifndef JEU_H
-#define JEU_H */
+#define JEU_H 
 
 /**
 * \file jeu.h

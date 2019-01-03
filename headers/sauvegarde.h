@@ -1,5 +1,5 @@
 #ifndef SAUVEGARDE_H
-#define SAUVEGARDE_H */
+#define SAUVEGARDE_H 
 
 /**
 * \file sauvegarde.h

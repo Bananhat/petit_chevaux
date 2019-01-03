@@ -1,5 +1,5 @@
 #ifndef CHEVAL_H
-#define CHEVAL_H */
+#define CHEVAL_H
 
 /**
 * \file cheval.h

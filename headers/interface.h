@@ -1,5 +1,5 @@
 #ifndef INTERFACE_H
-#define INTERFACE_H */
+#define INTERFACE_H 
 
 /**
 * \file interface.h

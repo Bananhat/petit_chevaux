@@ -16,26 +16,37 @@ int lancer_de()
 
 void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plateau[][15])
 {
-
+  //Declaration des variables
     int indice_joueur = rand()%nb_joueur;
     int n_joueur=liste_couleurs[indice_joueur], val_D;
     int exit=0;
+    char choix;
 
     etat_joueur etat_joueur = {0};
     char reponse;
     char couleur[][6] = {"JAUNE", "BLEU", "ROUGE", "VERT"};
 
+    printf("La jeu va commencer ! \n Si vous voulez sauvegarder la partie appuyez sur la touche S au moment de lancer le dé... \n Appuyez sur une touche pour commencer");
+    getchar();
+    printf("\n\n");
+
+    // Update le plateau avec les chevaux dans les écuries.
+    mettre_a_jour(plateau, liste_joueur);
+    // Affiche le plateau
+    rafraichir(liste_joueur, plateau);
+    printf("\n\n");
+
     printf("LE JOUEUR %s COMMENCE \n", couleur[n_joueur]);
     joueur *joueur_courant = &liste_joueur[n_joueur];
+    val_D = lancer_de();
 
-     while(test_victoire(joueur_courant) != 4 && exit!=1) //condition gagner
-    { // boucle principale du jeu;
+    while(test_victoire(joueur_courant) != 4 && exit!=1) //condition gagner
+      { // boucle principale du jeu;
 
         mettre_a_jour_etat_joueur(&etat_joueur, joueur_courant, plateau);
 
 
 
-        val_D = lancer_de();
 
         printf("Le joueur %s a fais un %d\n", couleur[n_joueur], val_D);
 
@@ -46,7 +57,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
               indice_joueur-=1;
               if(etat_joueur.impossible_sortir_chevaux == 0)
               {
-                printf("Voulez vous sortir un nouveau cheval ? (o/n) : "); // PENSER A METTRE CE GENRE DE SCANF DANS UNE FONCTION DANS INTERFACE
+                printf("Voulez vous sortir un nouveau cheval ? (o/n) : ");
                 scanf("%c", &reponse);
                 while(getchar() != '\n'); // vide le cache
                 if(reponse == 'o')
@@ -84,7 +95,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
                   {
                   sortir_chevaux(joueur_courant, plateau, liste_joueur);
                   }
-                else // si il ne veut pas sortir de cheval, il se deplace donc..
+                else // si il ne veut pas sortir de cheval, il se deplace
                   {
                     deplacement_test(plateau, joueur_courant, val_D, liste_joueur);
                   }
@@ -95,7 +106,7 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
                 deplacement_test(plateau, joueur_courant, val_D, liste_joueur);
               }
         }
-        else // si le joueur fait autre chose que 6 il ne peut que se deplacer ou non en fonction de si ila  le droit (deplacement_test())
+        else // si le joueur fait autre chose que 6 il ne peut se deplacer que si il a le droit (deplacement_test())
         {
           deplacement_test(plateau, joueur_courant, val_D, liste_joueur);
         }
@@ -107,9 +118,8 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
       }
 
 
-        // On test si le joueur a gagné (possiblement à revoir)
+        // On test si le joueur a gagné
         if(test_victoire(joueur_courant) == 4) {
-          // A REVOIR (faire des conditions pour afficher la couleur complète)
           printf("Le joueur %s remporte la partie !\n", couleur[n_joueur]);
         }
         else {
@@ -118,14 +128,37 @@ void jeu (joueur liste_joueur[], int nb_joueur, int liste_couleurs[], char plate
           joueur_courant = &liste_joueur[n_joueur];
 
           printf("\nAu tour du joueur %s\n", couleur[n_joueur]);
+
+          printf("Lancer le dé ...");
+          scanf("%c", &choix);
+
+          if(choix == 's')
+          {
+            exit=1;
+          }
+          else if (choix == 'e')
+          {
+            val_D = 1;
+            while(getchar() != '\n');
+          }
+          else if (choix == 'k')
+          {
+            val_D = 6;
+            while(getchar() != '\n');
+          }
+          else if (choix == 'l')
+          {
+            val_D = 52;
+            while(getchar() != '\n');
+          }
+          else
+          {
+            val_D = lancer_de();
+          }
         }
 
-        printf("Lancer le dé ...");
 
-        if(getchar() == 's')
-        {
-          exit=1;
-        }
+
   }
 char nom_fichier[15];
 printf("Entrez le nom du fichier de sauvegarde : ");

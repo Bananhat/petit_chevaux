@@ -10,7 +10,7 @@ void trie_tab( int tab[], int nb_joueur)
 {
   int tmp=0;
 
-  for(int i = 0; i < nb_joueur; i++)          //On veut remplir la case i du tableau
+  for(int i = 0; i < nb_joueur; i++)       // on prend la valeur d'une case
     {
       for(int j= i+1; j<nb_joueur; j++)    //On vérifie s'il n'y a pas de nombre inférieur
         {                                //Dans les cases suivantes
